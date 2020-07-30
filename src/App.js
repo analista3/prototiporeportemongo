@@ -9,6 +9,7 @@ const PruebaMongo = () => {
   const [dataEntrance, setDataEntrance] = useState({})
   const [dataCorrals, setDataCorrals] = useState({})
   const [dataSacrifice, setDataSacrifice] = useState({})
+  const [dataGeneral, setDataGeneral] = useState({})
 
   const LoadDataEntrance = () => {
     axios
@@ -47,6 +48,18 @@ const PruebaMongo = () => {
         setDataSacrifice(dataSacrifice)
       })
       .catch((err) => console.error(err))
+    axios
+      .post('https://localhost:44386/api/v1/getObjectMongo', {
+        idLoteIP: 12428606,
+        seccion: 'datos generales'
+      })
+      .then((res) => {
+        console.log(res.data)
+        const dataGeneral = JSON.parse(res.data.data)
+        console.log(dataGeneral)
+        setDataGeneral(dataGeneral)
+      })
+      .catch((err) => console.error(err))
   }
 
   useEffect(() => {
@@ -65,7 +78,12 @@ const PruebaMongo = () => {
         trigger={
           <Button
             onClick={() =>
-              LoadDataReport(dataEntrance, dataCorrals, dataSacrifice)
+              LoadDataReport(
+                dataEntrance,
+                dataCorrals,
+                dataSacrifice,
+                dataGeneral
+              )
             }
           >
             modal
@@ -75,9 +93,16 @@ const PruebaMongo = () => {
         <Modal.Header>Select a Photo</Modal.Header>
         <Modal.Content>
           <Modal.Description>
-            {dataEntrance && dataCorrals && dataSacrifice && (
+            {dataEntrance && dataCorrals && dataSacrifice && dataGeneral && (
               <PDFViewer style={{ width: '100%', height: '130vh' }}>
-                <MyDoc url={{ dataEntrance, dataCorrals, dataSacrifice }} />
+                <MyDoc
+                  url={{
+                    dataEntrance,
+                    dataCorrals,
+                    dataSacrifice,
+                    dataGeneral
+                  }}
+                />
               </PDFViewer>
             )}
           </Modal.Description>

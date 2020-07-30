@@ -8070,7 +8070,12 @@ aWYuY29toMOzWAAAAABJRU5ErkJggg=='
                           marginRight: 12
                         }}
                       >
-                        <Text>72</Text>
+                        <Text>
+                          {
+                            props.url.dataEntrance.remision
+                              .cantidadAnimalesRemisionados
+                          }
+                        </Text>
                       </View>
                     </View>
                     <View style={{ width: '50%', flexDirection: 'row' }}>
@@ -8091,7 +8096,12 @@ aWYuY29toMOzWAAAAABJRU5ErkJggg=='
                           textAlign: 'center'
                         }}
                       >
-                        <Text>96741</Text>
+                        <Text>
+                          {
+                            props.url.dataCorrals.DatosPesaje
+                              .numeroTiqueteBascula
+                          }
+                        </Text>
                       </View>
                     </View>
                   </View>
@@ -8122,7 +8132,9 @@ aWYuY29toMOzWAAAAABJRU5ErkJggg=='
                           marginRight: 12
                         }}
                       >
-                        <Text> 72</Text>
+                        <Text>
+                          {props.url.dataGeneral.cantidadAnimalesLote}
+                        </Text>
                       </View>
                     </View>
                     <View style={{ width: '50%', flexDirection: 'row' }}>
@@ -8143,7 +8155,9 @@ aWYuY29toMOzWAAAAABJRU5ErkJggg=='
                           textAlign: 'center'
                         }}
                       >
-                        <Text> 7656</Text>
+                        <Text>
+                          {props.url.dataEntrance.remision.numeroRemision}
+                        </Text>
                       </View>
                     </View>
                   </View>
@@ -8172,7 +8186,7 @@ aWYuY29toMOzWAAAAABJRU5ErkJggg=='
                             </Text>
                           </View>
                         </View>
-                        <View style={[styles.tableCol2, { width: '17%' }]}>
+                        <View style={[styles.tableCol2, { width: '30%' }]}>
                           <View style={styles.tableCellplant}>
                             <Text
                               style={{
@@ -8181,18 +8195,6 @@ aWYuY29toMOzWAAAAABJRU5ErkJggg=='
                               }}
                             >
                               Fecha
-                            </Text>
-                          </View>
-                        </View>
-                        <View style={[styles.tableCol2, { width: '14.2%' }]}>
-                          <View style={styles.tableCellplant}>
-                            <Text
-                              style={{
-                                fontFamily: 'Roboto',
-                                fontWeight: 'bold'
-                              }}
-                            >
-                              Hora
                             </Text>
                           </View>
                         </View>
@@ -8245,191 +8247,66 @@ aWYuY29toMOzWAAAAABJRU5ErkJggg=='
                           </View>
                         </View>
                       </View>
-                      <View style={styles.tableRowplantBackground}>
-                        <View style={[styles.tableCol2, { width: '12%' }]}>
-                          <View style={styles.tableCellplant}>
-                            <Text>0</Text>
-                          </View>
-                        </View>
-                        <View style={[styles.tableCol2, { width: '17%' }]}>
-                          <View style={styles.tableCellplant}>
-                            <Text>01/10/2019</Text>
-                          </View>
-                        </View>
-                        <View style={[styles.tableCol2, { width: '14.2%' }]}>
-                          <View style={styles.tableCellplant}>
-                            <Text>4:10 a.m.</Text>
-                          </View>
-                        </View>
-                        <View style={[styles.tableCol2, { width: '14.2%' }]}>
-                          <View style={styles.tableCellplant}>
-                            <Text>0</Text>
-                          </View>
-                        </View>
-                        <View style={[styles.tableCol2, { width: '14.2%' }]}>
-                          <View style={styles.tableCellplant}>
-                            <Text>N/D</Text>
-                          </View>
-                        </View>
-                        <View style={[styles.tableCol2, { width: '14.2%' }]}>
-                          <View style={styles.tableCellplant}>
-                            <Text>N/D</Text>
-                          </View>
-                        </View>
-                        <View style={[styles.tableCol2, { width: '14.2%' }]}>
-                          <View style={styles.tableCellplant}>
-                            <Text>0</Text>
-                          </View>
-                        </View>
-                      </View>
-                      <View style={styles.tableRowplant}>
-                        <View style={[styles.tableCol2, { width: '12%' }]}>
-                          <View style={styles.tableCellplant}>
-                            <Text>1</Text>
-                          </View>
-                        </View>
-                        <View style={[styles.tableCol2, { width: '17%' }]}>
-                          <View style={styles.tableCellplant}>
-                            <Text>01/10/2019</Text>
-                          </View>
-                        </View>
-                        <View style={[styles.tableCol2, { width: '14.2%' }]}>
-                          <View style={styles.tableCellplant}>
-                            <Text>4:10 a.m.</Text>
-                          </View>
-                        </View>
-                        <View style={[styles.tableCol2, { width: '14.2%' }]}>
-                          <View style={styles.tableCellplant}>
-                            <Text>18</Text>
-                          </View>
-                        </View>
-                        <View style={[styles.tableCol2, { width: '14.2%' }]}>
-                          <View style={styles.tableCellplant}>
-                            <Text>AMBOS</Text>
-                          </View>
-                        </View>
-                        <View style={[styles.tableCol2, { width: '14.2%' }]}>
-                          <View style={styles.tableCellplant}>
-                            <Text>N/D</Text>
-                          </View>
-                        </View>
-                        <View style={[styles.tableCol2, { width: '14.2%' }]}>
-                          <View style={styles.tableCellplant}>
-                            <Text>2191</Text>
-                          </View>
-                        </View>
-                      </View>
-                      <View style={styles.tableRowplantBackground}>
-                        <View style={[styles.tableCol2, { width: '12%' }]}>
-                          <View style={styles.tableCellplant}>
-                            <Text>2</Text>
-                          </View>
-                        </View>
-                        <View style={[styles.tableCol2, { width: '17%' }]}>
-                          <View style={styles.tableCellplant}>
-                            <Text>01/10/2019</Text>
-                          </View>
-                        </View>
-                        <View style={[styles.tableCol2, { width: '14.2%' }]}>
-                          <View style={styles.tableCellplant}>
-                            <Text>4:10 a.m.</Text>
-                          </View>
-                        </View>
-                        <View style={[styles.tableCol2, { width: '14.2%' }]}>
-                          <View style={styles.tableCellplant}>
-                            <Text>18</Text>
-                          </View>
-                        </View>
-                        <View style={[styles.tableCol2, { width: '14.2%' }]}>
-                          <View style={styles.tableCellplant}>
-                            <Text>AMBOS</Text>
-                          </View>
-                        </View>
-                        <View style={[styles.tableCol2, { width: '14.2%' }]}>
-                          <View style={styles.tableCellplant}>
-                            <Text>N/D</Text>
-                          </View>
-                        </View>
-                        <View style={[styles.tableCol2, { width: '14.2%' }]}>
-                          <View style={styles.tableCellplant}>
-                            <Text>2198</Text>
-                          </View>
-                        </View>
-                      </View>
-                      <View style={styles.tableRowplant}>
-                        <View style={[styles.tableCol2, { width: '12%' }]}>
-                          <View style={styles.tableCellplant}>
-                            <Text>3</Text>
-                          </View>
-                        </View>
-                        <View style={[styles.tableCol2, { width: '17%' }]}>
-                          <View style={styles.tableCellplant}>
-                            <Text>01/10/2019</Text>
-                          </View>
-                        </View>
-                        <View style={[styles.tableCol2, { width: '14.2%' }]}>
-                          <View style={styles.tableCellplant}>
-                            <Text>4:10 a.m.</Text>
-                          </View>
-                        </View>
-                        <View style={[styles.tableCol2, { width: '14.2%' }]}>
-                          <View style={styles.tableCellplant}>
-                            <Text>18</Text>
-                          </View>
-                        </View>
-                        <View style={[styles.tableCol2, { width: '14.2%' }]}>
-                          <View style={styles.tableCellplant}>
-                            <Text>AMBOS</Text>
-                          </View>
-                        </View>
-                        <View style={[styles.tableCol2, { width: '14.2%' }]}>
-                          <View style={styles.tableCellplant}>
-                            <Text>N/D</Text>
-                          </View>
-                        </View>
-                        <View style={[styles.tableCol2, { width: '14.2%' }]}>
-                          <View style={styles.tableCellplant}>
-                            <Text>2321</Text>
-                          </View>
-                        </View>
-                      </View>
-                      <View style={styles.tableRowplantBackground}>
-                        <View style={[styles.tableCol2, { width: '12%' }]}>
-                          <View style={styles.tableCellplant}>
-                            <Text>4</Text>
-                          </View>
-                        </View>
-                        <View style={[styles.tableCol2, { width: '17%' }]}>
-                          <View style={styles.tableCellplant}>
-                            <Text>01/10/2019</Text>
-                          </View>
-                        </View>
-                        <View style={[styles.tableCol2, { width: '14.2%' }]}>
-                          <View style={styles.tableCellplant}>
-                            <Text>4:10 a.m.</Text>
-                          </View>
-                        </View>
-                        <View style={[styles.tableCol2, { width: '14.2%' }]}>
-                          <View style={styles.tableCellplant}>
-                            <Text>18</Text>
-                          </View>
-                        </View>
-                        <View style={[styles.tableCol2, { width: '14.2%' }]}>
-                          <View style={styles.tableCellplant}>
-                            <Text>AMBOS</Text>
-                          </View>
-                        </View>
-                        <View style={[styles.tableCol2, { width: '14.2%' }]}>
-                          <View style={styles.tableCellplant}>
-                            <Text>N/D</Text>
-                          </View>
-                        </View>
-                        <View style={[styles.tableCol2, { width: '14.2%' }]}>
-                          <View style={styles.tableCellplant}>
-                            <Text>2134</Text>
-                          </View>
-                        </View>
-                      </View>
+                      {props.url.dataCorrals.detallePesajes.map(
+                        (item, index) => {
+                          return (
+                            <View
+                              style={[
+                                styles.tableRowplant,
+                                {
+                                  backgroundColor:
+                                    index % 2 === 0 ? '#ededed' : 'white'
+                                }
+                              ]}
+                              key={index}
+                            >
+                              <View
+                                style={[styles.tableCol2, { width: '12%' }]}
+                              >
+                                <View style={styles.tableCellplant}>
+                                  <Text>{item.numeroPesaje}</Text>
+                                </View>
+                              </View>
+                              <View
+                                style={[styles.tableCol2, { width: '30%' }]}
+                              >
+                                <View style={styles.tableCellplant}>
+                                  <Text>{item.fechaPesaje}</Text>
+                                </View>
+                              </View>
+
+                              <View
+                                style={[styles.tableCol2, { width: '14.2%' }]}
+                              >
+                                <View style={styles.tableCellplant}>
+                                  <Text>{item.animalesPesados}</Text>
+                                </View>
+                              </View>
+                              <View
+                                style={[styles.tableCol2, { width: '14.2%' }]}
+                              >
+                                <View style={styles.tableCellplant}>
+                                  <Text>{item.sexo}</Text>
+                                </View>
+                              </View>
+                              <View
+                                style={[styles.tableCol2, { width: '14.2%' }]}
+                              >
+                                <View style={styles.tableCellplant}>
+                                  <Text>{item.estadoInmunocastrados}</Text>
+                                </View>
+                              </View>
+                              <View
+                                style={[styles.tableCol2, { width: '14.2%' }]}
+                              >
+                                <View style={styles.tableCellplant}>
+                                  <Text>{item.PesoTotalBache}</Text>
+                                </View>
+                              </View>
+                            </View>
+                          )
+                        }
+                      )}
                     </View>
                   </View>
                   <View style={{ flexDirection: 'row' }}>
@@ -8475,7 +8352,10 @@ aWYuY29toMOzWAAAAABJRU5ErkJggg=='
                               fontWeight: 'bold'
                             }}
                           >
-                            72
+                            {
+                              props.url.dataCorrals.DatosPesaje
+                                .cantidadAnimalesPesados
+                            }
                           </Text>
                         </View>
                       </View>
@@ -8513,7 +8393,11 @@ aWYuY29toMOzWAAAAABJRU5ErkJggg=='
                               fontWeight: 'bold'
                             }}
                           >
-                            8.739,00 Kg
+                            {
+                              props.url.dataCorrals.DatosPesaje
+                                .pesoTotalDeTodosLosPesajes
+                            }{' '}
+                            Kg
                           </Text>
                         </View>
                       </View>
@@ -8551,7 +8435,11 @@ aWYuY29toMOzWAAAAABJRU5ErkJggg=='
                               fontWeight: 'bold'
                             }}
                           >
-                            120,8 Kg
+                            {
+                              props.url.dataCorrals.DatosPesaje
+                                .promedioPesoTotal
+                            }{' '}
+                            Kg
                           </Text>
                         </View>
                       </View>
@@ -8600,7 +8488,12 @@ aWYuY29toMOzWAAAAABJRU5ErkJggg=='
                     </View>
                     <View style={[styles.tableCol1, { width: '4%' }]}>
                       <View style={styles.tableCellplant}>
-                        <Text>0</Text>
+                        <Text>
+                          {props.url.dataCorrals.DatosCorrales
+                            .agitadosCorrales +
+                            props.url.dataCorrals.DatosCorrales
+                              .agitadosTransporte}
+                        </Text>
                       </View>
                     </View>
                     <View style={[styles.tableCol1, { width: '45%' }]}>
@@ -8614,7 +8507,9 @@ aWYuY29toMOzWAAAAABJRU5ErkJggg=='
                     </View>
                     <View style={[styles.tableCol1, { width: '4%' }]}>
                       <View style={styles.tableCellplant}>
-                        <Text>0</Text>
+                        <Text>
+                          {props.url.dataCorrals.DatosCorrales.agitadosCorrales}
+                        </Text>
                       </View>
                     </View>
                   </View>
@@ -8635,7 +8530,11 @@ aWYuY29toMOzWAAAAABJRU5ErkJggg=='
                     </View>
                     <View style={[styles.tableCol1, { width: '4%' }]}>
                       <View style={styles.tableCellplant}>
-                        <Text>0</Text>
+                        <Text>
+                          {props.url.dataCorrals.DatosCorrales.caidosCorrales +
+                            props.url.dataCorrals.DatosCorrales
+                              .caidosTransporte}
+                        </Text>
                       </View>
                     </View>
                     <View style={[styles.tableCol1, { width: '45%' }]}>
@@ -8649,7 +8548,9 @@ aWYuY29toMOzWAAAAABJRU5ErkJggg=='
                     </View>
                     <View style={[styles.tableCol1, { width: '4%' }]}>
                       <View style={styles.tableCellplant}>
-                        <Text>0</Text>
+                        <Text>
+                          {props.url.dataCorrals.DatosCorrales.caidosCorrales}
+                        </Text>
                       </View>
                     </View>
                   </View>
@@ -8670,7 +8571,12 @@ aWYuY29toMOzWAAAAABJRU5ErkJggg=='
                     </View>
                     <View style={[styles.tableCol1, { width: '4%' }]}>
                       <View style={styles.tableCellplant}>
-                        <Text>0</Text>
+                        <Text>
+                          {
+                            props.url.dataCorrals.DatosCorrales
+                              .muertosTransporte
+                          }
+                        </Text>
                       </View>
                     </View>
                     <View style={[styles.tableCol1, { width: '45%' }]}>
@@ -8684,7 +8590,12 @@ aWYuY29toMOzWAAAAABJRU5ErkJggg=='
                     </View>
                     <View style={[styles.tableCol1, { width: '4%' }]}>
                       <View style={styles.tableCellplant}>
-                        <Text>0</Text>
+                        <Text>
+                          {
+                            props.url.dataCorrals.DatosCorrales
+                              .muertosDesembarque
+                          }
+                        </Text>
                       </View>
                     </View>
                   </View>
@@ -8705,7 +8616,12 @@ aWYuY29toMOzWAAAAABJRU5ErkJggg=='
                     </View>
                     <View style={[styles.tableCol1, { width: '4%' }]}>
                       <View style={styles.tableCellplant}>
-                        <Text>0</Text>
+                        <Text>
+                          {props.url.dataCorrals.DatosCorrales
+                            .muertosCorralObservacion +
+                            props.url.dataCorrals.DatosCorrales
+                              .muertosCorralesReposo}
+                        </Text>
                       </View>
                     </View>
                     <View style={[styles.tableCol1, { width: '45%' }]}>
@@ -8719,7 +8635,12 @@ aWYuY29toMOzWAAAAABJRU5ErkJggg=='
                     </View>
                     <View style={[styles.tableCol1, { width: '4%' }]}>
                       <View style={styles.tableCellplant}>
-                        <Text>0</Text>
+                        <Text>
+                          {
+                            props.url.dataCorrals.DatosCorrales
+                              .muertosCorralObservacion
+                          }
+                        </Text>
                       </View>
                     </View>
                   </View>
@@ -8740,7 +8661,12 @@ aWYuY29toMOzWAAAAABJRU5ErkJggg=='
                     </View>
                     <View style={[styles.tableCol1, { width: '4%' }]}>
                       <View style={styles.tableCellplant}>
-                        <Text>0</Text>
+                        <Text>
+                          {
+                            props.url.dataCorrals.DatosCorrales
+                              .totalAnimalesObservados
+                          }
+                        </Text>
                       </View>
                     </View>
                     <View style={[styles.tableCol1, { width: '45%' }]}>
@@ -8754,7 +8680,12 @@ aWYuY29toMOzWAAAAABJRU5ErkJggg=='
                     </View>
                     <View style={[styles.tableCol1, { width: '4%' }]}>
                       <View style={styles.tableCellplant}>
-                        <Text>0</Text>
+                        <Text>
+                          {
+                            props.url.dataSacrifice.sacrificioSB
+                              .cantidadCanalesCompletasDecomisadas
+                          }
+                        </Text>
                       </View>
                     </View>
                   </View>
@@ -8804,7 +8735,7 @@ aWYuY29toMOzWAAAAABJRU5ErkJggg=='
                           color: '#dd9835'
                         }}
                       >
-                        0%
+                        0% PENDIENTE
                       </Text>
                       <Text
                         style={{
