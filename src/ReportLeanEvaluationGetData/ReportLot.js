@@ -316,18 +316,17 @@ const styles = StyleSheet.create({
   },
   tablecontainer: {
     width: '31%',
-    marginTop: 7,
-    top: 0.5
+    marginTop: 7
   },
   tablecontainer2: {
-    marginLeft: 185,
-    top: -116,
-    width: '31%'
+    width: '31%',
+    marginTop: 7,
+    marginLeft: 18.5
   },
   tablecontainer3: {
-    marginLeft: 370,
-    top: -232,
-    width: '31%'
+    width: '31%',
+    marginTop: 7,
+    marginLeft: 18.5
   },
 
   phone: {
@@ -524,7 +523,7 @@ const styles = StyleSheet.create({
     textAlign: 'left',
     color: 'white'
   },
-  detailweigth: { marginTop: 10 },
+  detailweigth: { marginTop: 20 },
   backgroundresumetitle: {
     backgroundColor: '#ededed',
     height: 20,
@@ -7242,7 +7241,7 @@ aWYuY29toMOzWAAAAABJRU5ErkJggg=='
               </View>
             </View>
             <View style={{ width: 70 }}>
-              {/* <Image src={props.url.image} /> */}
+              <Image src={props.url.image} />
             </View>
           </View>
 
@@ -7252,345 +7251,348 @@ aWYuY29toMOzWAAAAABJRU5ErkJggg=='
                 Agentes Relacionados con el Negocio
               </Text>
             </View>
-
-            <View style={styles.tablecontainer}>
-              <View style={styles.backgroundplant}>
-                <View style={styles.imageplant}>
-                  <Image src='data:image/png+xml;base64,iVBORw0KGgoAAAANSUhEUgAAACQAAAAkCAYAAADhAJiYAAAABmJLR0QA/wD/AP+gvaeTAAACjElEQVRYhe2WTYhOURjHf4+vtxAGJRaUiSgbyUJiJ1/ZKbJnMVbWlLEmpVhRVhaSjbJgYQolNRtlYWGkEA2GmaEwZn4W77kc153XvDPzsnn/m3s+nuc5v/M8955zoa222mqtYrKOajewNXU/Awcj4ktLgNQdwKJsaAS4GREjmc0TYBnwGlgPrImIp1MFqoKpWa0tJbt+9Yq6Ps1vno71Z1SMFZk5DXQCe1N/aQYTQAcwAAyV/KakWQ2AeiPimfou9ZdkNvOT77QDNcrQh/T8BIyVgBZnNsV8R6uAFuZAETGWFl2c2RSLv48IgWH+YYagXpaqDA2k5yC/NvJfgIoMDWTzLc2Q1HedA1WVLAdq6Ts0HBGjJaC/laxln/1CUrnUVcBK4AiwM7PpoJ7FoqxDyW7KqspQR7bQGeAucAuYqxZleQP0R8T3DGhR2sQa9VVxik8H0M8MATXq5egHzgKv1MvAA2B15pO/1OuAFcAh4HGzYOO91PkX9jQitgNrgXPAbuAhcE89rM4DbgDPS3H2ACeBXZMB+yn1sXoptW+ovaX5OeoB9Y46pn5Uz6sb0vy+dNluSv0F6gn1vTraNJj6Uj09HlDJdq16Rn2bIO6rF3OgzHZyYOon9fhEgDKfmnpI7UlZ+wOoAdj+RoFnp2BdzQCVYnSq3eryv9gV/1Hd+Xj5HPrtYi0FmAkQEaNqLSK+qnMi4lv6P5oVESMR0Qd0l/0rNFg1WAaquscKXQW+qbeAC+oK4KV6FNgMbAS2TQCkocbL0FDZkPo5NAPoA7oiYiiVtgd4RP3saUZVR864GbquHkvtDWpf2VE9mZqnsrFmgGoTAXoBXEvtd9SvjNfNrDIJ3W5x/Lbaaus3/QDW/tTn/Ybw7wAAAABJRU5ErkJggg==' />
+            <View style={{ flexDirection: 'row' }}>
+              <View style={styles.tablecontainer}>
+                <View style={styles.backgroundplant}>
+                  <View style={styles.imageplant}>
+                    <Image src='data:image/png+xml;base64,iVBORw0KGgoAAAANSUhEUgAAACQAAAAkCAYAAADhAJiYAAAABmJLR0QA/wD/AP+gvaeTAAACjElEQVRYhe2WTYhOURjHf4+vtxAGJRaUiSgbyUJiJ1/ZKbJnMVbWlLEmpVhRVhaSjbJgYQolNRtlYWGkEA2GmaEwZn4W77kc153XvDPzsnn/m3s+nuc5v/M8955zoa222mqtYrKOajewNXU/Awcj4ktLgNQdwKJsaAS4GREjmc0TYBnwGlgPrImIp1MFqoKpWa0tJbt+9Yq6Ps1vno71Z1SMFZk5DXQCe1N/aQYTQAcwAAyV/KakWQ2AeiPimfou9ZdkNvOT77QDNcrQh/T8BIyVgBZnNsV8R6uAFuZAETGWFl2c2RSLv48IgWH+YYagXpaqDA2k5yC/NvJfgIoMDWTzLc2Q1HedA1WVLAdq6Ts0HBGjJaC/laxln/1CUrnUVcBK4AiwM7PpoJ7FoqxDyW7KqspQR7bQGeAucAuYqxZleQP0R8T3DGhR2sQa9VVxik8H0M8MATXq5egHzgKv1MvAA2B15pO/1OuAFcAh4HGzYOO91PkX9jQitgNrgXPAbuAhcE89rM4DbgDPS3H2ACeBXZMB+yn1sXoptW+ovaX5OeoB9Y46pn5Uz6sb0vy+dNluSv0F6gn1vTraNJj6Uj09HlDJdq16Rn2bIO6rF3OgzHZyYOon9fhEgDKfmnpI7UlZ+wOoAdj+RoFnp2BdzQCVYnSq3eryv9gV/1Hd+Xj5HPrtYi0FmAkQEaNqLSK+qnMi4lv6P5oVESMR0Qd0l/0rNFg1WAaquscKXQW+qbeAC+oK4KV6FNgMbAS2TQCkocbL0FDZkPo5NAPoA7oiYiiVtgd4RP3saUZVR864GbquHkvtDWpf2VE9mZqnsrFmgGoTAXoBXEvtd9SvjNfNrDIJ3W5x/Lbaaus3/QDW/tTn/Ybw7wAAAABJRU5ErkJggg==' />
+                  </View>
+                  <Text style={{ fontFamily: 'Roboto', fontWeight: 'bold' }}>
+                    Planta de beneficio
+                  </Text>
                 </View>
-                <Text style={{ fontFamily: 'Roboto', fontWeight: 'bold' }}>
-                  Planta de beneficio
-                </Text>
-              </View>
-              <View style={styles.tableplant}>
-                <View style={styles.tableRowplant}>
-                  <View style={[styles.tableColplant, { width: '30%' }]}>
-                    <View style={styles.tableCellplant}>
-                      <Text
-                        style={{ fontFamily: 'Roboto', fontWeight: 'bold' }}
-                      >
-                        Nombre
+                <View style={styles.tableplant}>
+                  <View style={styles.tableRowplant}>
+                    <View style={[styles.tableColplant, { width: '30%' }]}>
+                      <View style={styles.tableCellplant}>
+                        <Text
+                          style={{ fontFamily: 'Roboto', fontWeight: 'bold' }}
+                        >
+                          Nombre
+                        </Text>
+                      </View>
+                    </View>
+                    <View style={[styles.tableColplantRigth, { width: '70%' }]}>
+                      <Text style={styles.tableCellplantRigth}>
+                        {props.url.dataEntrance.planta.razonSocial}
                       </Text>
                     </View>
                   </View>
-                  <View style={[styles.tableColplantRigth, { width: '70%' }]}>
-                    <Text style={styles.tableCellplantRigth}>
-                      {props.url.dataEntrance.planta.razonSocial}
-                    </Text>
+                  <View style={styles.tableRowplant}>
+                    <View style={[styles.tableColplant, { width: '30%' }]}>
+                      <View style={styles.tableCellplant}>
+                        <Text
+                          style={{ fontFamily: 'Roboto', fontWeight: 'bold' }}
+                        >
+                          {props.url.dataEntrance.planta.numeroDocumento ===
+                          undefined
+                            ? 'Nit'
+                            : 'Documento'}
+                        </Text>
+                      </View>
+                    </View>
+                    <View style={[styles.tableColplantRigth, { width: '70%' }]}>
+                      <Text style={styles.tableCellplantRigth}>
+                        {props.url.dataEntrance.planta.nit === undefined
+                          ? props.url.dataEntrance.planta.numeroDocumento
+                          : props.url.dataEntrance.planta.nit}
+                      </Text>
+                    </View>
+                  </View>
+                  <View style={styles.tableRowplant}>
+                    <View style={[styles.tableColplant, { width: '30%' }]}>
+                      <View style={styles.tableCellplant}>
+                        <Text
+                          style={{ fontFamily: 'Roboto', fontWeight: 'bold' }}
+                        >
+                          Teléfono
+                        </Text>
+                      </View>
+                    </View>
+                    <View style={[styles.tableColplantRigth, { width: '70%' }]}>
+                      <Text style={styles.tableCellplantRigth}>
+                        {props.url.dataEntrance.planta.telefono1}
+                      </Text>
+                    </View>
+                  </View>
+                  <View style={styles.tableRowplant}>
+                    <View style={[styles.tableColplant, { width: '30%' }]}>
+                      <View style={styles.tableCellplant}>
+                        <Text
+                          style={{ fontFamily: 'Roboto', fontWeight: 'bold' }}
+                        >
+                          Email
+                        </Text>
+                      </View>
+                    </View>
+                    <View style={[styles.tableColplantRigth, { width: '70%' }]}>
+                      <Text style={styles.tableCellplantRigth}>
+                        {props.url.dataEntrance.planta.email}
+                      </Text>
+                    </View>
+                  </View>
+                  <View style={styles.tableRowplant}>
+                    <View style={[styles.tableColplant, { width: '30%' }]}>
+                      <View style={styles.tableCellplant}>
+                        <Text
+                          style={{ fontFamily: 'Roboto', fontWeight: 'bold' }}
+                        >
+                          Dirección
+                        </Text>
+                      </View>
+                    </View>
+                    <View style={[styles.tableColplantRigth, { width: '70%' }]}>
+                      <Text style={styles.tableCellplantRigth}>
+                        {props.url.dataEntrance.planta.direccion}
+                      </Text>
+                    </View>
+                  </View>
+                  <View style={styles.tableRowplant}>
+                    <View style={[styles.tableColplant, { width: '30%' }]}>
+                      <View style={styles.tableCellplant}>
+                        <Text
+                          style={{ fontFamily: 'Roboto', fontWeight: 'bold' }}
+                        >
+                          Ciudad
+                        </Text>
+                      </View>
+                    </View>
+                    <View style={[styles.tableColplantRigth, { width: '70%' }]}>
+                      <Text style={styles.tableCellplantRigth}>
+                        {props.url.dataEntrance.planta.ciudad},{' '}
+                        {props.url.dataEntrance.planta.pais}
+                      </Text>
+                    </View>
                   </View>
                 </View>
-                <View style={styles.tableRowplant}>
-                  <View style={[styles.tableColplant, { width: '30%' }]}>
-                    <View style={styles.tableCellplant}>
-                      <Text
-                        style={{ fontFamily: 'Roboto', fontWeight: 'bold' }}
-                      >
-                        {props.url.dataEntrance.planta.numeroDocumento ===
+              </View>
+              <View style={styles.tablecontainer2}>
+                <View style={styles.backgroundplant}>
+                  <View style={styles.imageplant}>
+                    <Image src='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACQAAAAkCAYAAADhAJiYAAAABmJLR0QA/wD/AP+gvaeTAAACiElEQVRYhe2WS4iOYRTHf49xmQ/lFrkbUpZIMsVSpuSS20LSrFzK1spq3AoLGxZKWSjJbUOILJCF24IFOxQmG4MMZtD4WbxnMvjmu/WOUt+/nt7e5/yfc/7P+z7nnAfqqKOODOpM9ZL60V/4oF5Qp9fqN9UopgA8AsYCp4DuMI0EWoHXwPyUUndxDzlDbYkv0lzEti5sywZaxCh1g3pYfRpB//rC6pSw3VMPqsvVoXmLWaG+i0Cv1KvqkX64BfW4el/9Emteq0vzFHQtnG9TB1exbpi6S/2uXq1kTUWHWm0hO7zjgM/AA+A58AroAt4HdQxQAKYBs4CFwIjgbkop3a10M5WIKqhr1fPxG56oz9QO9WuMjph7Epwz6lK1ITchRYS1RrDGEpzG4LRW639QDZrexXNiCc7keL6twX91UEer3eqeEpz9apc6asAFRcAD6jd1cxHb+siqff9ETAQdEj1L9Ya6M8b1mDtXTXnIS1RSN6u31c4Yt9RNxSr4f4tau/0IYC2wEpgLTAnTG+AxcBk4l1L6NKCC4ldsAdqACcBN4A7QATSQpfsiYDFZyu8GjqWUrFZYJWIK6mn1h/pSbS/BbQ+OsaaQt5hBZrfDz+pqta0CQVujGX9Xr+TaPtS9sduL8d5mdnVtVhf8MZrDtjW4D2PtobzENEVl7ukjaIflsaaPoJ4opLPLxSt7qNWjwEay7PmUUloV89OB/orf15RSe68goJMsG8+mlLaXileymkZWrQZOAHN+20lKL8ttpg86gZPAejWVyrpy3b4JmArcqCJ4f7hDVq+aSpHK9ZtJ8VwCzADoPaxVYDwwnKyI9vp8UaWPDOo8s2tEXuhS59Ykpo46/lf8BNSMzwXgefTKAAAAAElFTkSuQmCC' />
+                  </View>
+                  <Text style={{ fontFamily: 'Roboto', fontWeight: 'bold' }}>
+                    Productor
+                  </Text>
+                </View>
+                <View style={styles.tableplant}>
+                  <View style={styles.tableRowplant}>
+                    <View style={[styles.tableColplant, { width: '30%' }]}>
+                      <View style={styles.tableCellplant}>
+                        <Text
+                          style={{ fontFamily: 'Roboto', fontWeight: 'bold' }}
+                        >
+                          Nombre
+                        </Text>
+                      </View>
+                    </View>
+                    <View style={[styles.tableColplantRigth, { width: '70%' }]}>
+                      <Text style={styles.tableCellplantRigth}>
+                        {props.url.dataEntrance.productor.nombreCompleto}
+                      </Text>
+                    </View>
+                  </View>
+                  <View style={styles.tableRowplant}>
+                    <View style={[styles.tableColplant, { width: '30%' }]}>
+                      <View style={styles.tableCellplant}>
+                        <Text
+                          style={{ fontFamily: 'Roboto', fontWeight: 'bold' }}
+                        >
+                          {props.url.dataEntrance.productor.numeroDocumento ===
+                          undefined
+                            ? 'Nit'
+                            : 'Documento'}
+                        </Text>
+                      </View>
+                    </View>
+                    <View style={[styles.tableColplantRigth, { width: '70%' }]}>
+                      <Text style={styles.tableCellplantRigth}>
+                        {props.url.dataEntrance.productor.nit === undefined
+                          ? props.url.dataEntrance.productor.numeroDocumento
+                          : props.url.dataEntrance.productor.nit}
+                      </Text>
+                    </View>
+                  </View>
+                  <View style={styles.tableRowplant}>
+                    <View style={[styles.tableColplant, { width: '30%' }]}>
+                      <View style={styles.tableCellplant}>
+                        <Text
+                          style={{ fontFamily: 'Roboto', fontWeight: 'bold' }}
+                        >
+                          Teléfono
+                        </Text>
+                      </View>
+                    </View>
+                    <View style={[styles.tableColplantRigth, { width: '70%' }]}>
+                      <Text style={styles.tableCellplantRigth}>
+                        {props.url.dataEntrance.productor.telefono1}
+                      </Text>
+                    </View>
+                  </View>
+                  <View style={styles.tableRowplant}>
+                    <View style={[styles.tableColplant, { width: '30%' }]}>
+                      <View style={styles.tableCellplant}>
+                        <Text
+                          style={{ fontFamily: 'Roboto', fontWeight: 'bold' }}
+                        >
+                          Email
+                        </Text>
+                      </View>
+                    </View>
+                    <View style={[styles.tableColplantRigth, { width: '70%' }]}>
+                      <Text style={styles.tableCellplantRigth}>
+                        {props.url.dataEntrance.productor.email}
+                      </Text>
+                    </View>
+                  </View>
+                  <View style={styles.tableRowplant}>
+                    <View style={[styles.tableColplant, { width: '30%' }]}>
+                      <View style={styles.tableCellplant}>
+                        <Text
+                          style={{ fontFamily: 'Roboto', fontWeight: 'bold' }}
+                        >
+                          Dirección
+                        </Text>
+                      </View>
+                    </View>
+                    <View style={[styles.tableColplantRigth, { width: '70%' }]}>
+                      <Text style={styles.tableCellplantRigth}>
+                        {props.url.dataEntrance.productor.direccion}
+                      </Text>
+                    </View>
+                  </View>
+                  <View style={styles.tableRowplant}>
+                    <View style={[styles.tableColplant, { width: '30%' }]}>
+                      <View style={styles.tableCellplant}>
+                        <Text
+                          style={{ fontFamily: 'Roboto', fontWeight: 'bold' }}
+                        >
+                          Ciudad
+                        </Text>
+                      </View>
+                    </View>
+                    <View style={[styles.tableColplantRigth, { width: '70%' }]}>
+                      <Text style={styles.tableCellplantRigth}>
+                        {props.url.dataEntrance.productor.ciudad},
+                        {props.url.dataEntrance.productor.pais}
+                      </Text>
+                    </View>
+                  </View>
+                </View>
+              </View>
+              <View style={styles.tablecontainer3}>
+                <View style={styles.backgroundplant}>
+                  <View style={styles.imageplant}>
+                    <Image src='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACQAAAAkCAYAAADhAJiYAAAABmJLR0QA/wD/AP+gvaeTAAACSklEQVRYhe2WTUgVURTH/9eMQB6GWWS0ysSVVASPviAjsFYF0SKiRRuDwpAWrUsLySQhgz5WLVsFbaKWiYvAVi0sTF+L6AOiD6jkpZj+WnQeDdO8yblvnNX8Ybhzzz3vnN/cj3eulCtXruWVqzUAsErSJuu+ds7N1xrTF6QZuA384K++ASNAY9YwG4ASMAtcAfbZM2CAE8CaLIEeWuJtEWMdwAxwLyuYzbY8vTE+54BFYGMWQMcMaF2Mz3rzOZo0fp0H00prZ2J8vlvbkDS4D9ALa4sxPjusfeURP5kABzwHRoH6iPF6YAx4Cfh8sBdUESgbVFvA3go8BuaAPZnABJLvBCbtNE0B0/ZeAvb6xq2pdNiSdUraYqYJSaO1lA8vIGC1pG5JC8656wG7kzRkcQedc599wZLAdACPAvWrrwJjta2iZ0DncsOctPpVBt4BPytQwKC9fwG+2tgCcDFJjiUfS+CUpLuShiUdkdQiacSGZ+2RpDuSmiSdlnRZ0gVgOAnUUmAO2Anqtf4K4CPQAxwGdgO7gEPAJZudRvM9Yb/tTgumALwFbobst4AnEf6TwIOQ7aot49o0gM4Anwhduvhz//kFtARmaKvto+Mh3wb7qP40gMaBaxH2OuADcDZgG7ANX4jw7wPe2F+DN0wBmAe6qozfAMYC/WngfhXfos1ee1zOf4pjSO3mswi0RoyPS+oB9ktqltQmaQhoCvjMOefKkkrW3y5p6j95owV0kb7Ox+WMXU/bCwfld2+qpqfOufcpxsuVK1ci/QYiRJiCZ0Om5AAAAABJRU5ErkJggg==' />
+                  </View>
+                  <Text style={{ fontFamily: 'Roboto', fontWeight: 'bold' }}>
+                    Comercializador
+                  </Text>
+                </View>
+                <View style={styles.tableplant}>
+                  <View style={styles.tableRowplant}>
+                    <View style={[styles.tableColplant, { width: '30%' }]}>
+                      <View style={styles.tableCellplant}>
+                        <Text
+                          style={{ fontFamily: 'Roboto', fontWeight: 'bold' }}
+                        >
+                          Nombre
+                        </Text>
+                      </View>
+                    </View>
+                    <View style={[styles.tableColplantRigth, { width: '70%' }]}>
+                      <Text style={styles.tableCellplantRigth}>
+                        {props.url.dataEntrance.comercializador.nombreCompleto}
+                      </Text>
+                    </View>
+                  </View>
+                  <View style={styles.tableRowplant}>
+                    <View style={[styles.tableColplant, { width: '30%' }]}>
+                      <View style={styles.tableCellplant}>
+                        <Text
+                          style={{ fontFamily: 'Roboto', fontWeight: 'bold' }}
+                        >
+                          {props.url.dataEntrance.comercializador
+                            .numeroDocumento === undefined
+                            ? 'Nit'
+                            : 'Documento'}
+                        </Text>
+                      </View>
+                    </View>
+                    <View style={[styles.tableColplantRigth, { width: '70%' }]}>
+                      <Text style={styles.tableCellplantRigth}>
+                        {props.url.dataEntrance.comercializador.nit ===
                         undefined
-                          ? 'Nit'
-                          : 'Documento'}
+                          ? props.url.dataEntrance.comercializador
+                              .numeroDocumento
+                          : props.url.dataEntrance.comercializador.nit}
                       </Text>
                     </View>
                   </View>
-                  <View style={[styles.tableColplantRigth, { width: '70%' }]}>
-                    <Text style={styles.tableCellplantRigth}>
-                      {props.url.dataEntrance.planta.nit === undefined
-                        ? props.url.dataEntrance.planta.numeroDocumento
-                        : props.url.dataEntrance.planta.nit}
-                    </Text>
-                  </View>
-                </View>
-                <View style={styles.tableRowplant}>
-                  <View style={[styles.tableColplant, { width: '30%' }]}>
-                    <View style={styles.tableCellplant}>
-                      <Text
-                        style={{ fontFamily: 'Roboto', fontWeight: 'bold' }}
-                      >
-                        Teléfono
+                  <View style={styles.tableRowplant}>
+                    <View style={[styles.tableColplant, { width: '30%' }]}>
+                      <View style={styles.tableCellplant}>
+                        <Text
+                          style={{ fontFamily: 'Roboto', fontWeight: 'bold' }}
+                        >
+                          Teléfono
+                        </Text>
+                      </View>
+                    </View>
+                    <View style={[styles.tableColplantRigth, { width: '70%' }]}>
+                      <Text style={styles.tableCellplantRigth}>
+                        {props.url.dataEntrance.comercializador.telefono1}
                       </Text>
                     </View>
                   </View>
-                  <View style={[styles.tableColplantRigth, { width: '70%' }]}>
-                    <Text style={styles.tableCellplantRigth}>
-                      {props.url.dataEntrance.planta.telefono1}
-                    </Text>
-                  </View>
-                </View>
-                <View style={styles.tableRowplant}>
-                  <View style={[styles.tableColplant, { width: '30%' }]}>
-                    <View style={styles.tableCellplant}>
-                      <Text
-                        style={{ fontFamily: 'Roboto', fontWeight: 'bold' }}
-                      >
-                        Email
+                  <View style={styles.tableRowplant}>
+                    <View style={[styles.tableColplant, { width: '30%' }]}>
+                      <View style={styles.tableCellplant}>
+                        <Text
+                          style={{ fontFamily: 'Roboto', fontWeight: 'bold' }}
+                        >
+                          Email
+                        </Text>
+                      </View>
+                    </View>
+                    <View style={[styles.tableColplantRigth, { width: '70%' }]}>
+                      <Text style={styles.tableCellplantRigth}>
+                        {props.url.dataEntrance.comercializador.email}
                       </Text>
                     </View>
                   </View>
-                  <View style={[styles.tableColplantRigth, { width: '70%' }]}>
-                    <Text style={styles.tableCellplantRigth}>
-                      {props.url.dataEntrance.planta.email}
-                    </Text>
-                  </View>
-                </View>
-                <View style={styles.tableRowplant}>
-                  <View style={[styles.tableColplant, { width: '30%' }]}>
-                    <View style={styles.tableCellplant}>
-                      <Text
-                        style={{ fontFamily: 'Roboto', fontWeight: 'bold' }}
-                      >
-                        Dirección
+                  <View style={styles.tableRowplant}>
+                    <View style={[styles.tableColplant, { width: '30%' }]}>
+                      <View style={styles.tableCellplant}>
+                        <Text
+                          style={{ fontFamily: 'Roboto', fontWeight: 'bold' }}
+                        >
+                          Dirección
+                        </Text>
+                      </View>
+                    </View>
+                    <View style={[styles.tableColplantRigth, { width: '70%' }]}>
+                      <Text style={styles.tableCellplantRigth}>
+                        {props.url.dataEntrance.comercializador.direccion}
                       </Text>
                     </View>
                   </View>
-                  <View style={[styles.tableColplantRigth, { width: '70%' }]}>
-                    <Text style={styles.tableCellplantRigth}>
-                      {props.url.dataEntrance.planta.direccion}
-                    </Text>
-                  </View>
-                </View>
-                <View style={styles.tableRowplant}>
-                  <View style={[styles.tableColplant, { width: '30%' }]}>
-                    <View style={styles.tableCellplant}>
-                      <Text
-                        style={{ fontFamily: 'Roboto', fontWeight: 'bold' }}
-                      >
-                        Ciudad
+                  <View style={styles.tableRowplant}>
+                    <View style={[styles.tableColplant, { width: '30%' }]}>
+                      <View style={styles.tableCellplant}>
+                        <Text
+                          style={{ fontFamily: 'Roboto', fontWeight: 'bold' }}
+                        >
+                          Ciudad
+                        </Text>
+                      </View>
+                    </View>
+                    <View style={[styles.tableColplantRigth, { width: '70%' }]}>
+                      <Text style={styles.tableCellplantRigth}>
+                        {props.url.dataEntrance.comercializador.ciudad},
+                        {props.url.dataEntrance.comercializador.pais}
                       </Text>
                     </View>
-                  </View>
-                  <View style={[styles.tableColplantRigth, { width: '70%' }]}>
-                    <Text style={styles.tableCellplantRigth}>
-                      {props.url.dataEntrance.planta.ciudad},{' '}
-                      {props.url.dataEntrance.planta.pais}
-                    </Text>
-                  </View>
-                </View>
-              </View>
-            </View>
-            <View style={styles.tablecontainer2}>
-              <View style={styles.backgroundplant}>
-                <View style={styles.imageplant}>
-                  <Image src='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACQAAAAkCAYAAADhAJiYAAAABmJLR0QA/wD/AP+gvaeTAAACiElEQVRYhe2WS4iOYRTHf49xmQ/lFrkbUpZIMsVSpuSS20LSrFzK1spq3AoLGxZKWSjJbUOILJCF24IFOxQmG4MMZtD4WbxnMvjmu/WOUt+/nt7e5/yfc/7P+z7nnAfqqKOODOpM9ZL60V/4oF5Qp9fqN9UopgA8AsYCp4DuMI0EWoHXwPyUUndxDzlDbYkv0lzEti5sywZaxCh1g3pYfRpB//rC6pSw3VMPqsvVoXmLWaG+i0Cv1KvqkX64BfW4el/9Emteq0vzFHQtnG9TB1exbpi6S/2uXq1kTUWHWm0hO7zjgM/AA+A58AroAt4HdQxQAKYBs4CFwIjgbkop3a10M5WIKqhr1fPxG56oz9QO9WuMjph7Epwz6lK1ITchRYS1RrDGEpzG4LRW639QDZrexXNiCc7keL6twX91UEer3eqeEpz9apc6asAFRcAD6jd1cxHb+siqff9ETAQdEj1L9Ya6M8b1mDtXTXnIS1RSN6u31c4Yt9RNxSr4f4tau/0IYC2wEpgLTAnTG+AxcBk4l1L6NKCC4ldsAdqACcBN4A7QATSQpfsiYDFZyu8GjqWUrFZYJWIK6mn1h/pSbS/BbQ+OsaaQt5hBZrfDz+pqta0CQVujGX9Xr+TaPtS9sduL8d5mdnVtVhf8MZrDtjW4D2PtobzENEVl7ukjaIflsaaPoJ4opLPLxSt7qNWjwEay7PmUUloV89OB/orf15RSe68goJMsG8+mlLaXileymkZWrQZOAHN+20lKL8ttpg86gZPAejWVyrpy3b4JmArcqCJ4f7hDVq+aSpHK9ZtJ8VwCzADoPaxVYDwwnKyI9vp8UaWPDOo8s2tEXuhS59Ykpo46/lf8BNSMzwXgefTKAAAAAElFTkSuQmCC' />
-                </View>
-                <Text style={{ fontFamily: 'Roboto', fontWeight: 'bold' }}>
-                  Productor
-                </Text>
-              </View>
-              <View style={styles.tableplant}>
-                <View style={styles.tableRowplant}>
-                  <View style={[styles.tableColplant, { width: '30%' }]}>
-                    <View style={styles.tableCellplant}>
-                      <Text
-                        style={{ fontFamily: 'Roboto', fontWeight: 'bold' }}
-                      >
-                        Nombre
-                      </Text>
-                    </View>
-                  </View>
-                  <View style={[styles.tableColplantRigth, { width: '70%' }]}>
-                    <Text style={styles.tableCellplantRigth}>
-                      {props.url.dataEntrance.productor.nombreCompleto}
-                    </Text>
-                  </View>
-                </View>
-                <View style={styles.tableRowplant}>
-                  <View style={[styles.tableColplant, { width: '30%' }]}>
-                    <View style={styles.tableCellplant}>
-                      <Text
-                        style={{ fontFamily: 'Roboto', fontWeight: 'bold' }}
-                      >
-                        {props.url.dataEntrance.productor.numeroDocumento ===
-                        undefined
-                          ? 'Nit'
-                          : 'Documento'}
-                      </Text>
-                    </View>
-                  </View>
-                  <View style={[styles.tableColplantRigth, { width: '70%' }]}>
-                    <Text style={styles.tableCellplantRigth}>
-                      {props.url.dataEntrance.productor.nit === undefined
-                        ? props.url.dataEntrance.productor.numeroDocumento
-                        : props.url.dataEntrance.productor.nit}
-                    </Text>
-                  </View>
-                </View>
-                <View style={styles.tableRowplant}>
-                  <View style={[styles.tableColplant, { width: '30%' }]}>
-                    <View style={styles.tableCellplant}>
-                      <Text
-                        style={{ fontFamily: 'Roboto', fontWeight: 'bold' }}
-                      >
-                        Teléfono
-                      </Text>
-                    </View>
-                  </View>
-                  <View style={[styles.tableColplantRigth, { width: '70%' }]}>
-                    <Text style={styles.tableCellplantRigth}>
-                      {props.url.dataEntrance.productor.telefono1}
-                    </Text>
-                  </View>
-                </View>
-                <View style={styles.tableRowplant}>
-                  <View style={[styles.tableColplant, { width: '30%' }]}>
-                    <View style={styles.tableCellplant}>
-                      <Text
-                        style={{ fontFamily: 'Roboto', fontWeight: 'bold' }}
-                      >
-                        Email
-                      </Text>
-                    </View>
-                  </View>
-                  <View style={[styles.tableColplantRigth, { width: '70%' }]}>
-                    <Text style={styles.tableCellplantRigth}>
-                      {props.url.dataEntrance.productor.email}
-                    </Text>
-                  </View>
-                </View>
-                <View style={styles.tableRowplant}>
-                  <View style={[styles.tableColplant, { width: '30%' }]}>
-                    <View style={styles.tableCellplant}>
-                      <Text
-                        style={{ fontFamily: 'Roboto', fontWeight: 'bold' }}
-                      >
-                        Dirección
-                      </Text>
-                    </View>
-                  </View>
-                  <View style={[styles.tableColplantRigth, { width: '70%' }]}>
-                    <Text style={styles.tableCellplantRigth}>
-                      {props.url.dataEntrance.productor.direccion}
-                    </Text>
-                  </View>
-                </View>
-                <View style={styles.tableRowplant}>
-                  <View style={[styles.tableColplant, { width: '30%' }]}>
-                    <View style={styles.tableCellplant}>
-                      <Text
-                        style={{ fontFamily: 'Roboto', fontWeight: 'bold' }}
-                      >
-                        Ciudad
-                      </Text>
-                    </View>
-                  </View>
-                  <View style={[styles.tableColplantRigth, { width: '70%' }]}>
-                    <Text style={styles.tableCellplantRigth}>
-                      {props.url.dataEntrance.productor.ciudad},
-                      {props.url.dataEntrance.productor.pais}
-                    </Text>
-                  </View>
-                </View>
-              </View>
-            </View>
-            <View style={styles.tablecontainer3}>
-              <View style={styles.backgroundplant}>
-                <View style={styles.imageplant}>
-                  <Image src='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACQAAAAkCAYAAADhAJiYAAAABmJLR0QA/wD/AP+gvaeTAAACSklEQVRYhe2WTUgVURTH/9eMQB6GWWS0ysSVVASPviAjsFYF0SKiRRuDwpAWrUsLySQhgz5WLVsFbaKWiYvAVi0sTF+L6AOiD6jkpZj+WnQeDdO8yblvnNX8Ybhzzz3vnN/cj3eulCtXruWVqzUAsErSJuu+ds7N1xrTF6QZuA384K++ASNAY9YwG4ASMAtcAfbZM2CAE8CaLIEeWuJtEWMdwAxwLyuYzbY8vTE+54BFYGMWQMcMaF2Mz3rzOZo0fp0H00prZ2J8vlvbkDS4D9ALa4sxPjusfeURP5kABzwHRoH6iPF6YAx4Cfh8sBdUESgbVFvA3go8BuaAPZnABJLvBCbtNE0B0/ZeAvb6xq2pdNiSdUraYqYJSaO1lA8vIGC1pG5JC8656wG7kzRkcQedc599wZLAdACPAvWrrwJjta2iZ0DncsOctPpVBt4BPytQwKC9fwG+2tgCcDFJjiUfS+CUpLuShiUdkdQiacSGZ+2RpDuSmiSdlnRZ0gVgOAnUUmAO2Anqtf4K4CPQAxwGdgO7gEPAJZudRvM9Yb/tTgumALwFbobst4AnEf6TwIOQ7aot49o0gM4Anwhduvhz//kFtARmaKvto+Mh3wb7qP40gMaBaxH2OuADcDZgG7ANX4jw7wPe2F+DN0wBmAe6qozfAMYC/WngfhXfos1ee1zOf4pjSO3mswi0RoyPS+oB9ktqltQmaQhoCvjMOefKkkrW3y5p6j95owV0kb7Ox+WMXU/bCwfld2+qpqfOufcpxsuVK1ci/QYiRJiCZ0Om5AAAAABJRU5ErkJggg==' />
-                </View>
-                <Text style={{ fontFamily: 'Roboto', fontWeight: 'bold' }}>
-                  Comercializador
-                </Text>
-              </View>
-              <View style={styles.tableplant}>
-                <View style={styles.tableRowplant}>
-                  <View style={[styles.tableColplant, { width: '30%' }]}>
-                    <View style={styles.tableCellplant}>
-                      <Text
-                        style={{ fontFamily: 'Roboto', fontWeight: 'bold' }}
-                      >
-                        Nombre
-                      </Text>
-                    </View>
-                  </View>
-                  <View style={[styles.tableColplantRigth, { width: '70%' }]}>
-                    <Text style={styles.tableCellplantRigth}>
-                      {props.url.dataEntrance.comercializador.nombreCompleto}
-                    </Text>
-                  </View>
-                </View>
-                <View style={styles.tableRowplant}>
-                  <View style={[styles.tableColplant, { width: '30%' }]}>
-                    <View style={styles.tableCellplant}>
-                      <Text
-                        style={{ fontFamily: 'Roboto', fontWeight: 'bold' }}
-                      >
-                        {props.url.dataEntrance.comercializador
-                          .numeroDocumento === undefined
-                          ? 'Nit'
-                          : 'Documento'}
-                      </Text>
-                    </View>
-                  </View>
-                  <View style={[styles.tableColplantRigth, { width: '70%' }]}>
-                    <Text style={styles.tableCellplantRigth}>
-                      {props.url.dataEntrance.comercializador.nit === undefined
-                        ? props.url.dataEntrance.comercializador.numeroDocumento
-                        : props.url.dataEntrance.comercializador.nit}
-                    </Text>
-                  </View>
-                </View>
-                <View style={styles.tableRowplant}>
-                  <View style={[styles.tableColplant, { width: '30%' }]}>
-                    <View style={styles.tableCellplant}>
-                      <Text
-                        style={{ fontFamily: 'Roboto', fontWeight: 'bold' }}
-                      >
-                        Teléfono
-                      </Text>
-                    </View>
-                  </View>
-                  <View style={[styles.tableColplantRigth, { width: '70%' }]}>
-                    <Text style={styles.tableCellplantRigth}>
-                      {props.url.dataEntrance.comercializador.telefono1}
-                    </Text>
-                  </View>
-                </View>
-                <View style={styles.tableRowplant}>
-                  <View style={[styles.tableColplant, { width: '30%' }]}>
-                    <View style={styles.tableCellplant}>
-                      <Text
-                        style={{ fontFamily: 'Roboto', fontWeight: 'bold' }}
-                      >
-                        Email
-                      </Text>
-                    </View>
-                  </View>
-                  <View style={[styles.tableColplantRigth, { width: '70%' }]}>
-                    <Text style={styles.tableCellplantRigth}>
-                      {props.url.dataEntrance.comercializador.email}
-                    </Text>
-                  </View>
-                </View>
-                <View style={styles.tableRowplant}>
-                  <View style={[styles.tableColplant, { width: '30%' }]}>
-                    <View style={styles.tableCellplant}>
-                      <Text
-                        style={{ fontFamily: 'Roboto', fontWeight: 'bold' }}
-                      >
-                        Dirección
-                      </Text>
-                    </View>
-                  </View>
-                  <View style={[styles.tableColplantRigth, { width: '70%' }]}>
-                    <Text style={styles.tableCellplantRigth}>
-                      {props.url.dataEntrance.comercializador.direccion}
-                    </Text>
-                  </View>
-                </View>
-                <View style={styles.tableRowplant}>
-                  <View style={[styles.tableColplant, { width: '30%' }]}>
-                    <View style={styles.tableCellplant}>
-                      <Text
-                        style={{ fontFamily: 'Roboto', fontWeight: 'bold' }}
-                      >
-                        Ciudad
-                      </Text>
-                    </View>
-                  </View>
-                  <View style={[styles.tableColplantRigth, { width: '70%' }]}>
-                    <Text style={styles.tableCellplantRigth}>
-                      {props.url.dataEntrance.comercializador.ciudad},
-                      {props.url.dataEntrance.comercializador.pais}
-                    </Text>
                   </View>
                 </View>
               </View>
@@ -8697,7 +8699,7 @@ aWYuY29toMOzWAAAAABJRU5ErkJggg=='
                 </View>
                 <View style={{ flexDirection: 'row', marginTop: 10 }}>
                   <View style={{ width: 100 }}>
-                    {/* <Image src={props.url.chart} /> */}
+                    <Image src={props.url.chart} />
                   </View>
                   <View
                     style={{
@@ -8751,19 +8753,27 @@ aWYuY29toMOzWAAAAABJRU5ErkJggg=='
                       {[
                         {
                           text: 'Canales Decomisadas Completas (línea)',
-                          number: '0'
+                          number:
+                            props.url.dataSacrifice.sacrificioSB
+                              .cantidadCanalesCompletasDecomisadas
                         },
                         {
                           text: 'Total (Kgs) Carne Decomisada (línea)',
-                          number: '0'
+                          number:
+                            props.url.dataSacrifice.sacrificioSB
+                              .cantidadPesoDecomisado
                         },
                         {
                           text: 'Canales Decomisadas Completas (Emergencia)',
-                          number: '0'
+                          number:
+                            props.url.dataSacrifice.sacrificioSBE
+                              .cantidadCanalesCompletasDecomisadas
                         },
                         {
                           text: 'Total (Kgs) Carne Decomisada (Emergencia)',
-                          number: '0'
+                          number:
+                            props.url.dataSacrifice.sacrificioSBE
+                              .cantidadPesoDecomisado
                         }
                       ].map((item) => {
                         return (
@@ -8827,7 +8837,7 @@ aWYuY29toMOzWAAAAABJRU5ErkJggg=='
                   marginTop: 10
                 }}
               >
-                {/* <Image src={props.url.chart1} /> */}
+                <Image src={props.url.chart1} />
               </View>
               <View style={{ width: '43%' }}>
                 <View
@@ -8893,12 +8903,16 @@ aWYuY29toMOzWAAAAABJRU5ErkJggg=='
                     </View>
                     <View style={styles.tableCol1}>
                       <View style={styles.tableCellplant}>
-                        <Text>12</Text>
+                        <Text>
+                          {props.url.dataSacrifice.clasificacionSEUROP.cantS}
+                        </Text>
                       </View>
                     </View>
                     <View style={styles.tableCol1}>
                       <View style={styles.tableCellplant}>
-                        <Text>16%</Text>
+                        <Text>
+                          {props.url.dataSacrifice.clasificacionSEUROP.porcS} %
+                        </Text>
                       </View>
                     </View>
                   </View>
@@ -8923,12 +8937,16 @@ aWYuY29toMOzWAAAAABJRU5ErkJggg=='
                     </View>
                     <View style={styles.tableCol1}>
                       <View style={styles.tableCellplant}>
-                        <Text>12</Text>
+                        <Text>
+                          {props.url.dataSacrifice.clasificacionSEUROP.cantE}
+                        </Text>
                       </View>
                     </View>
                     <View style={styles.tableCol1}>
                       <View style={styles.tableCellplant}>
-                        <Text>16%</Text>
+                        <Text>
+                          {props.url.dataSacrifice.clasificacionSEUROP.porcE} %
+                        </Text>
                       </View>
                     </View>
                   </View>
@@ -8953,12 +8971,16 @@ aWYuY29toMOzWAAAAABJRU5ErkJggg=='
                     </View>
                     <View style={styles.tableCol1}>
                       <View style={styles.tableCellplant}>
-                        <Text>12</Text>
+                        <Text>
+                          {props.url.dataSacrifice.clasificacionSEUROP.cantU}
+                        </Text>
                       </View>
                     </View>
                     <View style={styles.tableCol1}>
                       <View style={styles.tableCellplant}>
-                        <Text>16%</Text>
+                        <Text>
+                          {props.url.dataSacrifice.clasificacionSEUROP.porcU} %
+                        </Text>
                       </View>
                     </View>
                   </View>
@@ -8983,12 +9005,16 @@ aWYuY29toMOzWAAAAABJRU5ErkJggg=='
                     </View>
                     <View style={styles.tableCol1}>
                       <View style={styles.tableCellplant}>
-                        <Text>12</Text>
+                        <Text>
+                          {props.url.dataSacrifice.clasificacionSEUROP.cantR}
+                        </Text>
                       </View>
                     </View>
                     <View style={styles.tableCol1}>
                       <View style={styles.tableCellplant}>
-                        <Text>16%</Text>
+                        <Text>
+                          {props.url.dataSacrifice.clasificacionSEUROP.porcR} %
+                        </Text>
                       </View>
                     </View>
                   </View>
@@ -9013,12 +9039,16 @@ aWYuY29toMOzWAAAAABJRU5ErkJggg=='
                     </View>
                     <View style={styles.tableCol1}>
                       <View style={styles.tableCellplant}>
-                        <Text>12</Text>
+                        <Text>
+                          {props.url.dataSacrifice.clasificacionSEUROP.cantO}
+                        </Text>
                       </View>
                     </View>
                     <View style={styles.tableCol1}>
                       <View style={styles.tableCellplant}>
-                        <Text>16%</Text>
+                        <Text>
+                          {props.url.dataSacrifice.clasificacionSEUROP.porcO} %
+                        </Text>
                       </View>
                     </View>
                   </View>
@@ -9043,12 +9073,16 @@ aWYuY29toMOzWAAAAABJRU5ErkJggg=='
                     </View>
                     <View style={styles.tableCol1}>
                       <View style={styles.tableCellplant}>
-                        <Text>12</Text>
+                        <Text>
+                          {props.url.dataSacrifice.clasificacionSEUROP.cantP}
+                        </Text>
                       </View>
                     </View>
                     <View style={styles.tableCol1}>
                       <View style={styles.tableCellplant}>
-                        <Text>16%</Text>
+                        <Text>
+                          {props.url.dataSacrifice.clasificacionSEUROP.porcP} %
+                        </Text>
                       </View>
                     </View>
                   </View>
@@ -9074,7 +9108,7 @@ aWYuY29toMOzWAAAAABJRU5ErkJggg=='
                     }}
                   >
                     <Text style={{ fontFamily: 'Roboto', fontWeight: 'bold' }}>
-                      8
+                      8 PENDIENTE
                     </Text>
                   </View>
                 </View>
@@ -9099,7 +9133,7 @@ aWYuY29toMOzWAAAAABJRU5ErkJggg=='
                     }}
                   >
                     <Text style={{ fontFamily: 'Roboto', fontWeight: 'bold' }}>
-                      19,51%
+                      19,51% PENDIENTE
                     </Text>
                   </View>
                 </View>
@@ -9253,379 +9287,92 @@ aWYuY29toMOzWAAAAABJRU5ErkJggg=='
                   </View>
                 </View>
               </View>
-
-              <View style={styles.tableRowplantBackground}>
-                <View style={[styles.tableCol2, { width: '7.7%' }]}>
-                  <View style={styles.tableCellplant}>
-                    <Text>306001 </Text>
-                  </View>
-                </View>
-                <View style={[styles.tableCol2, { width: '7.7%' }]}>
-                  <Text style={styles.tableCellplant}>30600101</Text>
-                </View>
-                <View style={[styles.tableCol2, { width: '7.7%' }]}>
-                  <Text style={styles.tableCellplant}>E</Text>
-                </View>
-                <View style={[styles.tableCol2, { width: '7.7%' }]}>
-                  <Text style={styles.tableCellplant}>100,2 </Text>
-                </View>
-                <View style={[styles.tableCol2, { width: '7.7%' }]}>
-                  <Text style={styles.tableCellplant}>GP4 </Text>
-                </View>
-                <View style={[styles.tableCol2, { width: '7.7%' }]}>
-                  <Text style={styles.tableCellplant}>70,60</Text>
-                </View>
-                <View style={[styles.tableCol2, { width: '7.7%' }]}>
-                  <Text style={styles.tableCellplant}>11,60</Text>
-                </View>
-                <View style={[styles.tableCol2, { width: '7.7%' }]}>
-                  <Text style={styles.tableCellplant}>70,60 </Text>
-                </View>
-
-                <View style={[styles.tableCol2, { width: '7.7%' }]}>
-                  <Text style={styles.tableCellplant}>70,60 </Text>
-                </View>
-
-                <View style={[styles.tableCol2, { width: '7.7%' }]}>
-                  <Text style={styles.tableCellplant}>.</Text>
-                </View>
-                <View style={[styles.tableCol2, { width: '7.7%' }]}>
+              {props.url.dataSacrifice.detalleCanales.map((item, index) => {
+                return (
                   <View
                     style={[
-                      styles.tableCellplant,
-                      { flexDirection: 'row', alignItems: 'center' }
+                      styles.tableRowplant,
+                      { backgroundColor: index % 2 === 0 ? '#ededed' : 'white' }
                     ]}
+                    key={index}
                   >
-                    <View
-                      style={{
-                        height: 5,
-                        width: 5,
-                        borderRadius: 5,
-                        backgroundColor: '#8c1719'
-                      }}
-                    />
-                    <Text style={{ textAlign: 'left', marginLeft: 5 }}>
-                      00,00
-                    </Text>
-                  </View>
-                </View>
-                <View style={[styles.tableCol2, { width: '7.7%' }]}>
-                  <Text style={styles.tableCellplant}>04/04/2019 </Text>
-                </View>
-                <View style={[styles.tableCol2, { width: '7.7%' }]}>
-                  <Text style={styles.tableCellplant}>M </Text>
-                </View>
-              </View>
-              <View style={styles.tableRowplant}>
-                <View style={[styles.tableCol2, { width: '7.7%' }]}>
-                  <View style={styles.tableCellplant}>
-                    <Text>306001 </Text>
-                  </View>
-                </View>
-                <View style={[styles.tableCol2, { width: '7.7%' }]}>
-                  <Text style={styles.tableCellplant}>30600101</Text>
-                </View>
-                <View style={[styles.tableCol2, { width: '7.7%' }]}>
-                  <Text style={styles.tableCellplant}>E</Text>
-                </View>
-                <View style={[styles.tableCol2, { width: '7.7%' }]}>
-                  <Text style={styles.tableCellplant}>100,2 </Text>
-                </View>
-                <View style={[styles.tableCol2, { width: '7.7%' }]}>
-                  <Text style={styles.tableCellplant}>GP4 </Text>
-                </View>
-                <View style={[styles.tableCol2, { width: '7.7%' }]}>
-                  <Text style={styles.tableCellplant}>70,60</Text>
-                </View>
-                <View style={[styles.tableCol2, { width: '7.7%' }]}>
-                  <Text style={styles.tableCellplant}>11,60</Text>
-                </View>
-                <View style={[styles.tableCol2, { width: '7.7%' }]}>
-                  <Text style={styles.tableCellplant}>70,60 </Text>
-                </View>
+                    <View style={[styles.tableCol2, { width: '7.7%' }]}>
+                      <View style={styles.tableCellplant}>
+                        <Text>{item.canalId}</Text>
+                      </View>
+                    </View>
+                    <View style={[styles.tableCol2, { width: '7.7%' }]}>
+                      <Text style={styles.tableCellplant}>
+                        {item.brazalete}
+                      </Text>
+                    </View>
+                    <View style={[styles.tableCol2, { width: '7.7%' }]}>
+                      <Text style={styles.tableCellplant}>{item.seurop}</Text>
+                    </View>
+                    <View style={[styles.tableCol2, { width: '7.7%' }]}>
+                      <Text style={styles.tableCellplant}>
+                        {item.kgPesoCanalCaliente}
+                      </Text>
+                    </View>
+                    <View style={[styles.tableCol2, { width: '7.7%' }]}>
+                      <Text style={styles.tableCellplant}>GP4 </Text>
+                    </View>
+                    <View style={[styles.tableCol2, { width: '7.7%' }]}>
+                      <Text style={styles.tableCellplant}>
+                        {item.pCarneMagra}
+                      </Text>
+                    </View>
+                    <View style={[styles.tableCol2, { width: '7.7%' }]}>
+                      <Text style={styles.tableCellplant}>
+                        {item.mmGrasaDorsal1}
+                      </Text>
+                    </View>
+                    <View style={[styles.tableCol2, { width: '7.7%' }]}>
+                      <Text style={styles.tableCellplant}>
+                        {item.mmEspesorLomo}
+                      </Text>
+                    </View>
 
-                <View style={[styles.tableCol2, { width: '7.7%' }]}>
-                  <Text style={styles.tableCellplant}>70,60 </Text>
-                </View>
+                    <View style={[styles.tableCol2, { width: '7.7%' }]}>
+                      <Text style={styles.tableCellplant}>
+                        {Number(item.kgRendimientoMagro).toFixed(2)}
+                      </Text>
+                    </View>
 
-                <View style={[styles.tableCol2, { width: '7.7%' }]}>
-                  <Text style={styles.tableCellplant}>.</Text>
-                </View>
-                <View style={[styles.tableCol2, { width: '7.7%' }]}>
-                  <View
-                    style={[
-                      styles.tableCellplant,
-                      { flexDirection: 'row', alignItems: 'center' }
-                    ]}
-                  >
-                    <View
-                      style={{
-                        height: 5,
-                        width: 5,
-                        borderRadius: 5,
-                        backgroundColor: '#8c1719'
-                      }}
-                    />
-                    <Text style={{ textAlign: 'left', marginLeft: 5 }}>
-                      00,00
-                    </Text>
+                    <View style={[styles.tableCol2, { width: '7.7%' }]}>
+                      <Text style={styles.tableCellplant}>{item.iPse}</Text>
+                    </View>
+                    <View style={[styles.tableCol2, { width: '7.7%' }]}>
+                      <View
+                        style={[
+                          styles.tableCellplant,
+                          { flexDirection: 'row', alignItems: 'center' }
+                        ]}
+                      >
+                        <View
+                          style={{
+                            height: 5,
+                            width: 5,
+                            borderRadius: 5,
+                            backgroundColor: '#8c1719'
+                          }}
+                        />
+                        <Text style={{ textAlign: 'left', marginLeft: 5 }}>
+                          {item.cColorMinimo2}
+                        </Text>
+                      </View>
+                    </View>
+                    <View style={[styles.tableCol2, { width: '7.7%' }]}>
+                      <Text style={styles.tableCellplant}>
+                        {item.fechaRegistroMedicion}
+                      </Text>
+                    </View>
+                    <View style={[styles.tableCol2, { width: '7.7%' }]}>
+                      <Text style={styles.tableCellplant}>{item.sexo} </Text>
+                    </View>
                   </View>
-                </View>
-                <View style={[styles.tableCol2, { width: '7.7%' }]}>
-                  <Text style={styles.tableCellplant}>04/04/2019 </Text>
-                </View>
-                <View style={[styles.tableCol2, { width: '7.7%' }]}>
-                  <Text style={styles.tableCellplant}>M </Text>
-                </View>
-              </View>
-              <View style={styles.tableRowplantBackground}>
-                <View style={[styles.tableCol2, { width: '7.7%' }]}>
-                  <View style={styles.tableCellplant}>
-                    <Text>306001 </Text>
-                  </View>
-                </View>
-                <View style={[styles.tableCol2, { width: '7.7%' }]}>
-                  <Text style={styles.tableCellplant}>30600101</Text>
-                </View>
-                <View style={[styles.tableCol2, { width: '7.7%' }]}>
-                  <Text style={styles.tableCellplant}>E</Text>
-                </View>
-                <View style={[styles.tableCol2, { width: '7.7%' }]}>
-                  <Text style={styles.tableCellplant}>100,2 </Text>
-                </View>
-                <View style={[styles.tableCol2, { width: '7.7%' }]}>
-                  <Text style={styles.tableCellplant}>GP4 </Text>
-                </View>
-                <View style={[styles.tableCol2, { width: '7.7%' }]}>
-                  <Text style={styles.tableCellplant}>70,60</Text>
-                </View>
-                <View style={[styles.tableCol2, { width: '7.7%' }]}>
-                  <Text style={styles.tableCellplant}>11,60</Text>
-                </View>
-                <View style={[styles.tableCol2, { width: '7.7%' }]}>
-                  <Text style={styles.tableCellplant}>70,60 </Text>
-                </View>
-
-                <View style={[styles.tableCol2, { width: '7.7%' }]}>
-                  <Text style={styles.tableCellplant}>70,60 </Text>
-                </View>
-
-                <View style={[styles.tableCol2, { width: '7.7%' }]}>
-                  <Text style={styles.tableCellplant}>.</Text>
-                </View>
-                <View style={[styles.tableCol2, { width: '7.7%' }]}>
-                  <View
-                    style={[
-                      styles.tableCellplant,
-                      { flexDirection: 'row', alignItems: 'center' }
-                    ]}
-                  >
-                    <View
-                      style={{
-                        height: 5,
-                        width: 5,
-                        borderRadius: 5,
-                        backgroundColor: '#8c1719'
-                      }}
-                    />
-                    <Text style={{ textAlign: 'left', marginLeft: 5 }}>
-                      00,00
-                    </Text>
-                  </View>
-                </View>
-                <View style={[styles.tableCol2, { width: '7.7%' }]}>
-                  <Text style={styles.tableCellplant}>04/04/2019 </Text>
-                </View>
-                <View style={[styles.tableCol2, { width: '7.7%' }]}>
-                  <Text style={styles.tableCellplant}>M </Text>
-                </View>
-              </View>
-              <View style={styles.tableRowplant}>
-                <View style={[styles.tableCol2, { width: '7.7%' }]}>
-                  <View style={styles.tableCellplant}>
-                    <Text>306001 </Text>
-                  </View>
-                </View>
-                <View style={[styles.tableCol2, { width: '7.7%' }]}>
-                  <Text style={styles.tableCellplant}>30600101</Text>
-                </View>
-                <View style={[styles.tableCol2, { width: '7.7%' }]}>
-                  <Text style={styles.tableCellplant}>E</Text>
-                </View>
-                <View style={[styles.tableCol2, { width: '7.7%' }]}>
-                  <Text style={styles.tableCellplant}>100,2 </Text>
-                </View>
-                <View style={[styles.tableCol2, { width: '7.7%' }]}>
-                  <Text style={styles.tableCellplant}>GP4 </Text>
-                </View>
-                <View style={[styles.tableCol2, { width: '7.7%' }]}>
-                  <Text style={styles.tableCellplant}>70,60</Text>
-                </View>
-                <View style={[styles.tableCol2, { width: '7.7%' }]}>
-                  <Text style={styles.tableCellplant}>11,60</Text>
-                </View>
-                <View style={[styles.tableCol2, { width: '7.7%' }]}>
-                  <Text style={styles.tableCellplant}>70,60 </Text>
-                </View>
-
-                <View style={[styles.tableCol2, { width: '7.7%' }]}>
-                  <Text style={styles.tableCellplant}>70,60 </Text>
-                </View>
-
-                <View style={[styles.tableCol2, { width: '7.7%' }]}>
-                  <Text style={styles.tableCellplant}>.</Text>
-                </View>
-                <View style={[styles.tableCol2, { width: '7.7%' }]}>
-                  <View
-                    style={[
-                      styles.tableCellplant,
-                      { flexDirection: 'row', alignItems: 'center' }
-                    ]}
-                  >
-                    <View
-                      style={{
-                        height: 5,
-                        width: 5,
-                        borderRadius: 5,
-                        backgroundColor: '#8c1719'
-                      }}
-                    />
-                    <Text style={{ textAlign: 'left', marginLeft: 5 }}>
-                      00,00
-                    </Text>
-                  </View>
-                </View>
-                <View style={[styles.tableCol2, { width: '7.7%' }]}>
-                  <Text style={styles.tableCellplant}>04/04/2019 </Text>
-                </View>
-                <View style={[styles.tableCol2, { width: '7.7%' }]}>
-                  <Text style={styles.tableCellplant}>M </Text>
-                </View>
-              </View>
-              <View style={styles.tableRowplantBackground}>
-                <View style={[styles.tableCol2, { height: 15 }]}>
-                  <View
-                    style={[
-                      styles.tableCellplant,
-                      {
-                        fontFamily: 'Roboto',
-                        fontWeight: 'bold',
-                        backgroundColor: '#dd9835',
-                        width: 60,
-                        height: 15,
-                        top: -5,
-                        color: 'white',
-                        justifyContent: 'center'
-                      }
-                    ]}
-                  >
-                    <Text style={{ fontFamily: 'Roboto', fontWeight: 'bold' }}>
-                      Totales
-                    </Text>
-                  </View>
-                </View>
-                <View style={[styles.tableCol2, { width: '7.7%' }]}>
-                  <Text style={styles.tableCellplant} />
-                </View>
-                <View style={[styles.tableCol2, { width: '7.7%' }]}>
-                  <Text
-                    style={[
-                      styles.tableCellplant,
-                      { fontFamily: 'Roboto', fontWeight: 'bold' }
-                    ]}
-                  />
-                </View>
-                <View style={[styles.tableCol2, { width: '7.7%' }]}>
-                  <Text
-                    style={[
-                      styles.tableCellplant,
-                      { fontFamily: 'Roboto', fontWeight: 'bold' }
-                    ]}
-                  >
-                    100,2
-                  </Text>
-                </View>
-                <View style={[styles.tableCol2, { width: '7.7%' }]}>
-                  <Text
-                    style={[
-                      styles.tableCellplant,
-                      { fontFamily: 'Roboto', fontWeight: 'bold' }
-                    ]}
-                  />
-                </View>
-                <View style={[styles.tableCol2, { width: '7.7%' }]}>
-                  <Text
-                    style={[
-                      styles.tableCellplant,
-                      { fontFamily: 'Roboto', fontWeight: 'bold' }
-                    ]}
-                  >
-                    70,60
-                  </Text>
-                </View>
-                <View style={[styles.tableCol2, { width: '7.7%' }]}>
-                  <Text
-                    style={[
-                      styles.tableCellplant,
-                      { fontFamily: 'Roboto', fontWeight: 'bold' }
-                    ]}
-                  >
-                    70,60
-                  </Text>
-                </View>
-                <View style={[styles.tableCol2, { width: '7.7%' }]}>
-                  <Text
-                    style={[
-                      styles.tableCellplant,
-                      { fontFamily: 'Roboto', fontWeight: 'bold' }
-                    ]}
-                  >
-                    70,60
-                  </Text>
-                </View>
-                <View style={[styles.tableCol2, { width: '7.7%' }]}>
-                  <Text
-                    style={[
-                      styles.tableCellplant,
-                      { fontFamily: 'Roboto', fontWeight: 'bold' }
-                    ]}
-                  >
-                    70,60
-                  </Text>
-                </View>
-                <View style={[styles.tableCol2, { width: '7.7%' }]}>
-                  <Text
-                    style={[
-                      styles.tableCellplant,
-                      { fontFamily: 'Roboto', fontWeight: 'bold' }
-                    ]}
-                  />
-                </View>
-                <View style={[styles.tableCol2, { width: '7.7%' }]}>
-                  <Text
-                    style={[
-                      styles.tableCellplant,
-                      { fontFamily: 'Roboto', fontWeight: 'bold' }
-                    ]}
-                  />
-                </View>
-                <View style={[styles.tableCol2, { width: '7.7%' }]}>
-                  <Text
-                    style={[
-                      styles.tableCellplant,
-                      { fontFamily: 'Roboto', fontWeight: 'bold' }
-                    ]}
-                  />
-                </View>
-                <View style={[styles.tableCol2, { width: '7.7%' }]}>
-                  <Text
-                    style={[
-                      styles.tableCellplant,
-                      { fontFamily: 'Roboto', fontWeight: 'bold' }
-                    ]}
-                  />
-                </View>
-              </View>
+                )
+              })}
             </View>
 
             <View style={styles.backgroundresumetitle}>
@@ -9635,7 +9382,14 @@ aWYuY29toMOzWAAAAABJRU5ErkJggg=='
             </View>
             <View>
               <View style={styles.tableplant2}>
-                <View style={[styles.tableRowplant, { height: 20 }]}>
+                <View
+                  style={[
+                    styles.tableRowplant,
+                    {
+                      height: 20
+                    }
+                  ]}
+                >
                   <View style={[styles.tableCol2, { width: '16.7%' }]}>
                     <View style={styles.tableCellplant}>
                       <Text
@@ -9650,7 +9404,7 @@ aWYuY29toMOzWAAAAABJRU5ErkJggg=='
                       <Text
                         style={{ fontFamily: 'Roboto', fontWeight: 'bold' }}
                       >
-                        Brazalete
+                        Cantidad
                       </Text>
                     </View>
                   </View>
@@ -9659,7 +9413,7 @@ aWYuY29toMOzWAAAAABJRU5ErkJggg=='
                       <Text
                         style={{ fontFamily: 'Roboto', fontWeight: 'bold' }}
                       >
-                        SEUROP
+                        Parte Decomisada
                       </Text>
                     </View>
                   </View>
@@ -9668,7 +9422,7 @@ aWYuY29toMOzWAAAAABJRU5ErkJggg=='
                       <Text
                         style={{ fontFamily: 'Roboto', fontWeight: 'bold' }}
                       >
-                        PCC (Kg)
+                        Causa
                       </Text>
                     </View>
                   </View>
@@ -9677,7 +9431,7 @@ aWYuY29toMOzWAAAAABJRU5ErkJggg=='
                       <Text
                         style={{ fontFamily: 'Roboto', fontWeight: 'bold' }}
                       >
-                        Inst. Med.
+                        Decomiso (Kg)
                       </Text>
                     </View>
                   </View>
@@ -9686,267 +9440,59 @@ aWYuY29toMOzWAAAAABJRU5ErkJggg=='
                       <Text
                         style={{ fontFamily: 'Roboto', fontWeight: 'bold' }}
                       >
-                        MC (%)
+                        Observaciones
                       </Text>
                     </View>
                   </View>
                 </View>
-                <View style={[styles.tableRowplantBackground, { height: 20 }]}>
-                  <View style={[styles.tableCol2, { width: '16.7%' }]}>
-                    <View style={styles.tableCellplant}>
-                      <Text>45143324</Text>
-                    </View>
-                  </View>
-                  <View style={[styles.tableCol2, { width: '16.7%' }]}>
-                    <View style={styles.tableCellplant}>
-                      <Text>2</Text>
-                    </View>
-                  </View>
-                  <View style={[styles.tableCol2, { width: '16.7%' }]}>
-                    <View style={styles.tableCellplant}>
-                      <Text>Pulmón</Text>
-                    </View>
-                  </View>
-                  <View style={[styles.tableCol2, { width: '16.7%' }]}>
-                    <View style={styles.tableCellplant}>
-                      <Text>Broncoaspiración</Text>
-                    </View>
-                  </View>
-                  <View style={[styles.tableCol2, { width: '16.7%' }]}>
-                    <View style={styles.tableCellplant}>
-                      <Text>0,00</Text>
-                    </View>
-                  </View>
-                  <View style={[styles.tableCol2, { width: '16.7%' }]}>
-                    <View style={styles.tableCellplant}>
-                      <Text>Ninguna Observación</Text>
-                    </View>
-                  </View>
-                </View>
-                <View style={[styles.tableRowplant, { height: 20 }]}>
-                  <View style={[styles.tableCol2, { width: '16.7%' }]}>
-                    <View style={styles.tableCellplant}>
-                      <Text>45143324</Text>
-                    </View>
-                  </View>
-                  <View style={[styles.tableCol2, { width: '16.7%' }]}>
-                    <View style={styles.tableCellplant}>
-                      <Text>2</Text>
-                    </View>
-                  </View>
-                  <View style={[styles.tableCol2, { width: '16.7%' }]}>
-                    <View style={styles.tableCellplant}>
-                      <Text>Pulmón</Text>
-                    </View>
-                  </View>
-                  <View style={[styles.tableCol2, { width: '16.7%' }]}>
-                    <View style={styles.tableCellplant}>
-                      <Text>Broncoaspiración</Text>
-                    </View>
-                  </View>
-                  <View style={[styles.tableCol2, { width: '16.7%' }]}>
-                    <View style={styles.tableCellplant}>
-                      <Text>0,00</Text>
-                    </View>
-                  </View>
-                  <View style={[styles.tableCol2, { width: '16.7%' }]}>
-                    <View style={styles.tableCellplant}>
-                      <Text>Ninguna Observación</Text>
-                    </View>
-                  </View>
-                </View>
-                <View style={[styles.tableRowplantBackground, { height: 20 }]}>
-                  <View style={[styles.tableCol2, { width: '16.7%' }]}>
-                    <View style={styles.tableCellplant}>
-                      <Text>45143324</Text>
-                    </View>
-                  </View>
-                  <View style={[styles.tableCol2, { width: '16.7%' }]}>
-                    <View style={styles.tableCellplant}>
-                      <Text>2</Text>
-                    </View>
-                  </View>
-                  <View style={[styles.tableCol2, { width: '16.7%' }]}>
-                    <View style={styles.tableCellplant}>
-                      <Text>Pulmón</Text>
-                    </View>
-                  </View>
-                  <View style={[styles.tableCol2, { width: '16.7%' }]}>
-                    <View style={styles.tableCellplant}>
-                      <Text>Broncoaspiración</Text>
-                    </View>
-                  </View>
-                  <View style={[styles.tableCol2, { width: '16.7%' }]}>
-                    <View style={styles.tableCellplant}>
-                      <Text>0,00</Text>
-                    </View>
-                  </View>
-                  <View style={[styles.tableCol2, { width: '16.7%' }]}>
-                    <View style={styles.tableCellplant}>
-                      <Text>Ninguna Observación</Text>
-                    </View>
-                  </View>
-                </View>
-                <View style={[styles.tableRowplant, { height: 20 }]}>
-                  <View style={[styles.tableCol2, { width: '16.7%' }]}>
-                    <View style={styles.tableCellplant}>
-                      <Text>45143324</Text>
-                    </View>
-                  </View>
-                  <View style={[styles.tableCol2, { width: '16.7%' }]}>
-                    <View style={styles.tableCellplant}>
-                      <Text>2</Text>
-                    </View>
-                  </View>
-                  <View style={[styles.tableCol2, { width: '16.7%' }]}>
-                    <View style={styles.tableCellplant}>
-                      <Text>Pulmón</Text>
-                    </View>
-                  </View>
-                  <View style={[styles.tableCol2, { width: '16.7%' }]}>
-                    <View style={styles.tableCellplant}>
-                      <Text>Broncoaspiración</Text>
-                    </View>
-                  </View>
-                  <View style={[styles.tableCol2, { width: '16.7%' }]}>
-                    <View style={styles.tableCellplant}>
-                      <Text>0,00</Text>
-                    </View>
-                  </View>
-                  <View style={[styles.tableCol2, { width: '16.7%' }]}>
-                    <View style={styles.tableCellplant}>
-                      <Text>Ninguna Observación</Text>
-                    </View>
-                  </View>
-                </View>
-                <View style={[styles.tableRowplantBackground, { height: 20 }]}>
-                  <View style={[styles.tableCol2, { width: '16.7%' }]}>
-                    <View style={styles.tableCellplant}>
-                      <Text>45143324</Text>
-                    </View>
-                  </View>
-                  <View style={[styles.tableCol2, { width: '16.7%' }]}>
-                    <View style={styles.tableCellplant}>
-                      <Text>2</Text>
-                    </View>
-                  </View>
-                  <View style={[styles.tableCol2, { width: '16.7%' }]}>
-                    <View style={styles.tableCellplant}>
-                      <Text>Pulmón</Text>
-                    </View>
-                  </View>
-                  <View style={[styles.tableCol2, { width: '16.7%' }]}>
-                    <View style={styles.tableCellplant}>
-                      <Text>Broncoaspiración</Text>
-                    </View>
-                  </View>
-                  <View style={[styles.tableCol2, { width: '16.7%' }]}>
-                    <View style={styles.tableCellplant}>
-                      <Text>0,00</Text>
-                    </View>
-                  </View>
-                  <View style={[styles.tableCol2, { width: '16.7%' }]}>
-                    <View style={styles.tableCellplant}>
-                      <Text>Ninguna Observación</Text>
-                    </View>
-                  </View>
-                </View>
-                <View style={[styles.tableRowplant, { height: 20 }]}>
-                  <View style={[styles.tableCol2, { width: '16.7%' }]}>
-                    <View style={styles.tableCellplant}>
-                      <Text>45143324</Text>
-                    </View>
-                  </View>
-                  <View style={[styles.tableCol2, { width: '16.7%' }]}>
-                    <View style={styles.tableCellplant}>
-                      <Text>2</Text>
-                    </View>
-                  </View>
-                  <View style={[styles.tableCol2, { width: '16.7%' }]}>
-                    <View style={styles.tableCellplant}>
-                      <Text>Pulmón</Text>
-                    </View>
-                  </View>
-                  <View style={[styles.tableCol2, { width: '16.7%' }]}>
-                    <View style={styles.tableCellplant}>
-                      <Text>Broncoaspiración</Text>
-                    </View>
-                  </View>
-                  <View style={[styles.tableCol2, { width: '16.7%' }]}>
-                    <View style={styles.tableCellplant}>
-                      <Text>0,00</Text>
-                    </View>
-                  </View>
-                  <View style={[styles.tableCol2, { width: '16.7%' }]}>
-                    <View style={styles.tableCellplant}>
-                      <Text>Ninguna Observación</Text>
-                    </View>
-                  </View>
-                </View>
-                <View style={[styles.tableRowplantBackground, { height: 20 }]}>
-                  <View style={[styles.tableCol2, { width: '16.7%' }]}>
-                    <View style={styles.tableCellplant}>
-                      <Text>45143324</Text>
-                    </View>
-                  </View>
-                  <View style={[styles.tableCol2, { width: '16.7%' }]}>
-                    <View style={styles.tableCellplant}>
-                      <Text>2</Text>
-                    </View>
-                  </View>
-                  <View style={[styles.tableCol2, { width: '16.7%' }]}>
-                    <View style={styles.tableCellplant}>
-                      <Text>Pulmón</Text>
-                    </View>
-                  </View>
-                  <View style={[styles.tableCol2, { width: '16.7%' }]}>
-                    <View style={styles.tableCellplant}>
-                      <Text>Broncoaspiración</Text>
-                    </View>
-                  </View>
-                  <View style={[styles.tableCol2, { width: '16.7%' }]}>
-                    <View style={styles.tableCellplant}>
-                      <Text>0,00</Text>
-                    </View>
-                  </View>
-                  <View style={[styles.tableCol2, { width: '16.7%' }]}>
-                    <View style={styles.tableCellplant}>
-                      <Text>Ninguna Observación</Text>
-                    </View>
-                  </View>
-                </View>
-                <View style={[styles.tableRowplant, { height: 20 }]}>
-                  <View style={[styles.tableCol2, { width: '16.7%' }]}>
-                    <View style={styles.tableCellplant}>
-                      <Text>45143324</Text>
-                    </View>
-                  </View>
-                  <View style={[styles.tableCol2, { width: '16.7%' }]}>
-                    <View style={styles.tableCellplant}>
-                      <Text>2</Text>
-                    </View>
-                  </View>
-                  <View style={[styles.tableCol2, { width: '16.7%' }]}>
-                    <View style={styles.tableCellplant}>
-                      <Text>Pulmón</Text>
-                    </View>
-                  </View>
-                  <View style={[styles.tableCol2, { width: '16.7%' }]}>
-                    <View style={styles.tableCellplant}>
-                      <Text>Broncoaspiración</Text>
-                    </View>
-                  </View>
-                  <View style={[styles.tableCol2, { width: '16.7%' }]}>
-                    <View style={styles.tableCellplant}>
-                      <Text>0,00</Text>
-                    </View>
-                  </View>
-                  <View style={[styles.tableCol2, { width: '16.7%' }]}>
-                    <View style={styles.tableCellplant}>
-                      <Text>Ninguna Observación</Text>
-                    </View>
-                  </View>
-                </View>
+                {props.url.dataSacrifice.detalleDecomisoPorCanalSB.map(
+                  (item, index) => {
+                    return (
+                      <View
+                        style={[
+                          styles.tableRowplant,
+                          {
+                            height: 20,
+                            backgroundColor:
+                              index % 2 === 0 ? '#ededed' : 'white'
+                          }
+                        ]}
+                        key={index}
+                      >
+                        <View style={[styles.tableCol2, { width: '16.7%' }]}>
+                          <View style={styles.tableCellplant}>
+                            <Text>{item.canalId}</Text>
+                          </View>
+                        </View>
+                        <View style={[styles.tableCol2, { width: '16.7%' }]}>
+                          <View style={styles.tableCellplant}>
+                            <Text>{item.cantidad}</Text>
+                          </View>
+                        </View>
+                        <View style={[styles.tableCol2, { width: '16.7%' }]}>
+                          <View style={styles.tableCellplant}>
+                            <Text>{item.parteDecomisada}</Text>
+                          </View>
+                        </View>
+                        <View style={[styles.tableCol2, { width: '16.7%' }]}>
+                          <View style={styles.tableCellplant}>
+                            <Text>{item.causa}</Text>
+                          </View>
+                        </View>
+                        <View style={[styles.tableCol2, { width: '16.7%' }]}>
+                          <View style={styles.tableCellplant}>
+                            <Text>{item.pesoTotalKG}</Text>
+                          </View>
+                        </View>
+                        <View style={[styles.tableCol2, { width: '16.7%' }]}>
+                          <View style={styles.tableCellplant}>
+                            <Text>{item.observacion}</Text>
+                          </View>
+                        </View>
+                      </View>
+                    )
+                  }
+                )}
               </View>
             </View>
           </View>
