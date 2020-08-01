@@ -14,6 +14,7 @@ const PruebaMongo = () => {
   const [dataCorrals, setDataCorrals] = useState({})
   const [dataSacrifice, setDataSacrifice] = useState({})
   const [dataGeneral, setDataGeneral] = useState({})
+  const [load, setLoad] = useState(true)
 
   const generateScreenshot = () => {
     html2canvas(document.getElementById('screen'), {
@@ -41,7 +42,8 @@ const PruebaMongo = () => {
       setChart1(result)
     })
   }
-  const LoadDataEntrance = () => {
+
+  useEffect(() => {
     axios
       .post('https://localhost:44386/api/v1/getObjectMongo', {
         idLoteIP: 12428606,
@@ -52,71 +54,65 @@ const PruebaMongo = () => {
         const dataEntrance = JSON.parse(res.data.data)
         console.log(dataEntrance)
         setDataEntrance(dataEntrance)
+        axios
+          .post('https://localhost:44386/api/v1/getObjectMongo', {
+            idLoteIP: 12428606,
+            seccion: 'corrales'
+          })
+          .then((res) => {
+            console.log(res.data)
+            const dataCorrals = JSON.parse(res.data.data)
+            console.log(dataCorrals)
+            setDataCorrals(dataCorrals)
+            axios
+              .post('https://localhost:44386/api/v1/getObjectMongo', {
+                idLoteIP: 12428606,
+                seccion: 'sacrificio'
+              })
+              .then((res) => {
+                console.log(res.data)
+                const dataSacrifice = JSON.parse(res.data.data)
+                console.log(dataSacrifice)
+                setDataSacrifice(dataSacrifice)
+                axios
+                  .post('https://localhost:44386/api/v1/getObjectMongo', {
+                    idLoteIP: 12428606,
+                    seccion: 'datos generales'
+                  })
+                  .then((res) => {
+                    setLoad(false)
+                    console.log(res.data)
+                    const dataGeneral = JSON.parse(res.data.data)
+                    console.log(dataGeneral)
+                    setDataGeneral(dataGeneral)
+                  })
+                  .catch((err) => console.error(err))
+              })
+              .catch((err) => console.error(err))
+          })
+          .catch((err) => console.error(err))
       })
       .catch((err) => console.error(err))
-    axios
-      .post('https://localhost:44386/api/v1/getObjectMongo', {
-        idLoteIP: 12428606,
-        seccion: 'corrales'
-      })
-      .then((res) => {
-        console.log(res.data)
-        const dataCorrals = JSON.parse(res.data.data)
-        console.log(dataCorrals)
-        setDataCorrals(dataCorrals)
-      })
-      .catch((err) => console.error(err))
-    axios
-      .post('https://localhost:44386/api/v1/getObjectMongo', {
-        idLoteIP: 12428606,
-        seccion: 'sacrificio'
-      })
-      .then((res) => {
-        console.log(res.data)
-        const dataSacrifice = JSON.parse(res.data.data)
-        console.log(dataSacrifice)
-        setDataSacrifice(dataSacrifice)
-      })
-      .catch((err) => console.error(err))
-    axios
-      .post('https://localhost:44386/api/v1/getObjectMongo', {
-        idLoteIP: 12428606,
-        seccion: 'datos generales'
-      })
-      .then((res) => {
-        console.log(res.data)
-        const dataGeneral = JSON.parse(res.data.data)
-        console.log(dataGeneral)
-        setDataGeneral(dataGeneral)
-      })
-      .catch((err) => console.error(err))
-  }
-
-  useEffect(() => {
-    LoadDataEntrance()
   }, [])
-
-  const LoadDataReport = () => {
-    setTimeout(() => {
-      LoadDataEntrance()
-    }, 1000)
-  }
-
+  if (load) return 'Cargando....'
   return (
     <div>
       <div style={{ position: 'absolute', left: '1111111px' }}>
-        <ReportLot />
+        {dataEntrance && dataCorrals && dataSacrifice && dataGeneral && (
+          <ReportLot
+            url={{
+              dataEntrance,
+              dataCorrals,
+              dataSacrifice,
+              dataGeneral
+            }}
+          />
+        )}
       </div>
       <Modal
         trigger={
           <Button
             onClick={() => {
-              LoadDataReport(
-                dataEntrance,
-                dataCorrals,
-                dataSacrifice,
-                dataGeneral
-              )
               generateScreenshot()
             }}
           >

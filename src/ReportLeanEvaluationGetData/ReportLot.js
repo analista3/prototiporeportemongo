@@ -9863,7 +9863,7 @@ aWYuY29toMOzWAAAAABJRU5ErkJggg=='
   )
 }
 
-export const ReportLot = () => {
+export const ReportLot = (props) => {
   return (
     <>
       <Style>
@@ -26072,12 +26072,54 @@ aWYuY29toMOzWAAAAABJRU5ErkJggg=='
                     <AccumulationSeriesCollectionDirective>
                       <AccumulationSeriesDirective
                         dataSource={[
-                          { x: 'S Superior 16%', y: 3 },
-                          { x: 'E Excelente 35%', y: 3 },
-                          { x: 'U Muy Buena 35%', y: 3 },
-                          { x: 'R Menos Buena 10%', y: 3 },
-                          { x: 'O Aceptable 2%', y: 3 },
-                          { x: 'P Pobre 2%', y: 3 }
+                          {
+                            x:
+                              'S Superior ' +
+                              props.url.dataSacrifice.clasificacionSEUROP
+                                .porcS +
+                              '%',
+                            y: props.url.dataSacrifice.clasificacionSEUROP.porcS
+                          },
+                          {
+                            x:
+                              'E Excelente ' +
+                              props.url.dataSacrifice.clasificacionSEUROP
+                                .porcE +
+                              '%',
+                            y: props.url.dataSacrifice.clasificacionSEUROP.porcE
+                          },
+                          {
+                            x:
+                              'U Muy Buena ' +
+                              props.url.dataSacrifice.clasificacionSEUROP
+                                .porcU +
+                              '%',
+                            y: props.url.dataSacrifice.clasificacionSEUROP.porcU
+                          },
+                          {
+                            x:
+                              'R Menos Buena ' +
+                              props.url.dataSacrifice.clasificacionSEUROP
+                                .porcR +
+                              '%',
+                            y: props.url.dataSacrifice.clasificacionSEUROP.porcR
+                          },
+                          {
+                            x:
+                              'O Aceptable ' +
+                              props.url.dataSacrifice.clasificacionSEUROP
+                                .porcO +
+                              '%',
+                            y: props.url.dataSacrifice.clasificacionSEUROP.porcO
+                          },
+                          {
+                            x:
+                              'P Pobre ' +
+                              props.url.dataSacrifice.clasificacionSEUROP
+                                .porcP +
+                              '%',
+                            y: props.url.dataSacrifice.clasificacionSEUROP.porcP
+                          }
                         ]}
                         palettes={['#B0413E', '#BE5948', '#D47D57']}
                         xName='x'
