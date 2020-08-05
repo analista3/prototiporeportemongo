@@ -6,7 +6,7 @@ import { MyDoc, ReportLot } from './ReportLeanEvaluationGetData/ReportLot'
 import axios from 'axios'
 import html2canvas from 'html2canvas'
 
-const PruebaMongo = () => {
+const PruebaMongo = (props) => {
   const [image, setImage] = useState(null)
   const [chart, setChart] = useState(null)
   const [chart1, setChart1] = useState(null)
@@ -14,7 +14,9 @@ const PruebaMongo = () => {
   const [dataCorrals, setDataCorrals] = useState({})
   const [dataSacrifice, setDataSacrifice] = useState({})
   const [dataGeneral, setDataGeneral] = useState({})
+  const [getidLotes, setGetidLotes] = useState([])
   const [load, setLoad] = useState(true)
+  const [open, setOpen] = useState(false)
 
   const generateScreenshot = () => {
     html2canvas(document.getElementById('screen'), {
@@ -43,10 +45,10 @@ const PruebaMongo = () => {
     })
   }
 
-  useEffect(() => {
+  const openModal = (value) => {
     axios
       .post('https://localhost:44386/api/v1/getObjectMongo', {
-        idLoteIP: 12428606,
+        idLoteIP: value,
         seccion: 'datos porteria'
       })
       .then((res) => {
@@ -56,7 +58,7 @@ const PruebaMongo = () => {
         setDataEntrance(dataEntrance)
         axios
           .post('https://localhost:44386/api/v1/getObjectMongo', {
-            idLoteIP: 12428606,
+            idLoteIP: value,
             seccion: 'corrales'
           })
           .then((res) => {
@@ -66,7 +68,7 @@ const PruebaMongo = () => {
             setDataCorrals(dataCorrals)
             axios
               .post('https://localhost:44386/api/v1/getObjectMongo', {
-                idLoteIP: 12428606,
+                idLoteIP: value,
                 seccion: 'sacrificio'
               })
               .then((res) => {
@@ -76,15 +78,14 @@ const PruebaMongo = () => {
                 setDataSacrifice(dataSacrifice)
                 axios
                   .post('https://localhost:44386/api/v1/getObjectMongo', {
-                    idLoteIP: 12428606,
+                    idLoteIP: value,
                     seccion: 'datos generales'
                   })
                   .then((res) => {
+                    setDataGeneral(JSON.parse(res.data.data))
                     setLoad(false)
-                    console.log(res.data)
-                    const dataGeneral = JSON.parse(res.data.data)
-                    console.log(dataGeneral)
-                    setDataGeneral(dataGeneral)
+                    generateScreenshot()
+                    setOpen(true)
                   })
                   .catch((err) => console.error(err))
               })
@@ -93,12 +94,25 @@ const PruebaMongo = () => {
           .catch((err) => console.error(err))
       })
       .catch((err) => console.error(err))
+  }
+
+  useEffect(() => {
+    axios
+      .post('https://localhost:44386/api/v1/getIdsLotes', {
+        fechaInicial: '2019-10-07T07:26:00.000+00:00',
+        fechaFinal: '2019-10-07T10:03:00.000+00:00'
+      })
+      .then((res) => {
+        setGetidLotes(JSON.parse(res.data))
+      })
+      .catch((err) => console.error(err))
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
-  if (load) return 'Cargando....'
+
   return (
     <div>
       <div style={{ position: 'absolute', left: '1111111px' }}>
-        {dataEntrance && dataCorrals && dataSacrifice && dataGeneral && (
+        {!load && (
           <ReportLot
             url={{
               dataEntrance,
@@ -109,6 +123,7 @@ const PruebaMongo = () => {
           />
         )}
       </div>
+
       <Modal
         trigger={
           <Button
@@ -147,6 +162,68 @@ const PruebaMongo = () => {
           </Modal.Description>
         </Modal.Content>
       </Modal>
+
+      {!load && (
+        <Modal
+          onClose={() => setOpen(false)}
+          onOpen={() => openModal()}
+          open={open}
+        >
+          <Modal.Header>Select a Photo</Modal.Header>
+          <Modal.Content>
+            <Modal.Description>
+              {image &&
+                chart &&
+                chart1 &&
+                dataEntrance &&
+                dataCorrals &&
+                dataSacrifice &&
+                dataGeneral &&
+                getidLotes && (
+                  <PDFViewer style={{ width: '100%', height: '130vh' }}>
+                    <MyDoc
+                      url={{
+                        image,
+                        chart,
+                        chart1,
+                        dataEntrance,
+                        dataCorrals,
+                        dataSacrifice,
+                        dataGeneral,
+                        getidLotes
+                      }}
+                    />
+                  </PDFViewer>
+                )}
+            </Modal.Description>
+          </Modal.Content>
+          <Modal.Actions>
+            <Button color='black' onClick={() => setOpen(false)}>
+              Close
+            </Button>
+          </Modal.Actions>
+        </Modal>
+      )}
+      <table>
+        {getidLotes &&
+          Array.isArray(getidLotes) &&
+          getidLotes.map((item, index) => {
+            return (
+              <tr key={index}>
+                <td>{item.LoteID}</td>
+                <td>
+                  <Button
+                    onClick={() => {
+                      openModal(item.LoteID)
+                    }}
+                  >
+                    modal
+                  </Button>
+                </td>
+              </tr>
+            )
+          })}
+      </table>
     </div>
   )
 }

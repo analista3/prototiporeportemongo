@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { QRCodeGeneratorComponent } from '@syncfusion/ej2-react-barcode-generator'
 import {
   AccumulationChartComponent,
@@ -7240,7 +7240,7 @@ aWYuY29toMOzWAAAAABJRU5ErkJggg=='
                 <Text>Pag Nro. 1/1</Text>
               </View>
             </View>
-            <View style={{ width: 70 }}>
+            <View style={{ width: 70, marginLeft: 6 }}>
               <Image src={props.url.image} />
             </View>
           </View>
@@ -7327,7 +7327,9 @@ aWYuY29toMOzWAAAAABJRU5ErkJggg=='
                     </View>
                     <View style={[styles.tableColplantRigth, { width: '70%' }]}>
                       <Text style={styles.tableCellplantRigth}>
-                        {props.url.dataEntrance.planta.email}
+                        {props.url.dataEntrance.planta.email === 'Null'
+                          ? '-'
+                          : props.url.dataEntrance.planta.email}
                       </Text>
                     </View>
                   </View>
@@ -7441,7 +7443,9 @@ aWYuY29toMOzWAAAAABJRU5ErkJggg=='
                     </View>
                     <View style={[styles.tableColplantRigth, { width: '70%' }]}>
                       <Text style={styles.tableCellplantRigth}>
-                        {props.url.dataEntrance.productor.email}
+                        {props.url.dataEntrance.productor.email === 'Null'
+                          ? '-'
+                          : props.url.dataEntrance.productor.email}
                       </Text>
                     </View>
                   </View>
@@ -7557,7 +7561,9 @@ aWYuY29toMOzWAAAAABJRU5ErkJggg=='
                     </View>
                     <View style={[styles.tableColplantRigth, { width: '70%' }]}>
                       <Text style={styles.tableCellplantRigth}>
-                        {props.url.dataEntrance.comercializador.email}
+                        {props.url.dataEntrance.comercializador.email === 'Null'
+                          ? '-'
+                          : props.url.dataEntrance.comercializador.email}
                       </Text>
                     </View>
                   </View>
@@ -8684,8 +8690,8 @@ aWYuY29toMOzWAAAAABJRU5ErkJggg=='
                       <View style={styles.tableCellplant}>
                         <Text>
                           {
-                            props.url.dataSacrifice.sacrificioSB
-                              .cantidadCanalesCompletasDecomisadas
+                            props.url.dataSacrifice.datosMagro
+                              .AnimalesDecomisados
                           }
                         </Text>
                       </View>
@@ -8698,12 +8704,16 @@ aWYuY29toMOzWAAAAABJRU5ErkJggg=='
                   </Text>
                 </View>
                 <View style={{ flexDirection: 'row', marginTop: 10 }}>
-                  <View style={{ width: 100 }}>
+                  <View
+                    style={{
+                      width: '50%'
+                    }}
+                  >
                     <Image src={props.url.chart} />
                   </View>
                   <View
                     style={{
-                      width: 147,
+                      width: '50%',
                       height: 180,
                       backgroundColor: '#ededed'
                     }}
@@ -8722,10 +8732,10 @@ aWYuY29toMOzWAAAAABJRU5ErkJggg=='
                       style={{
                         flexDirection: 'row',
                         width: 100,
-
                         margin: 'auto',
                         marginBottom: 10,
-                        marginTop: 10
+                        marginTop: 10,
+                        alignItems: 'center'
                       }}
                     >
                       <Text
@@ -8737,17 +8747,32 @@ aWYuY29toMOzWAAAAABJRU5ErkJggg=='
                           color: '#dd9835'
                         }}
                       >
-                        0% PENDIENTE
+                        {
+                          props.url.dataSacrifice.datosMagro
+                            .PorcentajeDeCanalesDecomisadas
+                        }
+                        %
                       </Text>
-                      <Text
-                        style={{
-                          width: 49,
-                          textAlign: 'left',
-                          marginLeft: 10
-                        }}
-                      >
-                        Canales Decomisadas
-                      </Text>
+                      <View>
+                        <Text
+                          style={{
+                            width: 50,
+                            textAlign: 'left',
+                            marginLeft: 10
+                          }}
+                        >
+                          Canales
+                        </Text>
+                        <Text
+                          style={{
+                            width: 50,
+                            textAlign: 'left',
+                            marginLeft: 10
+                          }}
+                        >
+                          Decomisadas
+                        </Text>
+                      </View>
                     </View>
                     <View>
                       {[
@@ -8782,7 +8807,7 @@ aWYuY29toMOzWAAAAABJRU5ErkJggg=='
                               flexDirection: 'row',
 
                               textAlign: 'left',
-                              width: 130,
+                              width: 120,
                               margin: 'auto',
                               alignItems: 'center',
                               marginBottom: 3
@@ -8837,7 +8862,7 @@ aWYuY29toMOzWAAAAABJRU5ErkJggg=='
                   marginTop: 10
                 }}
               >
-                <Image src={props.url.chart1} />
+                <Image style={{ marginTop: 10 }} src={props.url.chart1} />
               </View>
               <View style={{ width: '43%' }}>
                 <View
@@ -9108,7 +9133,10 @@ aWYuY29toMOzWAAAAABJRU5ErkJggg=='
                     }}
                   >
                     <Text style={{ fontFamily: 'Roboto', fontWeight: 'bold' }}>
-                      8 PENDIENTE
+                      {
+                        props.url.dataSacrifice.datosMagro
+                          .TotalCanalesConGrasaDorsalMayora185
+                      }
                     </Text>
                   </View>
                 </View>
@@ -9133,7 +9161,11 @@ aWYuY29toMOzWAAAAABJRU5ErkJggg=='
                     }}
                   >
                     <Text style={{ fontFamily: 'Roboto', fontWeight: 'bold' }}>
-                      19,51% PENDIENTE
+                      {
+                        props.url.dataSacrifice.datosMagro
+                          .PorcentajeCanalesGrasaDorsalMayora185
+                      }
+                      %
                     </Text>
                   </View>
                 </View>
@@ -9864,6 +9896,14 @@ aWYuY29toMOzWAAAAABJRU5ErkJggg=='
 }
 
 export const ReportLot = (props) => {
+  const [total, setTotal] = useState(0)
+  useEffect(() => {
+    props.url.dataSacrifice.detalleDecomisoPorCanalSB.forEach((item) => {
+      setTotal(total + item.cantidad)
+    })
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
+
   return (
     <>
       <Style>
@@ -25878,7 +25918,7 @@ aWYuY29toMOzWAAAAABJRU5ErkJggg=='
                     <div id='screenchart' style={{ width: '50%' }}>
                       <AccumulationChartComponent
                         id='charts'
-                        style={{ height: '250px', width: '180px' }}
+                        style={{ height: '320px', width: '180px' }}
                         legendSettings={{
                           width: '150',
                           height: '140px',
@@ -25891,14 +25931,21 @@ aWYuY29toMOzWAAAAABJRU5ErkJggg=='
                         />
                         <AccumulationSeriesCollectionDirective>
                           <AccumulationSeriesDirective
-                            dataSource={[
-                              { x: '33% 101 Pulmón', y: 3 },
-                              { x: '33% 101 Piel', y: 3 },
-                              { x: '33% 101 Visceras Rojas', y: 3 },
-                              { x: '33% 101 Pierna', y: 3 },
-                              { x: '33% 101 Corazón', y: 3 }
+                            dataSource={props.url.dataSacrifice.detalleDecomisoPorCanalSB.map(
+                              (item) => ({
+                                x: `${(item.cantidad / total) * 100}% ${
+                                  item.cantidad
+                                } ${item.parteDecomisada}`,
+                                y: (item.cantidad / total) * 100
+                              })
+                            )}
+                            palettes={[
+                              '#fdc076',
+                              '#f2a96d',
+                              '#e19364',
+                              '#d27d5c',
+                              '#ba5c4d'
                             ]}
-                            palettes={['#B0413E', '#BE5948', '#D47D57']}
                             xName='x'
                             yName='y'
                             innerRadius='75%'
@@ -25915,15 +25962,22 @@ aWYuY29toMOzWAAAAABJRU5ErkJggg=='
                       <div
                         style={{
                           position: 'relative',
-                          top: ' -227px',
-                          left: '59px',
-                          width: '62px'
+                          top: ' -285px',
+                          left: '34px',
+                          width: '115px'
                         }}
                       >
-                        <p style={{ fontSize: '14px', marginBottom: '-8px' }}>
-                          <b>114 </b>
+                        <p style={{ fontSize: '31px', marginBottom: '-5px' }}>
+                          <b>
+                            {props.url.dataSacrifice.sacrificioSB
+                              .cantidadPartesDecomisadas +
+                              props.url.dataSacrifice.sacrificioSBE
+                                .cantidadPartesDecomisadas}
+                          </b>
                         </p>
-                        <p style={{ fontSize: '7px' }}>Partes Decomisadas</p>
+                        <p style={{ fontSize: '13px', width: '112px' }}>
+                          Partes Decomisadas
+                        </p>
                       </div>
                     </div>
                     <div
@@ -26121,7 +26175,14 @@ aWYuY29toMOzWAAAAABJRU5ErkJggg=='
                             y: props.url.dataSacrifice.clasificacionSEUROP.porcP
                           }
                         ]}
-                        palettes={['#B0413E', '#BE5948', '#D47D57']}
+                        palettes={[
+                          '#fdc076',
+                          '#f2a96d',
+                          '#e19364',
+                          '#d27d5c',
+                          '#ba5c4d',
+                          '#ac4545'
+                        ]}
                         xName='x'
                         yName='y'
                         innerRadius='75%'
