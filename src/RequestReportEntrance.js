@@ -2,18 +2,17 @@ import React, { useEffect, useState } from 'react'
 import './App.css'
 import { Modal, Button } from 'semantic-ui-react'
 import { PDFViewer } from '@react-pdf/renderer'
-import { MyDoc, ReportLot } from './ReportLeanEvaluationGetData/ReportLot'
+import { MyDoc, ReportLot } from './ReportEntranceGetData/ReportLot'
 import axios from 'axios'
 import html2canvas from 'html2canvas'
 
-const PruebaMongo = (props) => {
+const RequestReportLeanEvaluation = () => {
   const [image, setImage] = useState(null)
-  const [chart, setChart] = useState(null)
-  const [chart1, setChart1] = useState(null)
+
   const [dataEntrance, setDataEntrance] = useState({})
   const [dataCorrals, setDataCorrals] = useState({})
-  const [dataSacrifice, setDataSacrifice] = useState({})
-  const [dataGeneral, setDataGeneral] = useState({})
+  // const [dataSacrifice, setDataSacrifice] = useState({})
+  // const [dataGeneral, setDataGeneral] = useState({})
   const [getidLotes, setGetidLotes] = useState([])
   const [load, setLoad] = useState(true)
   const [open, setOpen] = useState(false)
@@ -26,22 +25,6 @@ const PruebaMongo = (props) => {
     }).then((canvas) => {
       const result = canvas.toDataURL('image/jpeg', 0.9)
       setImage(result)
-    })
-    html2canvas(document.getElementById('screenchart'), {
-      logging: true,
-      profile: true,
-      useCORS: true
-    }).then((canvas) => {
-      const result = canvas.toDataURL('image/jpeg', 0.9)
-      setChart(result)
-    })
-    html2canvas(document.getElementById('screenchart1'), {
-      logging: true,
-      profile: true,
-      useCORS: true
-    }).then((canvas) => {
-      const result = canvas.toDataURL('image/jpeg', 0.9)
-      setChart1(result)
     })
   }
 
@@ -63,37 +46,36 @@ const PruebaMongo = (props) => {
           })
           .then((res) => {
             console.log(res.data)
-            const dataCorrals = JSON.parse(res.data.data)
-            console.log(dataCorrals)
-            setDataCorrals(dataCorrals)
-            axios
-              .post('https://localhost:44386/api/v1/getObjectMongo', {
-                idLoteIP: value,
-                seccion: 'sacrificio'
-              })
-              .then((res) => {
-                console.log(res.data)
-                const dataSacrifice = JSON.parse(res.data.data)
-                console.log(dataSacrifice)
-                setDataSacrifice(dataSacrifice)
-                axios
-                  .post('https://localhost:44386/api/v1/getObjectMongo', {
-                    idLoteIP: value,
-                    seccion: 'datos generales'
-                  })
-                  .then((res) => {
-                    setDataGeneral(JSON.parse(res.data.data))
-                    setLoad(false)
-                    generateScreenshot()
-                    setOpen(true)
-                  })
-                  .catch((err) => console.error(err))
-              })
-              .catch((err) => console.error(err))
+            setDataCorrals(JSON.parse(res.data.data))
+            console.log(JSON.parse(res.data.data))
+            setLoad(false)
+            generateScreenshot()
+            setOpen(true)
+            // axios
+            //   .post('https://localhost:44386/api/v1/getObjectMongo', {
+            //     idLoteIP: value,
+            //     seccion: 'sacrificio'
+            //   })
+            //   .then((res) => {
+            //     console.log(res.data)
+            //     const dataSacrifice = JSON.parse(res.data.data)
+            //     console.log(dataSacrifice)
+            //     setDataSacrifice(dataSacrifice)
+            //     axios
+            //       .post('https://localhost:44386/api/v1/getObjectMongo', {
+            //         idLoteIP: value,
+            //         seccion: 'datos generales'
+            //       })
+            //       .then((res) => {
+            //         setDataGeneral(JSON.parse(res.data.data))
           })
           .catch((err) => console.error(err))
       })
       .catch((err) => console.error(err))
+    //     })
+    //     .catch((err) => console.error(err))
+    // })
+    // .catch((err) => console.error(err))
   }
 
   useEffect(() => {
@@ -116,9 +98,9 @@ const PruebaMongo = (props) => {
           <ReportLot
             url={{
               dataEntrance,
-              dataCorrals,
-              dataSacrifice,
-              dataGeneral
+              dataCorrals
+              // dataSacrifice,
+              // dataGeneral
             }}
           />
         )}
@@ -139,22 +121,22 @@ const PruebaMongo = (props) => {
         <Modal.Content>
           <Modal.Description>
             {image &&
-              chart &&
-              chart1 &&
+              // chart &&
+              // chart1 &&
               dataEntrance &&
-              dataCorrals &&
-              dataSacrifice &&
-              dataGeneral && (
+              dataCorrals && (
+                // dataSacrifice &&
+                // dataGeneral &&
                 <PDFViewer style={{ width: '100%', height: '130vh' }}>
                   <MyDoc
                     url={{
                       image,
-                      chart,
-                      chart1,
+                      // chart,
+                      // chart1,
                       dataEntrance,
-                      dataCorrals,
-                      dataSacrifice,
-                      dataGeneral
+                      dataCorrals
+                      // dataSacrifice,
+                      // dataGeneral
                     }}
                   />
                 </PDFViewer>
@@ -173,23 +155,23 @@ const PruebaMongo = (props) => {
           <Modal.Content>
             <Modal.Description>
               {image &&
-                chart &&
-                chart1 &&
+                // chart &&
+                // chart1 &&
                 dataEntrance &&
                 dataCorrals &&
-                dataSacrifice &&
-                dataGeneral &&
+                // dataSacrifice &&
+                // dataGeneral &&
                 getidLotes && (
                   <PDFViewer style={{ width: '100%', height: '130vh' }}>
                     <MyDoc
                       url={{
                         image,
-                        chart,
-                        chart1,
+                        // chart,
+                        // chart1,
                         dataEntrance,
                         dataCorrals,
-                        dataSacrifice,
-                        dataGeneral,
+                        // dataSacrifice,
+                        // dataGeneral,
                         getidLotes
                       }}
                     />
@@ -228,4 +210,4 @@ const PruebaMongo = (props) => {
   )
 }
 
-export default PruebaMongo
+export default RequestReportLeanEvaluation

@@ -1,12 +1,15 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import './index.css'
-import PruebaMongo from './App'
+import RequestReportEntrance from './RequestReportEntrance'
+import RequestReportBalanceTicket from './RequestReportBalanceTicket'
+import RequestReportLeanEvaluation from './RequestReportLeanEvaluation'
+
 import * as serviceWorker from './serviceWorker'
 
 ReactDOM.render(
   <React.StrictMode>
-    <PruebaMongo />
+    <RequestReportLeanEvaluation />
   </React.StrictMode>,
   document.getElementById('root')
 )

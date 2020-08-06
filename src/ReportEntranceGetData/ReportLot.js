@@ -12,462 +12,462 @@ import {
   View,
   Font
 } from '@react-pdf/renderer'
+import _ from 'lodash'
+Font.register({
+  family: 'Roboto',
+  src: font2,
+  fontWeight: 'bold'
+})
 
+const styles = StyleSheet.create({
+  sectionanimals: {
+    marginLeft: 20,
+    width: '65.5%'
+  },
+  section: {
+    flexDirection: 'row',
+    fontSize: 10
+  },
+  sectiondate: {
+    width: 150,
+    height: 20,
+    flex: 2,
+    flexDirection: 'row',
+    flexGrow: 2,
+    fontSize: 10
+  },
+  sectionweitgh: {
+    width: '10px',
+    flex: 4,
+    flexDirection: 'row',
+    flexGrow: 4,
+    fontSize: 10,
+    marginLeft: 250,
+    position: 'relative',
+    top: 20
+  },
+  sectionresume: {
+    width: '10px',
+    flex: 5,
+    flexDirection: 'row',
+    flexGrow: 5,
+    fontSize: 10,
+    marginLeft: 40,
+    marginTop: 10
+  },
+  section2: {
+    marginLeft: 5
+  },
+  timeall: {
+    marginRight: 30,
+    alignItems: 'center'
+  },
+  sectionnumbers: {
+    marginLeft: 5,
+    flex: 2,
+    flexDirection: 'row',
+    flexGrow: 2,
+    marginRight: 70
+  },
+  widthsectionnumbers: {
+    width: 60,
+    position: 'relative',
+    left: 45,
+    fontSize: 5
+  },
+  sectionnumberstext: {
+    width: 40,
+    textAlign: 'left',
+    fontSize: 7,
+    marginLeft: 5
+  },
+  weigthanimals: {
+    width: 60,
+    fontSize: 8,
+    marginTop: 4
+  },
+  section4: {
+    marginTop: -121.3,
+    marginLeft: 238
+  },
+  section3: {
+    marginTop: 20,
+    marginLeft: '45%',
+    width: '50%'
+  },
+  page: {
+    textAlign: 'center',
+    padding: 30,
+    fontSize: 8
+  },
+  column: {
+    marginLeft: 250
+  },
+  table: {
+    display: 'table',
+    width: '100%',
+    borderStyle: 'solid'
+  },
+  tableorigin: {
+    display: 'table',
+    borderStyle: 'solid',
+    top: 10,
+    width: 50
+  },
+  tableRow: {
+    margin: 'auto',
+    flexDirection: 'row'
+  },
+  tableRowMargin: {
+    margin: 'auto',
+    flexDirection: 'row',
+    marginTop: 10,
+    marginBottom: 10
+  },
+  tableRowBackground: {
+    backgroundColor: '#ededed',
+    margin: 'auto',
+    flexDirection: 'row'
+  },
+  tableCol: {
+    width: '16.5%'
+  },
+  tableColOrigin: {
+    width: 50
+  },
+  tableCell: {
+    marginTop: 5,
+    fontSize: 8,
+    textAlign: 'center'
+  },
+  tableCellOrigin: {
+    marginTop: 5,
+    fontSize: 10,
+    textAlign: 'center'
+  },
+
+  detailsreport: {
+    marginTop: -40
+  },
+  detailsplant: {
+    // marginTop: 10
+  },
+  background: {
+    backgroundColor: '#ededed'
+  },
+  backgroundanimals: {
+    backgroundColor: '#be5948',
+    color: 'white',
+    width: 70,
+    height: 15,
+    justifyContent: 'center',
+    marginBottom: 5
+  },
+  backgroundanimals1: {
+    backgroundColor: '#e29662',
+    color: 'white',
+    width: 70,
+    height: 15,
+    justifyContent: 'center',
+    marginBottom: 5
+  },
+  backgroundanimals2: {
+    backgroundColor: '#f1ae6c',
+    color: 'white',
+    width: 70,
+    height: 15,
+    justifyContent: 'center',
+    marginBottom: 5
+  },
+  backgroundanimals3: {
+    backgroundColor: '#ffc676',
+    color: 'white',
+    width: 70,
+    height: 15,
+    justifyContent: 'center',
+    marginBottom: 5
+  },
+  backgroundanimalsrounded: {
+    backgroundColor: '#b0413e',
+    color: 'white',
+    width: 30,
+    height: 30,
+    borderRadius: 50,
+    margin: 'auto',
+    justifyContent: 'center'
+  },
+  backgroundresumetitle: {
+    backgroundColor: '#ededed',
+    height: 20,
+    fontSize: 8,
+    justifyContent: 'center'
+  },
+  backgroundresumetitle1: {
+    backgroundColor: '#ededed',
+    height: 20,
+    fontSize: 8,
+    justifyContent: 'center',
+    marginBottom: 15
+  },
+  backgroundweigth: {
+    backgroundColor: '#ededed',
+    width: 70,
+    height: 15,
+    justifyContent: 'center'
+  },
+  backgroundorigin: {
+    width: '31%'
+    // top: -29.5
+  },
+  backgroundplant: {
+    backgroundColor: '#ededed',
+    width: '100%',
+    fontSize: 8,
+    height: 20,
+    justifyContent: 'center'
+  },
+  backgroundresume: {
+    backgroundColor: '#b0413e',
+    color: '#ffffff',
+    borderRadius: 50,
+    width: 30,
+    height: 30,
+    margin: 'auto',
+    justifyContent: 'center'
+  },
+  backgroundresume1: {
+    backgroundColor: '#d47d57',
+    color: '#ffffff',
+    borderRadius: 50,
+    width: 30,
+    height: 30,
+    margin: 'auto',
+    justifyContent: 'center'
+  },
+  backgroundresume2: {
+    backgroundColor: '#e29662',
+    color: '#ffffff',
+    borderRadius: 50,
+    width: 30,
+    height: 30,
+    margin: 'auto',
+    justifyContent: 'center'
+  },
+  imageplant: {
+    backgroundColor: '#DD9835',
+    borderRadius: 50,
+    width: 30,
+    height: 30,
+    marginLeft: 10,
+    justifyContent: 'center',
+    position: 'absolute',
+    padding: 5
+  },
+  backgroundguide: {
+    backgroundColor: '#ededed',
+    height: 30,
+    width: 230,
+    margin: 'auto',
+    justifyContent: 'center',
+    textAlign: 'center',
+    justifyContent: 'center'
+  },
+  gsmi: { top: 8, left: 10, width: 30, height: 20 },
+  textgsmi: {
+    left: 10,
+    width: 185,
+    top: 8,
+    height: 20
+  },
+  textconventions: {
+    flex: 2,
+    flexDirection: 'row',
+    flexGrow: 2,
+    marginTop: 3
+  },
+  numberanimals: {
+    width: '10%',
+    margin: 'auto'
+  },
+  numberanimals1: {
+    width: '13%',
+    margin: 'auto'
+  },
+  numberanimals2: {
+    width: '13%',
+    margin: 'auto'
+  },
+  numberanimals3: {
+    width: '13%',
+    margin: 'auto'
+  },
+  numberanimals4: {
+    width: '13%',
+    margin: 'auto'
+  },
+  marginanimals: {
+    flex: 5,
+    flexDirection: 'row',
+    flexGrow: 5,
+    alignItems: 'center'
+  },
+  totalanimals: {
+    backgroundColor: '#ededed',
+    height: 60,
+    marginTop: 10
+  },
+  backgroundimage: {
+    backgroundColor: '#ededed',
+    height: 70,
+    width: 70,
+    marginRight: 1,
+    justifyContent: 'center',
+    alignItems: 'center'
+  },
+  backgroundimage1: {
+    backgroundColor: '#ededed',
+    height: 70,
+    width: 70,
+    marginRight: 4,
+    justifyContent: 'center',
+    alignItems: 'center'
+  },
+  tableplant: {
+    display: 'table',
+    borderStyle: 'solid',
+    marginTop: 10
+  },
+  tableRowplant: {
+    flexDirection: 'row'
+  },
+  tableColplant: {
+    width: '50%',
+    textAlign: 'left'
+  },
+  tableColDetails: {
+    width: '50%',
+    textAlign: 'left'
+  },
+  tableColplantRigth: {
+    width: '50%',
+    textAlign: 'right',
+    borderStyle: 'solid'
+  },
+  tableColDetailsRigth: {
+    width: '50%',
+    textAlign: 'right'
+  },
+  tableCellplant: {
+    marginTop: 5,
+    fontSize: 8
+  },
+  tableCellplantRigth: {
+    marginTop: 5,
+    fontSize: 8
+  },
+  background: {
+    backgroundColor: '#ededed',
+    fontSize: 10
+  },
+  backgroundcode: {
+    backgroundColor: '#ededed',
+    width: 70,
+    height: 20,
+    fontSize: 8,
+    marginBottom: 5,
+    justifyContent: 'center'
+  },
+  backgrounddate: {
+    backgroundColor: '#ededed',
+    width: 120,
+    height: 20,
+    marginLeft: 3,
+    fontSize: 8
+  },
+  contentdate: {
+    flex: 2,
+    flexDirection: 'row',
+    flexGrow: 2,
+    marginRight: 45,
+    alignItems: 'center'
+  },
+  image: {
+    height: '45px',
+    width: '45px'
+  },
+  tablecontainer: {
+    width: '31%',
+    marginTop: 7,
+    marginRight: 18
+  },
+  tablecontainer2: {
+    width: '31%',
+    marginTop: 7,
+    marginRight: 18
+  },
+  tablecontainer3: {
+    width: '31%',
+    marginTop: 7
+  },
+  conventions: {
+    marginTop: 50
+  },
+  sectionorigin: {
+    flexDirection: 'row',
+    marginTop: 20
+  },
+  border: {
+    border: '1 solid black',
+    width: 70,
+    height: 20,
+    justifyContent: 'center',
+    margin: 'auto',
+    backgroundColor: '#ffffff',
+    top: -45,
+    position: 'relative'
+  },
+  copy: { top: -10 },
+  datereport: { left: 3, width: 245, textAlign: 'left' },
+  datemargin: {
+    marginTop: 19.2,
+    marginBottom: 5,
+    flexDirection: 'row'
+  },
+  title: { fontSize: 12, fontFamily: 'Roboto', fontWeight: 'bold' },
+  datecolor: {
+    color: '#DD9835',
+    marginLeft: 5
+  },
+  phone: {
+    marginTop: 10,
+    marginBottom: 10
+  },
+  fontlicense: { fontSize: 20 },
+  license: {
+    backgroundColor: '#ededed',
+    width: 100,
+    height: 53,
+    left: 150,
+    top: -70.5,
+    borderStyle: 'solid',
+    borderWidth: 1,
+    justifyContent: 'center'
+  },
+  licenseborder: {
+    borderStyle: 'solid',
+    borderWidth: 1,
+    width: 104,
+    height: 58,
+    left: 148,
+    top: -15,
+    backgroundColor: '#ededed'
+  },
+  licensecontainer: {
+    left: 80,
+    marginTop: -55
+  }
+})
 export const MyDoc = (props) => {
-  Font.register({
-    family: 'Roboto',
-    src: font2,
-    fontWeight: 'bold'
-  })
-
-  const styles = StyleSheet.create({
-    sectionanimals: {
-      marginLeft: 20,
-      width: '65.5%'
-    },
-    section: {
-      flexDirection: 'row',
-      fontSize: 10
-    },
-    sectiondate: {
-      width: 150,
-      height: 20,
-      flex: 2,
-      flexDirection: 'row',
-      flexGrow: 2,
-      fontSize: 10
-    },
-    sectionweitgh: {
-      width: '10px',
-      flex: 4,
-      flexDirection: 'row',
-      flexGrow: 4,
-      fontSize: 10,
-      marginLeft: 250,
-      position: 'relative',
-      top: 20
-    },
-    sectionresume: {
-      width: '10px',
-      flex: 5,
-      flexDirection: 'row',
-      flexGrow: 5,
-      fontSize: 10,
-      marginLeft: 40,
-      marginTop: 10
-    },
-    section2: {
-      marginLeft: 5
-    },
-    timeall: {
-      marginRight: 30,
-      alignItems: 'center'
-    },
-    sectionnumbers: {
-      marginLeft: 5,
-      flex: 2,
-      flexDirection: 'row',
-      flexGrow: 2,
-      marginRight: 70
-    },
-    widthsectionnumbers: {
-      width: 60,
-      position: 'relative',
-      left: 45,
-      fontSize: 5
-    },
-    sectionnumberstext: {
-      width: 40,
-      textAlign: 'left',
-      fontSize: 7,
-      marginLeft: 5
-    },
-    weigthanimals: {
-      width: 60,
-      fontSize: 8,
-      marginTop: 4
-    },
-    section4: {
-      marginTop: -121.3,
-      marginLeft: 238
-    },
-    section3: {
-      marginTop: 20,
-      marginLeft: '45%',
-      width: '50%'
-    },
-    page: {
-      textAlign: 'center',
-      padding: 30,
-      fontSize: 8
-    },
-    column: {
-      marginLeft: 250
-    },
-    table: {
-      display: 'table',
-      width: '100%',
-      borderStyle: 'solid'
-    },
-    tableorigin: {
-      display: 'table',
-      borderStyle: 'solid',
-      top: 10,
-      width: 50
-    },
-    tableRow: {
-      margin: 'auto',
-      flexDirection: 'row'
-    },
-    tableRowMargin: {
-      margin: 'auto',
-      flexDirection: 'row',
-      marginTop: 10,
-      marginBottom: 10
-    },
-    tableRowBackground: {
-      backgroundColor: '#ededed',
-      margin: 'auto',
-      flexDirection: 'row'
-    },
-    tableCol: {
-      width: '16.5%'
-    },
-    tableColOrigin: {
-      width: 50
-    },
-    tableCell: {
-      marginTop: 5,
-      fontSize: 8,
-      textAlign: 'center'
-    },
-    tableCellOrigin: {
-      marginTop: 5,
-      fontSize: 10,
-      textAlign: 'center'
-    },
-
-    detailsreport: {
-      marginTop: -40
-    },
-    detailsplant: {
-      // marginTop: 10
-    },
-    background: {
-      backgroundColor: '#ededed'
-    },
-    backgroundanimals: {
-      backgroundColor: '#be5948',
-      color: 'white',
-      width: 70,
-      height: 15,
-      justifyContent: 'center',
-      marginBottom: 5
-    },
-    backgroundanimals1: {
-      backgroundColor: '#e29662',
-      color: 'white',
-      width: 70,
-      height: 15,
-      justifyContent: 'center',
-      marginBottom: 5
-    },
-    backgroundanimals2: {
-      backgroundColor: '#f1ae6c',
-      color: 'white',
-      width: 70,
-      height: 15,
-      justifyContent: 'center',
-      marginBottom: 5
-    },
-    backgroundanimals3: {
-      backgroundColor: '#ffc676',
-      color: 'white',
-      width: 70,
-      height: 15,
-      justifyContent: 'center',
-      marginBottom: 5
-    },
-    backgroundanimalsrounded: {
-      backgroundColor: '#b0413e',
-      color: 'white',
-      width: 30,
-      height: 30,
-      borderRadius: 50,
-      margin: 'auto',
-      justifyContent: 'center'
-    },
-    backgroundresumetitle: {
-      backgroundColor: '#ededed',
-      height: 20,
-      fontSize: 8,
-      justifyContent: 'center'
-    },
-    backgroundresumetitle1: {
-      backgroundColor: '#ededed',
-      height: 20,
-      fontSize: 8,
-      justifyContent: 'center',
-      marginBottom: 15
-    },
-    backgroundweigth: {
-      backgroundColor: '#ededed',
-      width: 70,
-      height: 15,
-      justifyContent: 'center'
-    },
-    backgroundorigin: {
-      width: '31%'
-      // top: -29.5
-    },
-    backgroundplant: {
-      backgroundColor: '#ededed',
-      width: '100%',
-      fontSize: 8,
-      height: 20,
-      justifyContent: 'center'
-    },
-    backgroundresume: {
-      backgroundColor: '#b0413e',
-      color: '#ffffff',
-      borderRadius: 50,
-      width: 30,
-      height: 30,
-      margin: 'auto',
-      justifyContent: 'center'
-    },
-    backgroundresume1: {
-      backgroundColor: '#d47d57',
-      color: '#ffffff',
-      borderRadius: 50,
-      width: 30,
-      height: 30,
-      margin: 'auto',
-      justifyContent: 'center'
-    },
-    backgroundresume2: {
-      backgroundColor: '#e29662',
-      color: '#ffffff',
-      borderRadius: 50,
-      width: 30,
-      height: 30,
-      margin: 'auto',
-      justifyContent: 'center'
-    },
-    imageplant: {
-      backgroundColor: '#DD9835',
-      borderRadius: 50,
-      width: 30,
-      height: 30,
-      marginLeft: 10,
-      justifyContent: 'center',
-      position: 'absolute',
-      padding: 5
-    },
-    backgroundguide: {
-      backgroundColor: '#ededed',
-      height: 30,
-      width: 230,
-      margin: 'auto',
-      justifyContent: 'center',
-      textAlign: 'center',
-      justifyContent: 'center'
-    },
-    gsmi: { top: 8, left: 10, width: 30, height: 20 },
-    textgsmi: {
-      left: 10,
-      width: 185,
-      top: 8,
-      height: 20
-    },
-    textconventions: {
-      flex: 2,
-      flexDirection: 'row',
-      flexGrow: 2,
-      marginTop: 3
-    },
-    numberanimals: {
-      width: '10%',
-      margin: 'auto'
-    },
-    numberanimals1: {
-      width: '13%',
-      margin: 'auto'
-    },
-    numberanimals2: {
-      width: '13%',
-      margin: 'auto'
-    },
-    numberanimals3: {
-      width: '13%',
-      margin: 'auto'
-    },
-    numberanimals4: {
-      width: '13%',
-      margin: 'auto'
-    },
-    marginanimals: {
-      flex: 5,
-      flexDirection: 'row',
-      flexGrow: 5,
-      alignItems: 'center'
-    },
-    totalanimals: {
-      backgroundColor: '#ededed',
-      height: 60,
-      marginTop: 10
-    },
-    backgroundimage: {
-      backgroundColor: '#ededed',
-      height: 70,
-      width: 70,
-      marginRight: 1,
-      justifyContent: 'center',
-      alignItems: 'center'
-    },
-    backgroundimage1: {
-      backgroundColor: '#ededed',
-      height: 70,
-      width: 70,
-      marginRight: 4,
-      justifyContent: 'center',
-      alignItems: 'center'
-    },
-    tableplant: {
-      display: 'table',
-      borderStyle: 'solid',
-      marginTop: 10
-    },
-    tableRowplant: {
-      flexDirection: 'row'
-    },
-    tableColplant: {
-      width: '50%',
-      textAlign: 'left'
-    },
-    tableColDetails: {
-      width: '50%',
-      textAlign: 'left'
-    },
-    tableColplantRigth: {
-      width: '50%',
-      textAlign: 'right',
-      borderStyle: 'solid'
-    },
-    tableColDetailsRigth: {
-      width: '50%',
-      textAlign: 'right'
-    },
-    tableCellplant: {
-      marginTop: 5,
-      fontSize: 8
-    },
-    tableCellplantRigth: {
-      marginTop: 5,
-      fontSize: 8
-    },
-    background: {
-      backgroundColor: '#ededed',
-      fontSize: 10
-    },
-    backgroundcode: {
-      backgroundColor: '#ededed',
-      width: 70,
-      height: 20,
-      fontSize: 8,
-      marginBottom: 5,
-      justifyContent: 'center'
-    },
-    backgrounddate: {
-      backgroundColor: '#ededed',
-      width: 120,
-      height: 20,
-      marginLeft: 3,
-      fontSize: 8
-    },
-    contentdate: {
-      flex: 2,
-      flexDirection: 'row',
-      flexGrow: 2,
-      marginRight: 45,
-      alignItems: 'center'
-    },
-    image: {
-      height: '45px',
-      width: '45px'
-    },
-    tablecontainer: {
-      width: '31%',
-      marginTop: 7,
-      marginRight: 18
-    },
-    tablecontainer2: {
-      width: '31%',
-      marginTop: 7,
-      marginRight: 18
-    },
-    tablecontainer3: {
-      width: '31%',
-      marginTop: 7
-    },
-    conventions: {
-      marginTop: 50
-    },
-    sectionorigin: {
-      flexDirection: 'row',
-      marginTop: 20
-    },
-    border: {
-      border: '1 solid black',
-      width: 70,
-      height: 20,
-      justifyContent: 'center',
-      margin: 'auto',
-      backgroundColor: '#ffffff',
-      top: -45,
-      position: 'relative'
-    },
-    copy: { top: -10 },
-    datereport: { left: 3, width: 245, textAlign: 'left' },
-    datemargin: {
-      marginTop: 19.2,
-      marginBottom: 5,
-      flexDirection: 'row'
-    },
-    title: { fontSize: 12, fontFamily: 'Roboto', fontWeight: 'bold' },
-    datecolor: {
-      color: '#DD9835',
-      marginLeft: 5
-    },
-    phone: {
-      marginTop: 10,
-      marginBottom: 10
-    },
-    fontlicense: { fontSize: 20 },
-    license: {
-      backgroundColor: '#ededed',
-      width: 100,
-      height: 53,
-      left: 150,
-      top: -70.5,
-      borderStyle: 'solid',
-      borderWidth: 1,
-      justifyContent: 'center'
-    },
-    licenseborder: {
-      borderStyle: 'solid',
-      borderWidth: 1,
-      width: 104,
-      height: 58,
-      left: 148,
-      top: -15,
-      backgroundColor: '#ededed'
-    },
-    licensecontainer: {
-      left: 80,
-      marginTop: -55
-    }
-  })
   return (
     <Document>
       <Page style={styles.page}>
@@ -7053,7 +7053,7 @@ aWYuY29toMOzWAAAAABJRU5ErkJggg=='
             </View>
           </View>
           <View style={{ width: 70, height: 71 }}>
-            {/* <Image src={props.url.image} /> */}
+            <Image src={props.url.image} />
           </View>
         </View>
         <View style={styles.detailsplant}>
@@ -7085,7 +7085,9 @@ aWYuY29toMOzWAAAAABJRU5ErkJggg=='
                   </View>
                   <View style={[styles.tableColplantRigth, { width: '70%' }]}>
                     <Text style={styles.tableCellplantRigth}>
-                      {props.url.dataEntrance.planta.razonSocial}
+                      {_.startCase(
+                        _.capitalize(props.url.dataEntrance.planta.razonSocial)
+                      )}
                     </Text>
                   </View>
                 </View>
@@ -7137,8 +7139,15 @@ aWYuY29toMOzWAAAAABJRU5ErkJggg=='
                     </View>
                   </View>
                   <View style={[styles.tableColplantRigth, { width: '70%' }]}>
-                    <Text style={styles.tableCellplantRigth}>
-                      {props.url.dataEntrance.planta.email}
+                    <Text
+                      style={[
+                        styles.tableCellplantRigth,
+                        { textTransform: 'lowercase' }
+                      ]}
+                    >
+                      {props.url.dataEntrance.planta.email === 'Null'
+                        ? '-'
+                        : props.url.dataEntrance.planta.email}
                     </Text>
                   </View>
                 </View>
@@ -7154,7 +7163,9 @@ aWYuY29toMOzWAAAAABJRU5ErkJggg=='
                   </View>
                   <View style={[styles.tableColplantRigth, { width: '70%' }]}>
                     <Text style={styles.tableCellplantRigth}>
-                      {props.url.dataEntrance.planta.direccion}
+                      {_.startCase(
+                        _.capitalize(props.url.dataEntrance.planta.direccion)
+                      )}
                     </Text>
                   </View>
                 </View>
@@ -7170,8 +7181,8 @@ aWYuY29toMOzWAAAAABJRU5ErkJggg=='
                   </View>
                   <View style={[styles.tableColplantRigth, { width: '70%' }]}>
                     <Text style={styles.tableCellplantRigth}>
-                      {props.url.dataEntrance.planta.ciudad},{' '}
-                      {props.url.dataEntrance.planta.pais}
+                      {_.capitalize(props.url.dataEntrance.planta.ciudad)},{' '}
+                      {_.capitalize(props.url.dataEntrance.planta.pais)}
                     </Text>
                   </View>
                 </View>
@@ -7199,7 +7210,11 @@ aWYuY29toMOzWAAAAABJRU5ErkJggg=='
                   </View>
                   <View style={[styles.tableColplantRigth, { width: '70%' }]}>
                     <Text style={styles.tableCellplantRigth}>
-                      {props.url.dataEntrance.productor.nombreCompleto}
+                      {_.startCase(
+                        _.capitalize(
+                          props.url.dataEntrance.productor.nombreCompleto
+                        )
+                      )}
                     </Text>
                   </View>
                 </View>
@@ -7251,8 +7266,15 @@ aWYuY29toMOzWAAAAABJRU5ErkJggg=='
                     </View>
                   </View>
                   <View style={[styles.tableColplantRigth, { width: '70%' }]}>
-                    <Text style={styles.tableCellplantRigth}>
-                      {props.url.dataEntrance.productor.email}
+                    <Text
+                      style={[
+                        styles.tableCellplantRigth,
+                        { textTransform: 'lowercase' }
+                      ]}
+                    >
+                      {props.url.dataEntrance.productor.email === 'Null'
+                        ? '-'
+                        : props.url.dataEntrance.productor.email}
                     </Text>
                   </View>
                 </View>
@@ -7268,7 +7290,9 @@ aWYuY29toMOzWAAAAABJRU5ErkJggg=='
                   </View>
                   <View style={[styles.tableColplantRigth, { width: '70%' }]}>
                     <Text style={styles.tableCellplantRigth}>
-                      {props.url.dataEntrance.productor.direccion}
+                      {_.startCase(
+                        _.capitalize(props.url.dataEntrance.productor.direccion)
+                      )}
                     </Text>
                   </View>
                 </View>
@@ -7284,8 +7308,8 @@ aWYuY29toMOzWAAAAABJRU5ErkJggg=='
                   </View>
                   <View style={[styles.tableColplantRigth, { width: '70%' }]}>
                     <Text style={styles.tableCellplantRigth}>
-                      {props.url.dataEntrance.productor.ciudad},
-                      {props.url.dataEntrance.productor.pais}
+                      {_.capitalize(props.url.dataEntrance.productor.ciudad)},{' '}
+                      {_.capitalize(props.url.dataEntrance.productor.pais)}
                     </Text>
                   </View>
                 </View>
@@ -7313,7 +7337,11 @@ aWYuY29toMOzWAAAAABJRU5ErkJggg=='
                   </View>
                   <View style={[styles.tableColplantRigth, { width: '70%' }]}>
                     <Text style={styles.tableCellplantRigth}>
-                      {props.url.dataEntrance.comercializador.nombreCompleto}
+                      {_.startCase(
+                        _.capitalize(
+                          props.url.dataEntrance.comercializador.nombreCompleto
+                        )
+                      )}
                     </Text>
                   </View>
                 </View>
@@ -7365,8 +7393,15 @@ aWYuY29toMOzWAAAAABJRU5ErkJggg=='
                     </View>
                   </View>
                   <View style={[styles.tableColplantRigth, { width: '70%' }]}>
-                    <Text style={styles.tableCellplantRigth}>
-                      {props.url.dataEntrance.comercializador.email}
+                    <Text
+                      style={[
+                        styles.tableCellplantRigth,
+                        { textTransform: 'lowercase' }
+                      ]}
+                    >
+                      {props.url.dataEntrance.comercializador.email === 'Null'
+                        ? '-'
+                        : props.url.dataEntrance.comercializador.email}
                     </Text>
                   </View>
                 </View>
@@ -7382,7 +7417,11 @@ aWYuY29toMOzWAAAAABJRU5ErkJggg=='
                   </View>
                   <View style={[styles.tableColplantRigth, { width: '70%' }]}>
                     <Text style={styles.tableCellplantRigth}>
-                      {props.url.dataEntrance.comercializador.direccion}
+                      {_.startCase(
+                        _.capitalize(
+                          props.url.dataEntrance.comercializador.direccion
+                        )
+                      )}
                     </Text>
                   </View>
                 </View>
@@ -7398,8 +7437,13 @@ aWYuY29toMOzWAAAAABJRU5ErkJggg=='
                   </View>
                   <View style={[styles.tableColplantRigth, { width: '70%' }]}>
                     <Text style={styles.tableCellplantRigth}>
-                      {props.url.dataEntrance.comercializador.ciudad},
-                      {props.url.dataEntrance.comercializador.pais}
+                      {_.capitalize(
+                        props.url.dataEntrance.comercializador.ciudad
+                      )}
+                      ,{' '}
+                      {_.capitalize(
+                        props.url.dataEntrance.comercializador.pais
+                      )}
                     </Text>
                   </View>
                 </View>
@@ -7428,7 +7472,9 @@ aWYuY29toMOzWAAAAABJRU5ErkJggg=='
                 </View>
                 <View style={[styles.tableColplantRigth, { width: '70%' }]}>
                   <Text style={styles.tableCellplantRigth}>
-                    {props.url.dataEntrance.granja.nombre}
+                    {_.startCase(
+                      _.capitalize(props.url.dataEntrance.granja.nombre)
+                    )}
                   </Text>
                 </View>
               </View>
@@ -7442,7 +7488,9 @@ aWYuY29toMOzWAAAAABJRU5ErkJggg=='
                 </View>
                 <View style={[styles.tableColplantRigth, { width: '70%' }]}>
                   <Text style={styles.tableCellplantRigth}>
-                    {props.url.dataEntrance.granja.responsableGranja}
+                    {props.url.dataEntrance.granja.responsableGranja === 'Null'
+                      ? '-'
+                      : props.url.dataEntrance.granja.responsableGranja}
                   </Text>
                 </View>
               </View>
@@ -7456,7 +7504,9 @@ aWYuY29toMOzWAAAAABJRU5ErkJggg=='
                 </View>
                 <View style={[styles.tableColplantRigth, { width: '70%' }]}>
                   <Text style={styles.tableCellplantRigth}>
-                    {props.url.dataEntrance.granja.telefono}
+                    {props.url.dataEntrance.granja.telefono === 'Null'
+                      ? '-'
+                      : props.url.dataEntrance.granja.telefono}
                   </Text>
                 </View>
               </View>
@@ -7470,7 +7520,9 @@ aWYuY29toMOzWAAAAABJRU5ErkJggg=='
                 </View>
                 <View style={[styles.tableColplantRigth, { width: '70%' }]}>
                   <Text style={styles.tableCellplantRigth}>
-                    {props.url.dataEntrance.granja.direccion}
+                    {_.startCase(
+                      _.capitalize(props.url.dataEntrance.granja.direccion)
+                    )}
                   </Text>
                 </View>
               </View>
@@ -7484,8 +7536,8 @@ aWYuY29toMOzWAAAAABJRU5ErkJggg=='
                 </View>
                 <View style={[styles.tableColplantRigth, { width: '70%' }]}>
                   <Text style={styles.tableCellplantRigth}>
-                    {props.url.dataEntrance.granja.ciudad},{' '}
-                    {props.url.dataEntrance.granja.pais}
+                    {_.capitalize(props.url.dataEntrance.granja.ciudad)},{' '}
+                    {_.capitalize(props.url.dataEntrance.granja.pais)}
                   </Text>
                 </View>
               </View>
@@ -7505,9 +7557,12 @@ aWYuY29toMOzWAAAAABJRU5ErkJggg=='
               {[
                 {
                   column1: 'Conductor',
-                  column2:
-                    props.url.dataEntrance.datosGeneralesPorteria
-                      .nombreConductor
+                  column2: _.startCase(
+                    _.capitalize(
+                      props.url.dataEntrance.datosGeneralesPorteria
+                        .nombreConductor
+                    )
+                  )
                 },
 
                 { column1: 'Nro. Documento', column2: 'N.D.' },
@@ -7633,7 +7688,7 @@ aWYuY29toMOzWAAAAABJRU5ErkJggg=='
               </View>
             </View>
             <View style={styles.tableRow}>
-              <View style={styles.tableCol}>
+              <View style={[styles.tableCol, { width: '10.5%' }]}>
                 <View style={styles.tableCell}>
                   <Text
                     style={{
@@ -7646,10 +7701,15 @@ aWYuY29toMOzWAAAAABJRU5ErkJggg=='
                   </Text>
                 </View>
               </View>
-              <View style={styles.tableCol}>
+              <View style={[styles.tableCol, { width: '22.5%' }]}>
                 <View style={styles.tableCell}>
                   <Text style={{ textAlign: 'right', marginRight: 10 }}>
-                    {props.url.dataEntrance.datosGeneralesPorteria.responsable}
+                    {_.startCase(
+                      _.capitalize(
+                        props.url.dataEntrance.datosGeneralesPorteria
+                          .responsable
+                      )
+                    )}
                   </Text>
                 </View>
               </View>
@@ -7704,7 +7764,11 @@ aWYuY29toMOzWAAAAABJRU5ErkJggg=='
             <View style={styles.numberanimals}>
               <View style={styles.backgroundanimalsrounded}>
                 <Text style={{ fontFamily: 'Roboto', fontWeight: 'bold' }}>
-                  {props.url.dataEntrance.remision.cantidadAnimalesRemisionados}
+                  {props.url.dataEntrance.remision
+                    .cantidadAnimalesRemisionados === 'Null'
+                    ? 0
+                    : props.url.dataEntrance.remision
+                        .cantidadAnimalesRemisionados}
                 </Text>
               </View>
               <Text> Animales</Text>
@@ -7712,7 +7776,11 @@ aWYuY29toMOzWAAAAABJRU5ErkJggg=='
             <View style={styles.numberanimals1}>
               <View style={styles.backgroundanimals}>
                 <Text style={{ fontFamily: 'Roboto', fontWeight: 'bold' }}>
-                  {props.url.dataCorrals.DatosPesaje.pesoTotalDeTodosLosPesajes}{' '}
+                  {props.url.dataCorrals.DatosPesaje
+                    .pesoTotalDeTodosLosPesajes === 'Null'
+                    ? '-'
+                    : props.url.dataCorrals.DatosPesaje
+                        .pesoTotalDeTodosLosPesajes}{' '}
                   Kg
                 </Text>
               </View>
