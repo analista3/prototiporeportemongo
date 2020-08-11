@@ -9,7 +9,7 @@ import * as serviceWorker from './serviceWorker'
 
 ReactDOM.render(
   <React.StrictMode>
-    <RequestReportLeanEvaluation />
+    <RequestReportEntrance />
   </React.StrictMode>,
   document.getElementById('root')
 )

@@ -7268,7 +7268,10 @@ aWYuY29toMOzWAAAAABJRU5ErkJggg=='
                   </View>
                   <View style={[styles.tableColplantRigth, { width: '70%' }]}>
                     <Text style={styles.tableCellplantRigth}>
-                      {props.url.dataEntrance.planta.telefono1}
+                      {props.url.dataEntrance.planta.telefono1 === '0' ||
+                      props.url.dataEntrance.planta.telefono1 === 'NINGUNO'
+                        ? 'N.D.'
+                        : props.url.dataEntrance.planta.telefono1}
                     </Text>
                   </View>
                 </View>
@@ -7286,11 +7289,16 @@ aWYuY29toMOzWAAAAABJRU5ErkJggg=='
                     <Text
                       style={[
                         styles.tableCellplantRigth,
-                        { textTransform: 'lowercase' }
+                        {
+                          textTransform:
+                            props.url.dataEntrance.planta.email === 'Null'
+                              ? ''
+                              : 'lowercase'
+                        }
                       ]}
                     >
                       {props.url.dataEntrance.planta.email === 'Null'
-                        ? '-'
+                        ? 'N.D.'
                         : props.url.dataEntrance.planta.email}
                     </Text>
                   </View>
@@ -7307,8 +7315,13 @@ aWYuY29toMOzWAAAAABJRU5ErkJggg=='
                   </View>
                   <View style={[styles.tableColplantRigth, { width: '70%' }]}>
                     <Text style={styles.tableCellplantRigth}>
-                      {_.startCase(
-                        _.capitalize(props.url.dataEntrance.planta.direccion)
+                      {_.capitalize(props.url.dataEntrance.planta.tipoVia)}{' '}
+                      {_.capitalize(props.url.dataEntrance.planta.numeroVia)}{' '}
+                      {props.url.dataEntrance.planta.apendice} #{' '}
+                      {_.capitalize(props.url.dataEntrance.planta.numeroCruce)}{' '}
+                      {props.url.dataEntrance.planta.apendiceCruce} -{' '}
+                      {_.capitalize(
+                        props.url.dataEntrance.planta.metrosEsquina
                       )}
                     </Text>
                   </View>
@@ -7395,7 +7408,10 @@ aWYuY29toMOzWAAAAABJRU5ErkJggg=='
                   </View>
                   <View style={[styles.tableColplantRigth, { width: '70%' }]}>
                     <Text style={styles.tableCellplantRigth}>
-                      {props.url.dataEntrance.productor.telefono1}
+                      {props.url.dataEntrance.productor.telefono1 === '0' ||
+                      props.url.dataEntrance.productor.telefono1 === 'NINGUNO'
+                        ? 'N.D.'
+                        : props.url.dataEntrance.productor.telefono1}
                     </Text>
                   </View>
                 </View>
@@ -7413,11 +7429,16 @@ aWYuY29toMOzWAAAAABJRU5ErkJggg=='
                     <Text
                       style={[
                         styles.tableCellplantRigth,
-                        { textTransform: 'lowercase' }
+                        {
+                          textTransform:
+                            props.url.dataEntrance.productor.email === 'Null'
+                              ? ''
+                              : 'lowercase'
+                        }
                       ]}
                     >
                       {props.url.dataEntrance.productor.email === 'Null'
-                        ? '-'
+                        ? 'N.D.'
                         : props.url.dataEntrance.productor.email}
                     </Text>
                   </View>
@@ -7434,9 +7455,17 @@ aWYuY29toMOzWAAAAABJRU5ErkJggg=='
                   </View>
                   <View style={[styles.tableColplantRigth, { width: '70%' }]}>
                     <Text style={styles.tableCellplantRigth}>
-                      {_.startCase(
-                        _.capitalize(props.url.dataEntrance.productor.direccion)
-                      )}
+                      {props.url.dataEntrance.productor.direccion === 'Null' ||
+                      props.url.dataEntrance.productor.direccion === 'NO' ||
+                      props.url.dataEntrance.productor.direccion ===
+                        'NINGUNO 0 0 0' ||
+                      props.url.dataEntrance.productor.direccion === '0'
+                        ? 'N.D.'
+                        : _.startCase(
+                            _.capitalize(
+                              props.url.dataEntrance.productor.direccion
+                            )
+                          )}
                     </Text>
                   </View>
                 </View>
@@ -7522,7 +7551,12 @@ aWYuY29toMOzWAAAAABJRU5ErkJggg=='
                   </View>
                   <View style={[styles.tableColplantRigth, { width: '70%' }]}>
                     <Text style={styles.tableCellplantRigth}>
-                      {props.url.dataEntrance.comercializador.telefono1}
+                      {props.url.dataEntrance.comercializador.telefono1 ===
+                        '0' ||
+                      props.url.dataEntrance.comercializador.telefono1 ===
+                        'NINGUNO'
+                        ? 'N.D.'
+                        : props.url.dataEntrance.comercializador.telefono1}
                     </Text>
                   </View>
                 </View>
@@ -7540,11 +7574,17 @@ aWYuY29toMOzWAAAAABJRU5ErkJggg=='
                     <Text
                       style={[
                         styles.tableCellplantRigth,
-                        { textTransform: 'lowercase' }
+                        {
+                          textTransform:
+                            props.url.dataEntrance.comercializador.email ===
+                            'Null'
+                              ? ''
+                              : 'lowercase'
+                        }
                       ]}
                     >
                       {props.url.dataEntrance.comercializador.email === 'Null'
-                        ? '-'
+                        ? 'N.D.'
                         : props.url.dataEntrance.comercializador.email}
                     </Text>
                   </View>
@@ -7561,11 +7601,45 @@ aWYuY29toMOzWAAAAABJRU5ErkJggg=='
                   </View>
                   <View style={[styles.tableColplantRigth, { width: '70%' }]}>
                     <Text style={styles.tableCellplantRigth}>
-                      {_.startCase(
-                        _.capitalize(
-                          props.url.dataEntrance.comercializador.direccion
-                        )
-                      )}
+                      {props.url.dataEntrance.comercializador.direccion ===
+                        'NINGUNO' ||
+                      props.url.dataEntrance.comercializador.direccion ===
+                        'NINGUNO      ' ||
+                      props.url.dataEntrance.comercializador.direccion ===
+                        'Null'
+                        ? 'N.D.'
+                        : props.url.dataEntrance.comercializador.tipoVia ===
+                          'Null'
+                        ? _.startCase(
+                            _.capitalize(
+                              props.url.dataEntrance.comercializador.direccion
+                            )
+                          )
+                        : _.capitalize(
+                            props.url.dataEntrance.comercializador.tipoVia
+                          ) +
+                          ' ' +
+                          _.capitalize(
+                            props.url.dataEntrance.comercializador.numeroVia
+                          ) +
+                          ' ' +
+                          props.url.dataEntrance.comercializador.apendice +
+                          ' ' +
+                          '#' +
+                          _.capitalize(
+                            props.url.dataEntrance.comercializador.numeroCruce
+                          ) +
+                          ' ' +
+                          (props.url.dataEntrance.comercializador
+                            .apendiceCruce === 'Null'
+                            ? ''
+                            : props.url.dataEntrance.comercializador
+                                .apendiceCruce) +
+                          '-' +
+                          ' ' +
+                          _.capitalize(
+                            props.url.dataEntrance.comercializador.metrosEsquina
+                          )}
                     </Text>
                   </View>
                 </View>
@@ -7629,7 +7703,7 @@ aWYuY29toMOzWAAAAABJRU5ErkJggg=='
                         <Text
                           style={{ fontFamily: 'Roboto', fontWeight: 'bold' }}
                         >
-                          Remision Nro.
+                          Remisión Nro.
                         </Text>
                       </View>
                     </View>
@@ -7955,7 +8029,8 @@ aWYuY29toMOzWAAAAABJRU5ErkJggg=='
                     {
                       props.url.dataCorrals.DatosPesaje
                         .pesoTotalDeTodosLosPesajes
-                    }
+                    }{' '}
+                    Kg
                   </Text>
                 </View>
               </View>
@@ -7963,7 +8038,7 @@ aWYuY29toMOzWAAAAABJRU5ErkJggg=='
                 <Text> Promedio Peso Pie del Lote </Text>
                 <View style={styles.sizetext}>
                   <Text style={{ fontFamily: 'Roboto', fontWeight: 'bold' }}>
-                    {props.url.dataCorrals.DatosPesaje.promedioPesoTotal}
+                    {props.url.dataCorrals.DatosPesaje.promedioPesoTotal} Kg
                   </Text>
                 </View>
               </View>
@@ -8072,7 +8147,8 @@ aWYuY29toMOzWAAAAABJRU5ErkJggg=='
                   {
                     props.url.dataEntrance.datosGeneralesPorteria
                       .tiempoDesembarque
-                  }
+                  }{' '}
+                  Min
                 </Text>
               </View>
               <Text style={styles.widthtransport}>
@@ -8126,7 +8202,7 @@ aWYuY29toMOzWAAAAABJRU5ErkJggg=='
                 <View style={styles.tableCol1}>
                   <View style={styles.tableCellplant}>
                     <Text style={{ fontFamily: 'Roboto', fontWeight: 'bold' }}>
-                      Ultimo Pesaje
+                      Último Pesaje
                     </Text>
                   </View>
                 </View>

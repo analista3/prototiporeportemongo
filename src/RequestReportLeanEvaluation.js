@@ -83,6 +83,7 @@ const RequestReportLeanEvaluation = () => {
                   })
                   .then((res) => {
                     setDataGeneral(JSON.parse(res.data.data))
+                    console.log(JSON.parse(res.data.data))
                     setLoad(false)
                     generateScreenshot()
                     setOpen(true)
@@ -135,7 +136,7 @@ const RequestReportLeanEvaluation = () => {
           </Button>
         }
       >
-        <Modal.Header>Select a Photo</Modal.Header>
+        <Modal.Header>Visor de pdf</Modal.Header>
         <Modal.Content>
           <Modal.Description>
             {image &&
@@ -169,7 +170,7 @@ const RequestReportLeanEvaluation = () => {
           onOpen={() => openModal()}
           open={open}
         >
-          <Modal.Header>Select a Photo</Modal.Header>
+          <Modal.Header>Visor de pdf</Modal.Header>
           <Modal.Content>
             <Modal.Description>
               {image &&
@@ -210,7 +211,7 @@ const RequestReportLeanEvaluation = () => {
           getidLotes.map((item, index) => {
             return (
               <tr key={index}>
-                <td>{item.LoteID}</td>
+                <td>{item.CodigoLote}</td>
                 <td>
                   <Button
                     onClick={() => {

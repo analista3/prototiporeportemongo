@@ -11,8 +11,7 @@ const RequestReportLeanEvaluation = () => {
 
   const [dataEntrance, setDataEntrance] = useState({})
   const [dataCorrals, setDataCorrals] = useState({})
-  // const [dataSacrifice, setDataSacrifice] = useState({})
-  // const [dataGeneral, setDataGeneral] = useState({})
+
   const [getidLotes, setGetidLotes] = useState([])
   const [load, setLoad] = useState(true)
   const [open, setOpen] = useState(false)
@@ -51,31 +50,10 @@ const RequestReportLeanEvaluation = () => {
             setLoad(false)
             generateScreenshot()
             setOpen(true)
-            // axios
-            //   .post('https://localhost:44386/api/v1/getObjectMongo', {
-            //     idLoteIP: value,
-            //     seccion: 'sacrificio'
-            //   })
-            //   .then((res) => {
-            //     console.log(res.data)
-            //     const dataSacrifice = JSON.parse(res.data.data)
-            //     console.log(dataSacrifice)
-            //     setDataSacrifice(dataSacrifice)
-            //     axios
-            //       .post('https://localhost:44386/api/v1/getObjectMongo', {
-            //         idLoteIP: value,
-            //         seccion: 'datos generales'
-            //       })
-            //       .then((res) => {
-            //         setDataGeneral(JSON.parse(res.data.data))
           })
           .catch((err) => console.error(err))
       })
       .catch((err) => console.error(err))
-    //     })
-    //     .catch((err) => console.error(err))
-    // })
-    // .catch((err) => console.error(err))
   }
 
   useEffect(() => {
@@ -99,8 +77,6 @@ const RequestReportLeanEvaluation = () => {
             url={{
               dataEntrance,
               dataCorrals
-              // dataSacrifice,
-              // dataGeneral
             }}
           />
         )}
@@ -117,7 +93,7 @@ const RequestReportLeanEvaluation = () => {
           </Button>
         }
       >
-        <Modal.Header>Select a Photo</Modal.Header>
+        <Modal.Header>Visor de pdf</Modal.Header>
         <Modal.Content>
           <Modal.Description>
             {image &&
@@ -151,32 +127,23 @@ const RequestReportLeanEvaluation = () => {
           onOpen={() => openModal()}
           open={open}
         >
-          <Modal.Header>Select a Photo</Modal.Header>
+          <Modal.Header>Visor de pdf</Modal.Header>
           <Modal.Content>
             <Modal.Description>
-              {image &&
-                // chart &&
-                // chart1 &&
-                dataEntrance &&
-                dataCorrals &&
-                // dataSacrifice &&
-                // dataGeneral &&
-                getidLotes && (
-                  <PDFViewer style={{ width: '100%', height: '130vh' }}>
-                    <MyDoc
-                      url={{
-                        image,
-                        // chart,
-                        // chart1,
-                        dataEntrance,
-                        dataCorrals,
-                        // dataSacrifice,
-                        // dataGeneral,
-                        getidLotes
-                      }}
-                    />
-                  </PDFViewer>
-                )}
+              {image && dataEntrance && dataCorrals && getidLotes && (
+                <PDFViewer style={{ width: '100%', height: '130vh' }}>
+                  <MyDoc
+                    url={{
+                      image,
+
+                      dataEntrance,
+                      dataCorrals,
+
+                      getidLotes
+                    }}
+                  />
+                </PDFViewer>
+              )}
             </Modal.Description>
           </Modal.Content>
           <Modal.Actions>
@@ -192,14 +159,14 @@ const RequestReportLeanEvaluation = () => {
           getidLotes.map((item, index) => {
             return (
               <tr key={index}>
-                <td>{item.LoteID}</td>
+                <td>{item.CodigoLote}</td>
                 <td>
                   <Button
                     onClick={() => {
                       openModal(item.LoteID)
                     }}
                   >
-                    modal
+                    Ver
                   </Button>
                 </td>
               </tr>
