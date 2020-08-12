@@ -7692,7 +7692,7 @@ aWYuY29toMOzWAAAAABJRU5ErkJggg=='
                     <View style={styles.tableColDetailsRigth}>
                       <Text style={styles.tableCellplantRigth}>
                         {props.url.dataEntrance.remision.loteCeba === 'Null'
-                          ? '-'
+                          ? 'N.D.'
                           : props.url.dataEntrance.remision.loteCeba}
                       </Text>
                     </View>
@@ -7711,7 +7711,7 @@ aWYuY29toMOzWAAAAABJRU5ErkJggg=='
                       <Text style={styles.tableCellplantRigth}>
                         {props.url.dataEntrance.remision.numeroRemision ===
                         'Null'
-                          ? '-'
+                          ? 'N.D.'
                           : props.url.dataEntrance.remision.numeroRemision}
                       </Text>
                     </View>
@@ -7764,7 +7764,7 @@ aWYuY29toMOzWAAAAABJRU5ErkJggg=='
                       <Text style={styles.tableCellplantRigth}>
                         {props.url.dataEntrance.remision.horaSalidaGranja ===
                         'Null'
-                          ? '-'
+                          ? 'N.D.'
                           : props.url.dataEntrance.remision.horaSalidaGranja}
                       </Text>
                     </View>
@@ -7785,10 +7785,14 @@ aWYuY29toMOzWAAAAABJRU5ErkJggg=='
                     </View>
                     <View style={styles.tableColDetailsRigth}>
                       <Text style={styles.tableCellplantRigth}>
-                        {
-                          props.url.dataEntrance.datosGeneralesPorteria
-                            .fechaLlegadaPlanta
-                        }
+                        {new Date(
+                          props.url.dataEntrance.datosGeneralesPorteria.fechaLlegadaPlanta
+                        )
+                          .toISOString()
+                          .substring(0, 19)
+                          .replace('T', ' ')
+                          .replace('-', '/')
+                          .replace('-', '/')}
                       </Text>
                     </View>
                   </View>
@@ -7804,10 +7808,14 @@ aWYuY29toMOzWAAAAABJRU5ErkJggg=='
                     </View>
                     <View style={styles.tableColDetailsRigth}>
                       <Text style={styles.tableCellplantRigth}>
-                        {
-                          props.url.dataEntrance.datosGeneralesPorteria
-                            .fechaIngresoPlanta
-                        }
+                        {new Date(
+                          props.url.dataEntrance.datosGeneralesPorteria.fechaIngresoPlanta
+                        )
+                          .toISOString()
+                          .substring(0, 19)
+                          .replace('T', ' ')
+                          .replace('-', '/')
+                          .replace('-', '/')}
                       </Text>
                     </View>
                   </View>
@@ -7823,10 +7831,14 @@ aWYuY29toMOzWAAAAABJRU5ErkJggg=='
                     </View>
                     <View style={styles.tableColDetailsRigth}>
                       <Text style={styles.tableCellplantRigth}>
-                        {
-                          props.url.dataEntrance.datosGeneralesPorteria
-                            .fechaSalida
-                        }
+                        {new Date(
+                          props.url.dataEntrance.datosGeneralesPorteria.fechaSalida
+                        )
+                          .toISOString()
+                          .substring(0, 19)
+                          .replace('T', ' ')
+                          .replace('-', '/')
+                          .replace('-', '/')}
                       </Text>
                     </View>
                   </View>
@@ -7978,7 +7990,12 @@ aWYuY29toMOzWAAAAABJRU5ErkJggg=='
                       </View>
                       <View style={styles.tableColDate}>
                         <Text style={styles.tableCellplant}>
-                          {item.fechaIngreso}
+                          {new Date(item.fechaIngreso)
+                            .toISOString()
+                            .substring(0, 19)
+                            .replace('T', ' ')
+                            .replace('-', '/')
+                            .replace('-', '/')}
                         </Text>
                       </View>
                     </View>
@@ -8176,7 +8193,14 @@ aWYuY29toMOzWAAAAABJRU5ErkJggg=='
                 <View style={styles.tableCol1}>
                   <View style={styles.tableCellplantRigth}>
                     <Text>
-                      {props.url.dataCorrals.DatosCorrales.primerPesaje}
+                      {new Date(
+                        props.url.dataCorrals.DatosCorrales.primerPesaje
+                      )
+                        .toISOString()
+                        .substring(0, 19)
+                        .replace('T', ' ')
+                        .replace('-', '/')
+                        .replace('-', '/')}
                     </Text>
                   </View>
                 </View>
@@ -8190,10 +8214,14 @@ aWYuY29toMOzWAAAAABJRU5ErkJggg=='
                 <View style={styles.tableCol1}>
                   <View style={styles.tableCellplantRigth}>
                     <Text>
-                      {
-                        props.url.dataEntrance.datosGeneralesPorteria
-                          .inicioDesembarque
-                      }
+                      {new Date(
+                        props.url.dataEntrance.datosGeneralesPorteria.inicioDesembarque
+                      )
+                        .toISOString()
+                        .substring(0, 19)
+                        .replace('T', ' ')
+                        .replace('-', '/')
+                        .replace('-', '/')}
                     </Text>
                   </View>
                 </View>
@@ -8208,7 +8236,12 @@ aWYuY29toMOzWAAAAABJRU5ErkJggg=='
                 </View>
                 <View style={styles.tableCol1}>
                   <Text style={styles.tableCellplantRigth}>
-                    {props.url.dataCorrals.DatosCorrales.ultimoPesaje}
+                    {new Date(props.url.dataCorrals.DatosCorrales.ultimoPesaje)
+                      .toISOString()
+                      .substring(0, 19)
+                      .replace('T', ' ')
+                      .replace('-', '/')
+                      .replace('-', '/')}
                   </Text>
                 </View>
                 <View style={styles.tableCol1Margin}>
@@ -8220,10 +8253,14 @@ aWYuY29toMOzWAAAAABJRU5ErkJggg=='
                 </View>
                 <View style={styles.tableCol1}>
                   <Text style={styles.tableCellplantRigth}>
-                    {
-                      props.url.dataEntrance.datosGeneralesPorteria
-                        .finDesembarque
-                    }
+                    {new Date(
+                      props.url.dataEntrance.datosGeneralesPorteria.finDesembarque
+                    )
+                      .toISOString()
+                      .substring(0, 19)
+                      .replace('T', ' ')
+                      .replace('-', '/')
+                      .replace('-', '/')}
                   </Text>
                 </View>
               </View>
@@ -8297,7 +8334,12 @@ aWYuY29toMOzWAAAAABJRU5ErkJggg=='
                     </View>
                     <View style={[styles.tableCol2, { width: '18%' }]}>
                       <Text style={styles.tableCellplant}>
-                        {item.fechaPesaje}
+                        {new Date(item.fechaPesaje)
+                          .toISOString()
+                          .substring(0, 19)
+                          .replace('T', ' ')
+                          .replace('-', '/')
+                          .replace('-', '/')}
                       </Text>
                     </View>
                     <View style={styles.tableCol2}>
@@ -8306,7 +8348,9 @@ aWYuY29toMOzWAAAAABJRU5ErkJggg=='
                       </Text>
                     </View>
                     <View style={styles.tableCol2}>
-                      <Text style={styles.tableCellplant}>{item.sexo}</Text>
+                      <Text style={styles.tableCellplant}>
+                        {item.sexo === null ? 'N.D.' : item.sexo}
+                      </Text>
                     </View>
                     <View style={styles.tableCol2}>
                       <Text style={styles.tableCellplant}>
@@ -8320,7 +8364,7 @@ aWYuY29toMOzWAAAAABJRU5ErkJggg=='
                     </View>
                     <View style={styles.tableCol2}>
                       <Text style={styles.tableCellplant}>
-                        {item.promedioBache}
+                        {Number(item.promedioBache).toFixed(2)}
                       </Text>
                     </View>
                   </View>

@@ -21,6 +21,8 @@ import {
   Font
 } from '@react-pdf/renderer'
 import _ from 'lodash'
+import dateFormat from '../utils/DateFormat'
+import moment from 'moment'
 
 Font.register({
   family: 'Roboto',
@@ -7809,10 +7811,10 @@ aWYuY29toMOzWAAAAABJRU5ErkJggg=='
                           width: 30
                         }}
                       >
-                        {
+                        {Number(
                           props.url.dataSacrifice.medicionSB
                             .promedioPesoCanalCaliente
-                        }
+                        ).toFixed(2)}
                       </Text>
                       <Text
                         style={{
@@ -7856,7 +7858,9 @@ aWYuY29toMOzWAAAAABJRU5ErkJggg=='
                           width: 30
                         }}
                       >
-                        {props.url.dataSacrifice.medicionSB.promedioMagro}
+                        {Number(
+                          props.url.dataSacrifice.medicionSB.promedioMagro
+                        ).toFixed(2)}
                       </Text>
                       <Text
                         style={{
@@ -7899,10 +7903,10 @@ aWYuY29toMOzWAAAAABJRU5ErkJggg=='
                           width: 30
                         }}
                       >
-                        {
+                        {Number(
                           props.url.dataSacrifice.medicionSB
                             .promedioLongitudLomo
-                        }
+                        ).toFixed(2)}
                       </Text>
                       <Text
                         style={{
@@ -7945,7 +7949,9 @@ aWYuY29toMOzWAAAAABJRU5ErkJggg=='
                           width: 29
                         }}
                       >
-                        {props.url.dataSacrifice.medicionSB.promedioGrasaDorsal}
+                        {Number(
+                          props.url.dataSacrifice.medicionSB.promedioGrasaDorsal
+                        ).toFixed(2)}
                       </Text>
                       <Text
                         style={{
@@ -8141,34 +8147,39 @@ aWYuY29toMOzWAAAAABJRU5ErkJggg=='
                     </View>
                     <View style={{ textAlign: 'right', width: '50%' }}>
                       <Text>
-                        {
+                        {moment(
                           props.url.dataEntrance.datosGeneralesPorteria
-                            .fechaLlegadaPlanta
-                        }
+                            .fechaLlegadaPlanta,
+                          'YYYY-MM-DD hh:mm:ss'
+                        ).format('YYYY/MM/DD hh:mm:ss')}
                       </Text>
                       <Text style={{ marginTop: 5 }}>
-                        {
+                        {moment(
                           props.url.dataEntrance.datosGeneralesPorteria
-                            .fechaIngresoPlanta
-                        }
+                            .fechaIngresoPlanta,
+                          'YYYY-MM-DD hh:mm:ss'
+                        ).format('YYYY/MM/DD hh:mm:ss')}
                       </Text>
                       <Text style={{ marginTop: 5 }}>
-                        {
+                        {moment(
                           props.url.dataEntrance.datosGeneralesPorteria
-                            .fechaSalida
-                        }
+                            .fechaSalida,
+                          'YYYY-MM-DD hh:mm:ss'
+                        ).format('YYYY/MM/DD hh:mm:ss')}
                       </Text>
                       <Text style={{ marginTop: 5 }}>
-                        {
+                        {moment(
                           props.url.dataEntrance.datosGeneralesPorteria
-                            .inicioDesembarque
-                        }
+                            .inicioDesembarque,
+                          'YYYY-MM-DD hh:mm:ss'
+                        ).format('YYYY/MM/DD hh:mm:ss')}
                       </Text>
                       <Text style={{ marginTop: 5 }}>
-                        {
+                        {moment(
                           props.url.dataEntrance.datosGeneralesPorteria
-                            .finDesembarque
-                        }
+                            .finDesembarque,
+                          'YYYY-MM-DD hh:mm:ss'
+                        ).format('YYYY/MM/DD hh:mm:ss')}
                       </Text>
                     </View>
                   </View>
@@ -8200,7 +8211,7 @@ aWYuY29toMOzWAAAAABJRU5ErkJggg=='
                         <Text>
                           {props.url.dataEntrance.remision
                             .cantidadAnimalesRemisionados === 'Null'
-                            ? '-'
+                            ? 'N.D.'
                             : props.url.dataEntrance.remision
                                 .cantidadAnimalesRemisionados}
                         </Text>
@@ -8286,7 +8297,7 @@ aWYuY29toMOzWAAAAABJRU5ErkJggg=='
                         <Text>
                           {props.url.dataEntrance.remision.numeroRemision ===
                           'Null'
-                            ? '-'
+                            ? 'N.D.'
                             : props.url.dataEntrance.remision.numeroRemision}
                         </Text>
                       </View>
@@ -8417,7 +8428,9 @@ aWYuY29toMOzWAAAAABJRU5ErkJggg=='
                                 style={[styles.tableCol2, { width: '14.2%' }]}
                               >
                                 <View style={styles.tableCellplant}>
-                                  <Text>{item.sexo}</Text>
+                                  <Text>
+                                    {item.sexo === null ? 'N.D.' : item.sexo}
+                                  </Text>
                                 </View>
                               </View>
                               <View
@@ -9466,7 +9479,7 @@ aWYuY29toMOzWAAAAABJRU5ErkJggg=='
                     </View>
                     <View style={[styles.tableCol2, { width: '7.7%' }]}>
                       <Text style={styles.tableCellplant}>
-                        {item.kgPesoCanalCaliente}
+                        {Number(item.kgPesoCanalCaliente).toFixed(2)}
                       </Text>
                     </View>
                     <View style={[styles.tableCol2, { width: '7.7%' }]}>

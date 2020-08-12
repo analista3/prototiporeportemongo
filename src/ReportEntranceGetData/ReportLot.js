@@ -7734,7 +7734,10 @@ aWYuY29toMOzWAAAAABJRU5ErkJggg=='
                       props.url.dataEntrance.datosGeneralesPorteria.fechaLlegadaPlanta
                     )
                       .toISOString()
-                      .substring(0, 10)}
+                      .substring(0, 19)
+                      .replace('T', ' ')
+                      .replace('-', '/')
+                      .replace('-', '/')}
                   </Text>
                 </View>
               </View>
@@ -7754,10 +7757,14 @@ aWYuY29toMOzWAAAAABJRU5ErkJggg=='
               <View style={styles.tableCol}>
                 <View style={styles.tableCell}>
                   <Text style={{ textAlign: 'right', marginRight: 10 }}>
-                    {
-                      props.url.dataEntrance.datosGeneralesPorteria
-                        .inicioDesembarque
-                    }
+                    {new Date(
+                      props.url.dataEntrance.datosGeneralesPorteria.inicioDesembarque
+                    )
+                      .toISOString()
+                      .substring(0, 19)
+                      .replace('T', ' ')
+                      .replace('-', '/')
+                      .replace('-', '/')}
                   </Text>
                 </View>
               </View>
@@ -7804,7 +7811,14 @@ aWYuY29toMOzWAAAAABJRU5ErkJggg=='
               <View style={styles.tableCol}>
                 <View style={styles.tableCell}>
                   <Text style={{ textAlign: 'right', marginRight: 10 }}>
-                    {props.url.dataEntrance.datosGeneralesPorteria.fechaSalida}
+                    {new Date(
+                      props.url.dataEntrance.datosGeneralesPorteria.fechaSalida
+                    )
+                      .toISOString()
+                      .substring(0, 19)
+                      .replace('T', ' ')
+                      .replace('-', '/')
+                      .replace('-', '/')}
                   </Text>
                 </View>
               </View>
@@ -7824,10 +7838,14 @@ aWYuY29toMOzWAAAAABJRU5ErkJggg=='
               <View style={styles.tableCol}>
                 <View style={styles.tableCell}>
                   <Text style={{ textAlign: 'right', marginRight: 10 }}>
-                    {
-                      props.url.dataEntrance.datosGeneralesPorteria
-                        .finDesembarque
-                    }
+                    {new Date(
+                      props.url.dataEntrance.datosGeneralesPorteria.finDesembarque
+                    )
+                      .toISOString()
+                      .substring(0, 19)
+                      .replace('T', ' ')
+                      .replace('-', '/')
+                      .replace('-', '/')}
                   </Text>
                 </View>
               </View>
