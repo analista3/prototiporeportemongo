@@ -13,6 +13,7 @@ import {
   Font
 } from '@react-pdf/renderer'
 import _ from 'lodash'
+import moment from 'moment'
 
 Font.register({
   family: 'Roboto',
@@ -23,7 +24,8 @@ Font.register({
     },
     {
       src: font2,
-      fontWeight: 'bold'
+      fontWeight: 'bold',
+      color: 'black'
     }
   ]
 })
@@ -52,7 +54,8 @@ const styles = StyleSheet.create({
   page: {
     textAlign: 'center',
     padding: 30,
-    fontSize: 8
+    fontSize: 8,
+    color: '#3f3f3f'
   },
   sizetext: { fontSize: 12 },
   sizetexttipe: { fontSize: 20, color: '#d57e58' },
@@ -326,18 +329,25 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     marginTop: 10
   },
-  flex2: { flex: 2, flexDirection: 'row', flexGrow: 2, width: 480 },
+  flex2: {
+    flex: 2,
+    flexDirection: 'row',
+    flexGrow: 2,
+    width: 480,
+    alignItems: 'center'
+  },
   containernumber: {
     width: 310,
     flexDirection: 'row',
+    alignItems: 'center',
     left: -10
   },
   containernumber1: {
     width: 80,
-    textAlign: 'left'
+    textAlign: 'center'
   },
   animalsnumber: {
-    width: 150,
+    width: 135,
     flexDirection: 'row',
     textAlign: 'left',
     justifyContent: 'center',
@@ -345,7 +355,9 @@ const styles = StyleSheet.create({
   },
   containernumber2: {
     width: 80,
-    textAlign: 'left'
+    textAlign: 'center',
+    marginLeft: 10,
+    marginRight: 10
   },
   flexbackground: {
     backgroundColor: '#ededed',
@@ -7152,15 +7164,28 @@ aWYuY29toMOzWAAAAABJRU5ErkJggg=='
           <View>
             <View style={styles.datereport}>
               <View style={styles.title}>
-                <Text style={{ fontFamily: 'Roboto', fontWeight: 'bold' }}>
+                <Text
+                  style={{
+                    fontFamily: 'Roboto',
+                    fontWeight: 'bold',
+                    color: 'black',
+                    color: 'black'
+                  }}
+                >
                   Reporte Técnico Tiquete de Báscula Corrales
                 </Text>
               </View>
               <View style={styles.datemargin}>
                 <Text>Lote infoPorcinos</Text>
                 <View style={styles.datecolor}>
-                  <Text style={{ fontFamily: 'Roboto', fontWeight: 'bold' }}>
-                    {props.url.dataEntrance.LoteID}
+                  <Text
+                    style={{
+                      fontFamily: 'Roboto',
+                      fontWeight: 'bold',
+                      color: '#dd9835'
+                    }}
+                  >
+                    {props.url.getCodeLot}
                   </Text>
                 </View>
               </View>
@@ -7169,7 +7194,13 @@ aWYuY29toMOzWAAAAABJRU5ErkJggg=='
               <View style={styles.backgrounddate}>
                 <View style={styles.contentdate}>
                   <Text>Fecha reporte</Text>
-                  <Text style={{ fontFamily: 'Roboto', fontWeight: 'bold' }}>
+                  <Text
+                    style={{
+                      fontFamily: 'Roboto',
+                      fontWeight: 'bold',
+                      color: 'black'
+                    }}
+                  >
                     {new Date().getDate()}/{new Date().getMonth() + 1}/
                     {new Date().getFullYear()}
                   </Text>
@@ -7178,7 +7209,13 @@ aWYuY29toMOzWAAAAABJRU5ErkJggg=='
               <View style={styles.backgrounddate}>
                 <View style={styles.contentdate}>
                   <Text>Nro. Reporte</Text>
-                  <Text style={{ fontFamily: 'Roboto', fontWeight: 'bold' }}>
+                  <Text
+                    style={{
+                      fontFamily: 'Roboto',
+                      fontWeight: 'bold',
+                      color: 'black'
+                    }}
+                  >
                     023456789
                   </Text>
                 </View>
@@ -7202,7 +7239,13 @@ aWYuY29toMOzWAAAAABJRU5ErkJggg=='
         </View>
         <View style={styles.detailsplant}>
           <View style={styles.backgroundresumetitle}>
-            <Text style={{ fontFamily: 'Roboto', fontWeight: 'bold' }}>
+            <Text
+              style={{
+                fontFamily: 'Roboto',
+                fontWeight: 'bold',
+                color: 'black'
+              }}
+            >
               Agentes Relacionados con el Negocio
             </Text>
           </View>
@@ -7212,7 +7255,13 @@ aWYuY29toMOzWAAAAABJRU5ErkJggg=='
                 <View style={styles.imageplant}>
                   <Image src='data:image/png+xml;base64,iVBORw0KGgoAAAANSUhEUgAAACQAAAAkCAYAAADhAJiYAAAABmJLR0QA/wD/AP+gvaeTAAACjElEQVRYhe2WTYhOURjHf4+vtxAGJRaUiSgbyUJiJ1/ZKbJnMVbWlLEmpVhRVhaSjbJgYQolNRtlYWGkEA2GmaEwZn4W77kc153XvDPzsnn/m3s+nuc5v/M8955zoa222mqtYrKOajewNXU/Awcj4ktLgNQdwKJsaAS4GREjmc0TYBnwGlgPrImIp1MFqoKpWa0tJbt+9Yq6Ps1vno71Z1SMFZk5DXQCe1N/aQYTQAcwAAyV/KakWQ2AeiPimfou9ZdkNvOT77QDNcrQh/T8BIyVgBZnNsV8R6uAFuZAETGWFl2c2RSLv48IgWH+YYagXpaqDA2k5yC/NvJfgIoMDWTzLc2Q1HedA1WVLAdq6Ts0HBGjJaC/laxln/1CUrnUVcBK4AiwM7PpoJ7FoqxDyW7KqspQR7bQGeAucAuYqxZleQP0R8T3DGhR2sQa9VVxik8H0M8MATXq5egHzgKv1MvAA2B15pO/1OuAFcAh4HGzYOO91PkX9jQitgNrgXPAbuAhcE89rM4DbgDPS3H2ACeBXZMB+yn1sXoptW+ovaX5OeoB9Y46pn5Uz6sb0vy+dNluSv0F6gn1vTraNJj6Uj09HlDJdq16Rn2bIO6rF3OgzHZyYOon9fhEgDKfmnpI7UlZ+wOoAdj+RoFnp2BdzQCVYnSq3eryv9gV/1Hd+Xj5HPrtYi0FmAkQEaNqLSK+qnMi4lv6P5oVESMR0Qd0l/0rNFg1WAaquscKXQW+qbeAC+oK4KV6FNgMbAS2TQCkocbL0FDZkPo5NAPoA7oiYiiVtgd4RP3saUZVR864GbquHkvtDWpf2VE9mZqnsrFmgGoTAXoBXEvtd9SvjNfNrDIJ3W5x/Lbaaus3/QDW/tTn/Ybw7wAAAABJRU5ErkJggg==' />
                 </View>
-                <Text style={{ fontFamily: 'Roboto', fontWeight: 'bold' }}>
+                <Text
+                  style={{
+                    fontFamily: 'Roboto',
+                    fontWeight: 'bold',
+                    color: 'black'
+                  }}
+                >
                   Planta de beneficio
                 </Text>
               </View>
@@ -7221,7 +7270,11 @@ aWYuY29toMOzWAAAAABJRU5ErkJggg=='
                   <View style={[styles.tableColplant, { width: '30%' }]}>
                     <View style={styles.tableCellplant}>
                       <Text
-                        style={{ fontFamily: 'Roboto', fontWeight: 'bold' }}
+                        style={{
+                          fontFamily: 'Roboto',
+                          fontWeight: 'bold',
+                          color: 'black'
+                        }}
                       >
                         Nombre
                       </Text>
@@ -7239,7 +7292,11 @@ aWYuY29toMOzWAAAAABJRU5ErkJggg=='
                   <View style={[styles.tableColplant, { width: '30%' }]}>
                     <View style={styles.tableCellplant}>
                       <Text
-                        style={{ fontFamily: 'Roboto', fontWeight: 'bold' }}
+                        style={{
+                          fontFamily: 'Roboto',
+                          fontWeight: 'bold',
+                          color: 'black'
+                        }}
                       >
                         {props.url.dataEntrance.planta.numeroDocumento ===
                         undefined
@@ -7260,7 +7317,11 @@ aWYuY29toMOzWAAAAABJRU5ErkJggg=='
                   <View style={[styles.tableColplant, { width: '30%' }]}>
                     <View style={styles.tableCellplant}>
                       <Text
-                        style={{ fontFamily: 'Roboto', fontWeight: 'bold' }}
+                        style={{
+                          fontFamily: 'Roboto',
+                          fontWeight: 'bold',
+                          color: 'black'
+                        }}
                       >
                         Teléfono
                       </Text>
@@ -7279,7 +7340,11 @@ aWYuY29toMOzWAAAAABJRU5ErkJggg=='
                   <View style={[styles.tableColplant, { width: '30%' }]}>
                     <View style={styles.tableCellplant}>
                       <Text
-                        style={{ fontFamily: 'Roboto', fontWeight: 'bold' }}
+                        style={{
+                          fontFamily: 'Roboto',
+                          fontWeight: 'bold',
+                          color: 'black'
+                        }}
                       >
                         Email
                       </Text>
@@ -7307,7 +7372,11 @@ aWYuY29toMOzWAAAAABJRU5ErkJggg=='
                   <View style={[styles.tableColplant, { width: '30%' }]}>
                     <View style={styles.tableCellplant}>
                       <Text
-                        style={{ fontFamily: 'Roboto', fontWeight: 'bold' }}
+                        style={{
+                          fontFamily: 'Roboto',
+                          fontWeight: 'bold',
+                          color: 'black'
+                        }}
                       >
                         Dirección
                       </Text>
@@ -7330,7 +7399,11 @@ aWYuY29toMOzWAAAAABJRU5ErkJggg=='
                   <View style={[styles.tableColplant, { width: '30%' }]}>
                     <View style={styles.tableCellplant}>
                       <Text
-                        style={{ fontFamily: 'Roboto', fontWeight: 'bold' }}
+                        style={{
+                          fontFamily: 'Roboto',
+                          fontWeight: 'bold',
+                          color: 'black'
+                        }}
                       >
                         Ciudad
                       </Text>
@@ -7350,7 +7423,13 @@ aWYuY29toMOzWAAAAABJRU5ErkJggg=='
                 <View style={styles.imageplant}>
                   <Image src='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACQAAAAkCAYAAADhAJiYAAAABmJLR0QA/wD/AP+gvaeTAAACiElEQVRYhe2WS4iOYRTHf49xmQ/lFrkbUpZIMsVSpuSS20LSrFzK1spq3AoLGxZKWSjJbUOILJCF24IFOxQmG4MMZtD4WbxnMvjmu/WOUt+/nt7e5/yfc/7P+z7nnAfqqKOODOpM9ZL60V/4oF5Qp9fqN9UopgA8AsYCp4DuMI0EWoHXwPyUUndxDzlDbYkv0lzEti5sywZaxCh1g3pYfRpB//rC6pSw3VMPqsvVoXmLWaG+i0Cv1KvqkX64BfW4el/9Emteq0vzFHQtnG9TB1exbpi6S/2uXq1kTUWHWm0hO7zjgM/AA+A58AroAt4HdQxQAKYBs4CFwIjgbkop3a10M5WIKqhr1fPxG56oz9QO9WuMjph7Epwz6lK1ITchRYS1RrDGEpzG4LRW639QDZrexXNiCc7keL6twX91UEer3eqeEpz9apc6asAFRcAD6jd1cxHb+siqff9ETAQdEj1L9Ya6M8b1mDtXTXnIS1RSN6u31c4Yt9RNxSr4f4tau/0IYC2wEpgLTAnTG+AxcBk4l1L6NKCC4ldsAdqACcBN4A7QATSQpfsiYDFZyu8GjqWUrFZYJWIK6mn1h/pSbS/BbQ+OsaaQt5hBZrfDz+pqta0CQVujGX9Xr+TaPtS9sduL8d5mdnVtVhf8MZrDtjW4D2PtobzENEVl7ukjaIflsaaPoJ4opLPLxSt7qNWjwEay7PmUUloV89OB/orf15RSe68goJMsG8+mlLaXileymkZWrQZOAHN+20lKL8ttpg86gZPAejWVyrpy3b4JmArcqCJ4f7hDVq+aSpHK9ZtJ8VwCzADoPaxVYDwwnKyI9vp8UaWPDOo8s2tEXuhS59Ykpo46/lf8BNSMzwXgefTKAAAAAElFTkSuQmCC' />
                 </View>
-                <Text style={{ fontFamily: 'Roboto', fontWeight: 'bold' }}>
+                <Text
+                  style={{
+                    fontFamily: 'Roboto',
+                    fontWeight: 'bold',
+                    color: 'black'
+                  }}
+                >
                   Productor
                 </Text>
               </View>
@@ -7359,7 +7438,11 @@ aWYuY29toMOzWAAAAABJRU5ErkJggg=='
                   <View style={[styles.tableColplant, { width: '30%' }]}>
                     <View style={styles.tableCellplant}>
                       <Text
-                        style={{ fontFamily: 'Roboto', fontWeight: 'bold' }}
+                        style={{
+                          fontFamily: 'Roboto',
+                          fontWeight: 'bold',
+                          color: 'black'
+                        }}
                       >
                         Nombre
                       </Text>
@@ -7379,7 +7462,11 @@ aWYuY29toMOzWAAAAABJRU5ErkJggg=='
                   <View style={[styles.tableColplant, { width: '30%' }]}>
                     <View style={styles.tableCellplant}>
                       <Text
-                        style={{ fontFamily: 'Roboto', fontWeight: 'bold' }}
+                        style={{
+                          fontFamily: 'Roboto',
+                          fontWeight: 'bold',
+                          color: 'black'
+                        }}
                       >
                         {props.url.dataEntrance.productor.numeroDocumento ===
                         undefined
@@ -7400,7 +7487,11 @@ aWYuY29toMOzWAAAAABJRU5ErkJggg=='
                   <View style={[styles.tableColplant, { width: '30%' }]}>
                     <View style={styles.tableCellplant}>
                       <Text
-                        style={{ fontFamily: 'Roboto', fontWeight: 'bold' }}
+                        style={{
+                          fontFamily: 'Roboto',
+                          fontWeight: 'bold',
+                          color: 'black'
+                        }}
                       >
                         Teléfono
                       </Text>
@@ -7419,7 +7510,11 @@ aWYuY29toMOzWAAAAABJRU5ErkJggg=='
                   <View style={[styles.tableColplant, { width: '30%' }]}>
                     <View style={styles.tableCellplant}>
                       <Text
-                        style={{ fontFamily: 'Roboto', fontWeight: 'bold' }}
+                        style={{
+                          fontFamily: 'Roboto',
+                          fontWeight: 'bold',
+                          color: 'black'
+                        }}
                       >
                         Email
                       </Text>
@@ -7447,7 +7542,11 @@ aWYuY29toMOzWAAAAABJRU5ErkJggg=='
                   <View style={[styles.tableColplant, { width: '30%' }]}>
                     <View style={styles.tableCellplant}>
                       <Text
-                        style={{ fontFamily: 'Roboto', fontWeight: 'bold' }}
+                        style={{
+                          fontFamily: 'Roboto',
+                          fontWeight: 'bold',
+                          color: 'black'
+                        }}
                       >
                         Dirección
                       </Text>
@@ -7473,7 +7572,11 @@ aWYuY29toMOzWAAAAABJRU5ErkJggg=='
                   <View style={[styles.tableColplant, { width: '30%' }]}>
                     <View style={styles.tableCellplant}>
                       <Text
-                        style={{ fontFamily: 'Roboto', fontWeight: 'bold' }}
+                        style={{
+                          fontFamily: 'Roboto',
+                          fontWeight: 'bold',
+                          color: 'black'
+                        }}
                       >
                         Ciudad
                       </Text>
@@ -7493,7 +7596,13 @@ aWYuY29toMOzWAAAAABJRU5ErkJggg=='
                 <View style={styles.imageplant}>
                   <Image src='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACQAAAAkCAYAAADhAJiYAAAABmJLR0QA/wD/AP+gvaeTAAACSklEQVRYhe2WTUgVURTH/9eMQB6GWWS0ysSVVASPviAjsFYF0SKiRRuDwpAWrUsLySQhgz5WLVsFbaKWiYvAVi0sTF+L6AOiD6jkpZj+WnQeDdO8yblvnNX8Ybhzzz3vnN/cj3eulCtXruWVqzUAsErSJuu+ds7N1xrTF6QZuA384K++ASNAY9YwG4ASMAtcAfbZM2CAE8CaLIEeWuJtEWMdwAxwLyuYzbY8vTE+54BFYGMWQMcMaF2Mz3rzOZo0fp0H00prZ2J8vlvbkDS4D9ALa4sxPjusfeURP5kABzwHRoH6iPF6YAx4Cfh8sBdUESgbVFvA3go8BuaAPZnABJLvBCbtNE0B0/ZeAvb6xq2pdNiSdUraYqYJSaO1lA8vIGC1pG5JC8656wG7kzRkcQedc599wZLAdACPAvWrrwJjta2iZ0DncsOctPpVBt4BPytQwKC9fwG+2tgCcDFJjiUfS+CUpLuShiUdkdQiacSGZ+2RpDuSmiSdlnRZ0gVgOAnUUmAO2Anqtf4K4CPQAxwGdgO7gEPAJZudRvM9Yb/tTgumALwFbobst4AnEf6TwIOQ7aot49o0gM4Anwhduvhz//kFtARmaKvto+Mh3wb7qP40gMaBaxH2OuADcDZgG7ANX4jw7wPe2F+DN0wBmAe6qozfAMYC/WngfhXfos1ee1zOf4pjSO3mswi0RoyPS+oB9ktqltQmaQhoCvjMOefKkkrW3y5p6j95owV0kb7Ox+WMXU/bCwfld2+qpqfOufcpxsuVK1ci/QYiRJiCZ0Om5AAAAABJRU5ErkJggg==' />
                 </View>
-                <Text style={{ fontFamily: 'Roboto', fontWeight: 'bold' }}>
+                <Text
+                  style={{
+                    fontFamily: 'Roboto',
+                    fontWeight: 'bold',
+                    color: 'black'
+                  }}
+                >
                   Comercializador
                 </Text>
               </View>
@@ -7502,7 +7611,11 @@ aWYuY29toMOzWAAAAABJRU5ErkJggg=='
                   <View style={[styles.tableColplant, { width: '30%' }]}>
                     <View style={styles.tableCellplant}>
                       <Text
-                        style={{ fontFamily: 'Roboto', fontWeight: 'bold' }}
+                        style={{
+                          fontFamily: 'Roboto',
+                          fontWeight: 'bold',
+                          color: 'black'
+                        }}
                       >
                         Nombre
                       </Text>
@@ -7522,7 +7635,11 @@ aWYuY29toMOzWAAAAABJRU5ErkJggg=='
                   <View style={[styles.tableColplant, { width: '30%' }]}>
                     <View style={styles.tableCellplant}>
                       <Text
-                        style={{ fontFamily: 'Roboto', fontWeight: 'bold' }}
+                        style={{
+                          fontFamily: 'Roboto',
+                          fontWeight: 'bold',
+                          color: 'black'
+                        }}
                       >
                         {props.url.dataEntrance.comercializador
                           .numeroDocumento === undefined
@@ -7543,7 +7660,11 @@ aWYuY29toMOzWAAAAABJRU5ErkJggg=='
                   <View style={[styles.tableColplant, { width: '30%' }]}>
                     <View style={styles.tableCellplant}>
                       <Text
-                        style={{ fontFamily: 'Roboto', fontWeight: 'bold' }}
+                        style={{
+                          fontFamily: 'Roboto',
+                          fontWeight: 'bold',
+                          color: 'black'
+                        }}
                       >
                         Teléfono
                       </Text>
@@ -7564,7 +7685,11 @@ aWYuY29toMOzWAAAAABJRU5ErkJggg=='
                   <View style={[styles.tableColplant, { width: '30%' }]}>
                     <View style={styles.tableCellplant}>
                       <Text
-                        style={{ fontFamily: 'Roboto', fontWeight: 'bold' }}
+                        style={{
+                          fontFamily: 'Roboto',
+                          fontWeight: 'bold',
+                          color: 'black'
+                        }}
                       >
                         Email
                       </Text>
@@ -7593,7 +7718,11 @@ aWYuY29toMOzWAAAAABJRU5ErkJggg=='
                   <View style={[styles.tableColplant, { width: '30%' }]}>
                     <View style={styles.tableCellplant}>
                       <Text
-                        style={{ fontFamily: 'Roboto', fontWeight: 'bold' }}
+                        style={{
+                          fontFamily: 'Roboto',
+                          fontWeight: 'bold',
+                          color: 'black'
+                        }}
                       >
                         Dirección
                       </Text>
@@ -7647,7 +7776,11 @@ aWYuY29toMOzWAAAAABJRU5ErkJggg=='
                   <View style={[styles.tableColplant, { width: '30%' }]}>
                     <View style={styles.tableCellplant}>
                       <Text
-                        style={{ fontFamily: 'Roboto', fontWeight: 'bold' }}
+                        style={{
+                          fontFamily: 'Roboto',
+                          fontWeight: 'bold',
+                          color: 'black'
+                        }}
                       >
                         Ciudad
                       </Text>
@@ -7672,7 +7805,13 @@ aWYuY29toMOzWAAAAABJRU5ErkJggg=='
         <View style={styles.sectionorigin}>
           <View style={styles.sectionanimals}>
             <View style={styles.backgroundresumetitle}>
-              <Text style={{ fontFamily: 'Roboto', fontWeight: 'bold' }}>
+              <Text
+                style={{
+                  fontFamily: 'Roboto',
+                  fontWeight: 'bold',
+                  color: 'black'
+                }}
+              >
                 Detalles Origen y Transporte del Lote
               </Text>
             </View>
@@ -7683,7 +7822,11 @@ aWYuY29toMOzWAAAAABJRU5ErkJggg=='
                     <View style={styles.tableColDetails}>
                       <View style={styles.tableCellplant}>
                         <Text
-                          style={{ fontFamily: 'Roboto', fontWeight: 'bold' }}
+                          style={{
+                            fontFamily: 'Roboto',
+                            fontWeight: 'bold',
+                            color: 'black'
+                          }}
                         >
                           Lote de Ceba
                         </Text>
@@ -7701,7 +7844,11 @@ aWYuY29toMOzWAAAAABJRU5ErkJggg=='
                     <View style={styles.tableColDetails}>
                       <View style={styles.tableCellplant}>
                         <Text
-                          style={{ fontFamily: 'Roboto', fontWeight: 'bold' }}
+                          style={{
+                            fontFamily: 'Roboto',
+                            fontWeight: 'bold',
+                            color: 'black'
+                          }}
                         >
                           Remisión Nro.
                         </Text>
@@ -7720,7 +7867,11 @@ aWYuY29toMOzWAAAAABJRU5ErkJggg=='
                     <View style={styles.tableColDetails}>
                       <View style={styles.tableCellplant}>
                         <Text
-                          style={{ fontFamily: 'Roboto', fontWeight: 'bold' }}
+                          style={{
+                            fontFamily: 'Roboto',
+                            fontWeight: 'bold',
+                            color: 'black'
+                          }}
                         >
                           Nro. Guía
                         </Text>
@@ -7736,7 +7887,11 @@ aWYuY29toMOzWAAAAABJRU5ErkJggg=='
                     <View style={styles.tableColDetails}>
                       <View style={styles.tableCellplant}>
                         <Text
-                          style={{ fontFamily: 'Roboto', fontWeight: 'bold' }}
+                          style={{
+                            fontFamily: 'Roboto',
+                            fontWeight: 'bold',
+                            color: 'black'
+                          }}
                         >
                           Nombre Granja
                         </Text>
@@ -7754,7 +7909,11 @@ aWYuY29toMOzWAAAAABJRU5ErkJggg=='
                     <View style={styles.tableColDetails}>
                       <View style={styles.tableCellplant}>
                         <Text
-                          style={{ fontFamily: 'Roboto', fontWeight: 'bold' }}
+                          style={{
+                            fontFamily: 'Roboto',
+                            fontWeight: 'bold',
+                            color: 'black'
+                          }}
                         >
                           Hora Salida Granja
                         </Text>
@@ -7777,7 +7936,11 @@ aWYuY29toMOzWAAAAABJRU5ErkJggg=='
                     <View style={styles.tableColDetails}>
                       <View style={styles.tableCellplant}>
                         <Text
-                          style={{ fontFamily: 'Roboto', fontWeight: 'bold' }}
+                          style={{
+                            fontFamily: 'Roboto',
+                            fontWeight: 'bold',
+                            color: 'black'
+                          }}
                         >
                           Llegada Planta
                         </Text>
@@ -7785,14 +7948,11 @@ aWYuY29toMOzWAAAAABJRU5ErkJggg=='
                     </View>
                     <View style={styles.tableColDetailsRigth}>
                       <Text style={styles.tableCellplantRigth}>
-                        {new Date(
-                          props.url.dataEntrance.datosGeneralesPorteria.fechaLlegadaPlanta
-                        )
-                          .toISOString()
-                          .substring(0, 19)
-                          .replace('T', ' ')
-                          .replace('-', '/')
-                          .replace('-', '/')}
+                        {moment(
+                          props.url.dataEntrance.datosGeneralesPorteria
+                            .fechaLlegadaPlanta,
+                          'YYYY-MM-DD hh:mm:ss'
+                        ).format('YYYY/MM/DD hh:mm:ss')}
                       </Text>
                     </View>
                   </View>
@@ -7800,7 +7960,11 @@ aWYuY29toMOzWAAAAABJRU5ErkJggg=='
                     <View style={styles.tableColDetails}>
                       <View style={styles.tableCellplant}>
                         <Text
-                          style={{ fontFamily: 'Roboto', fontWeight: 'bold' }}
+                          style={{
+                            fontFamily: 'Roboto',
+                            fontWeight: 'bold',
+                            color: 'black'
+                          }}
                         >
                           Ingreso Planta
                         </Text>
@@ -7808,14 +7972,11 @@ aWYuY29toMOzWAAAAABJRU5ErkJggg=='
                     </View>
                     <View style={styles.tableColDetailsRigth}>
                       <Text style={styles.tableCellplantRigth}>
-                        {new Date(
-                          props.url.dataEntrance.datosGeneralesPorteria.fechaIngresoPlanta
-                        )
-                          .toISOString()
-                          .substring(0, 19)
-                          .replace('T', ' ')
-                          .replace('-', '/')
-                          .replace('-', '/')}
+                        {moment(
+                          props.url.dataEntrance.datosGeneralesPorteria
+                            .fechaIngresoPlanta,
+                          'YYYY-MM-DD hh:mm:ss'
+                        ).format('YYYY/MM/DD hh:mm:ss')}
                       </Text>
                     </View>
                   </View>
@@ -7823,7 +7984,11 @@ aWYuY29toMOzWAAAAABJRU5ErkJggg=='
                     <View style={styles.tableColDetails}>
                       <View style={styles.tableCellplant}>
                         <Text
-                          style={{ fontFamily: 'Roboto', fontWeight: 'bold' }}
+                          style={{
+                            fontFamily: 'Roboto',
+                            fontWeight: 'bold',
+                            color: 'black'
+                          }}
                         >
                           Salida Planta
                         </Text>
@@ -7831,14 +7996,11 @@ aWYuY29toMOzWAAAAABJRU5ErkJggg=='
                     </View>
                     <View style={styles.tableColDetailsRigth}>
                       <Text style={styles.tableCellplantRigth}>
-                        {new Date(
-                          props.url.dataEntrance.datosGeneralesPorteria.fechaSalida
-                        )
-                          .toISOString()
-                          .substring(0, 19)
-                          .replace('T', ' ')
-                          .replace('-', '/')
-                          .replace('-', '/')}
+                        {moment(
+                          props.url.dataEntrance.datosGeneralesPorteria
+                            .fechaSalida,
+                          'YYYY-MM-DD hh:mm:ss'
+                        ).format('YYYY/MM/DD hh:mm:ss')}
                       </Text>
                     </View>
                   </View>
@@ -7846,7 +8008,11 @@ aWYuY29toMOzWAAAAABJRU5ErkJggg=='
                     <View style={styles.tableColDetails}>
                       <View style={styles.tableCellplant}>
                         <Text
-                          style={{ fontFamily: 'Roboto', fontWeight: 'bold' }}
+                          style={{
+                            fontFamily: 'Roboto',
+                            fontWeight: 'bold',
+                            color: 'black'
+                          }}
                         >
                           Placa Vehículo
                         </Text>
@@ -7865,9 +8031,13 @@ aWYuY29toMOzWAAAAABJRU5ErkJggg=='
                     <View style={styles.tableColDetails}>
                       <View style={styles.tableCellplant}>
                         <Text
-                          style={{ fontFamily: 'Roboto', fontWeight: 'bold' }}
+                          style={{
+                            fontFamily: 'Roboto',
+                            fontWeight: 'bold',
+                            color: 'black'
+                          }}
                         >
-                          Nombre Conductor
+                          Conductor
                         </Text>
                       </View>
                     </View>
@@ -7889,7 +8059,13 @@ aWYuY29toMOzWAAAAABJRU5ErkJggg=='
         </View>
         <View style={styles.detailsreport}>
           <View style={styles.backgroundresumetitle1}>
-            <Text style={{ fontFamily: 'Roboto', fontWeight: 'bold' }}>
+            <Text
+              style={{
+                fontFamily: 'Roboto',
+                fontWeight: 'bold',
+                color: 'black'
+              }}
+            >
               Detalle Animales en Corrales
             </Text>
           </View>
@@ -7897,7 +8073,13 @@ aWYuY29toMOzWAAAAABJRU5ErkJggg=='
             <View style={styles.viewAnimals}>
               <View style={styles.containertextanimals2}>
                 <View style={styles.sectionnumberbackground1}>
-                  <Text style={{ fontFamily: 'Roboto', fontWeight: 'bold' }}>
+                  <Text
+                    style={{
+                      fontFamily: 'Roboto',
+                      fontWeight: 'bold',
+                      color: 'white'
+                    }}
+                  >
                     {
                       props.url.dataCorrals.DatosCorrales
                         .totaAnimalesCorralReposo
@@ -7910,7 +8092,13 @@ aWYuY29toMOzWAAAAABJRU5ErkJggg=='
               </View>
               <View style={styles.containertextanimals2}>
                 <View style={styles.sectionnumberbackground2}>
-                  <Text style={{ fontFamily: 'Roboto', fontWeight: 'bold' }}>
+                  <Text
+                    style={{
+                      fontFamily: 'Roboto',
+                      fontWeight: 'bold',
+                      color: 'white'
+                    }}
+                  >
                     {
                       props.url.dataCorrals.DatosCorrales
                         .totalAnimalesObservados
@@ -7928,7 +8116,11 @@ aWYuY29toMOzWAAAAABJRU5ErkJggg=='
                   <View style={styles.tableCol}>
                     <View style={styles.tableCellplant}>
                       <Text
-                        style={{ fontFamily: 'Roboto', fontWeight: 'bold' }}
+                        style={{
+                          fontFamily: 'Roboto',
+                          fontWeight: 'bold',
+                          color: 'black'
+                        }}
                       >
                         Tipo Corral
                       </Text>
@@ -7937,7 +8129,11 @@ aWYuY29toMOzWAAAAABJRU5ErkJggg=='
                   <View style={styles.tableCol}>
                     <View style={styles.tableCellplant}>
                       <Text
-                        style={{ fontFamily: 'Roboto', fontWeight: 'bold' }}
+                        style={{
+                          fontFamily: 'Roboto',
+                          fontWeight: 'bold',
+                          color: 'black'
+                        }}
                       >
                         Nro. Corral
                       </Text>
@@ -7946,7 +8142,11 @@ aWYuY29toMOzWAAAAABJRU5ErkJggg=='
                   <View style={styles.tableCol}>
                     <View style={styles.tableCellplant}>
                       <Text
-                        style={{ fontFamily: 'Roboto', fontWeight: 'bold' }}
+                        style={{
+                          fontFamily: 'Roboto',
+                          fontWeight: 'bold',
+                          color: 'black'
+                        }}
                       >
                         Animales
                       </Text>
@@ -7955,7 +8155,11 @@ aWYuY29toMOzWAAAAABJRU5ErkJggg=='
                   <View style={styles.tableColDate}>
                     <View style={styles.tableCellplant}>
                       <Text
-                        style={{ fontFamily: 'Roboto', fontWeight: 'bold' }}
+                        style={{
+                          fontFamily: 'Roboto',
+                          fontWeight: 'bold',
+                          color: 'black'
+                        }}
                       >
                         Fecha Ingreso
                       </Text>
@@ -7990,12 +8194,10 @@ aWYuY29toMOzWAAAAABJRU5ErkJggg=='
                       </View>
                       <View style={styles.tableColDate}>
                         <Text style={styles.tableCellplant}>
-                          {new Date(item.fechaIngreso)
-                            .toISOString()
-                            .substring(0, 19)
-                            .replace('T', ' ')
-                            .replace('-', '/')
-                            .replace('-', '/')}
+                          {moment(
+                            item.fechaIngreso,
+                            'YYYY-MM-DD hh:mm:ss'
+                          ).format('YYYY/MM/DD hh:mm:ss')}
                         </Text>
                       </View>
                     </View>
@@ -8006,7 +8208,13 @@ aWYuY29toMOzWAAAAABJRU5ErkJggg=='
           </View>
           <View style={styles.flex1}>
             <View style={styles.reponseleft}>
-              <Text style={{ fontFamily: 'Roboto', fontWeight: 'bold' }}>
+              <Text
+                style={{
+                  fontFamily: 'Roboto',
+                  fontWeight: 'bold',
+                  color: 'black'
+                }}
+              >
                 Responsable Corrales
               </Text>
             </View>
@@ -8023,7 +8231,13 @@ aWYuY29toMOzWAAAAABJRU5ErkJggg=='
         </View>
         <View style={styles.backgrounddetailsanimals}>
           <View style={styles.backgroundresumetitle1}>
-            <Text style={{ fontFamily: 'Roboto', fontWeight: 'bold' }}>
+            <Text
+              style={{
+                fontFamily: 'Roboto',
+                fontWeight: 'bold',
+                color: 'black'
+              }}
+            >
               Pesaje Animales en Pie Corrales
             </Text>
           </View>
@@ -8031,7 +8245,13 @@ aWYuY29toMOzWAAAAABJRU5ErkJggg=='
             <View style={styles.containernumber}>
               <View style={styles.animalsnumber}>
                 <View style={styles.sectionnumberbackground}>
-                  <Text style={{ fontFamily: 'Roboto', fontWeight: 'bold' }}>
+                  <Text
+                    style={{
+                      fontFamily: 'Roboto',
+                      fontWeight: 'bold',
+                      color: 'white'
+                    }}
+                  >
                     {props.url.dataCorrals.DatosPesaje.cantidadAnimalesPesados}
                   </Text>
                 </View>
@@ -8042,7 +8262,13 @@ aWYuY29toMOzWAAAAABJRU5ErkJggg=='
               <View style={styles.containernumber1}>
                 <Text> Peso Total Animales en Pie</Text>
                 <View style={styles.sizetext}>
-                  <Text style={{ fontFamily: 'Roboto', fontWeight: 'bold' }}>
+                  <Text
+                    style={{
+                      fontFamily: 'Roboto',
+                      fontWeight: 'bold',
+                      color: 'black'
+                    }}
+                  >
                     {
                       props.url.dataCorrals.DatosPesaje
                         .pesoTotalDeTodosLosPesajes
@@ -8054,7 +8280,13 @@ aWYuY29toMOzWAAAAABJRU5ErkJggg=='
               <View style={styles.containernumber2}>
                 <Text> Promedio Peso Pie del Lote </Text>
                 <View style={styles.sizetext}>
-                  <Text style={{ fontFamily: 'Roboto', fontWeight: 'bold' }}>
+                  <Text
+                    style={{
+                      fontFamily: 'Roboto',
+                      fontWeight: 'bold',
+                      color: 'black'
+                    }}
+                  >
                     {props.url.dataCorrals.DatosPesaje.promedioPesoTotal} Kg
                   </Text>
                 </View>
@@ -8063,7 +8295,13 @@ aWYuY29toMOzWAAAAABJRU5ErkJggg=='
             <View style={styles.flexbackground}>
               <View style={styles.genre}>
                 <View style={styles.sizetexttipe}>
-                  <Text style={{ fontFamily: 'Roboto', fontWeight: 'bold' }}>
+                  <Text
+                    style={{
+                      fontFamily: 'Roboto',
+                      fontWeight: 'bold',
+                      color: '#d28262'
+                    }}
+                  >
                     {props.url.dataCorrals.DatosCorrales.tipoCerdo}
                   </Text>
                 </View>
@@ -8071,7 +8309,13 @@ aWYuY29toMOzWAAAAABJRU5ErkJggg=='
               </View>
               <View style={styles.genre}>
                 <View style={styles.sizetexttipe}>
-                  <Text style={{ fontFamily: 'Roboto', fontWeight: 'bold' }}>
+                  <Text
+                    style={{
+                      fontFamily: 'Roboto',
+                      fontWeight: 'bold',
+                      color: '#d28262'
+                    }}
+                  >
                     {props.url.dataCorrals.DatosCorrales.sexo}
                   </Text>
                 </View>
@@ -8079,7 +8323,13 @@ aWYuY29toMOzWAAAAABJRU5ErkJggg=='
               </View>
               <View style={styles.genre}>
                 <View style={styles.sizetexttipe}>
-                  <Text style={{ fontFamily: 'Roboto', fontWeight: 'bold' }}>
+                  <Text
+                    style={{
+                      fontFamily: 'Roboto',
+                      fontWeight: 'bold',
+                      color: '#d28262'
+                    }}
+                  >
                     {props.url.dataCorrals.DatosCorrales.inmunocastrados}
                   </Text>
                 </View>
@@ -8091,13 +8341,25 @@ aWYuY29toMOzWAAAAABJRU5ErkJggg=='
         <View style={styles.flexstateanimals}>
           <View style={styles.containerbackground}>
             <View style={styles.titlebackground}>
-              <Text style={{ fontFamily: 'Roboto', fontWeight: 'bold' }}>
+              <Text
+                style={{
+                  fontFamily: 'Roboto',
+                  fontWeight: 'bold',
+                  color: 'black'
+                }}
+              >
                 Estado Animales en Pie Ingreso Corrales
               </Text>
             </View>
             <View style={styles.flexentranceanimals1}>
               <View style={styles.stateanimalsradius}>
-                <Text style={{ fontFamily: 'Roboto', fontWeight: 'bold' }}>
+                <Text
+                  style={{
+                    fontFamily: 'Roboto',
+                    fontWeight: 'bold',
+                    color: 'white'
+                  }}
+                >
                   {props.url.dataCorrals.DatosCorrales.agitadosTransporte +
                     props.url.dataCorrals.DatosCorrales.caidosTransporte +
                     props.url.dataCorrals.DatosCorrales.muertosDesembarque +
@@ -8111,7 +8373,13 @@ aWYuY29toMOzWAAAAABJRU5ErkJggg=='
               <View style={styles.widthnumberstransport}>
                 <View style={styles.flex}>
                   <View style={styles.widthnumber}>
-                    <Text style={{ fontFamily: 'Roboto', fontWeight: 'bold' }}>
+                    <Text
+                      style={{
+                        fontFamily: 'Roboto',
+                        fontWeight: 'bold',
+                        color: 'black'
+                      }}
+                    >
                       {props.url.dataCorrals.DatosCorrales.agitadosTransporte}
                     </Text>
                   </View>
@@ -8119,7 +8387,13 @@ aWYuY29toMOzWAAAAABJRU5ErkJggg=='
                 </View>
                 <View style={styles.flex}>
                   <View style={styles.widthnumber}>
-                    <Text style={{ fontFamily: 'Roboto', fontWeight: 'bold' }}>
+                    <Text
+                      style={{
+                        fontFamily: 'Roboto',
+                        fontWeight: 'bold',
+                        color: 'black'
+                      }}
+                    >
                       {props.url.dataCorrals.DatosCorrales.caidosTransporte}
                     </Text>
                   </View>
@@ -8129,7 +8403,13 @@ aWYuY29toMOzWAAAAABJRU5ErkJggg=='
               <View style={styles.widthnumberstransport1}>
                 <View style={styles.flex}>
                   <View style={styles.widthnumber}>
-                    <Text style={{ fontFamily: 'Roboto', fontWeight: 'bold' }}>
+                    <Text
+                      style={{
+                        fontFamily: 'Roboto',
+                        fontWeight: 'bold',
+                        color: 'black'
+                      }}
+                    >
                       {props.url.dataCorrals.DatosCorrales.muertosTransporte}
                     </Text>
                   </View>
@@ -8137,7 +8417,13 @@ aWYuY29toMOzWAAAAABJRU5ErkJggg=='
                 </View>
                 <View style={styles.flex}>
                   <View style={styles.widthnumber}>
-                    <Text style={{ fontFamily: 'Roboto', fontWeight: 'bold' }}>
+                    <Text
+                      style={{
+                        fontFamily: 'Roboto',
+                        fontWeight: 'bold',
+                        color: 'black'
+                      }}
+                    >
                       {props.url.dataCorrals.DatosCorrales.muertosDesembarque}
                     </Text>
                   </View>
@@ -8148,23 +8434,46 @@ aWYuY29toMOzWAAAAABJRU5ErkJggg=='
           </View>
           <View style={styles.containerbackground1}>
             <View style={styles.titlebackground1}>
-              <Text style={{ fontFamily: 'Roboto', fontWeight: 'bold' }}>
+              <Text
+                style={{
+                  fontFamily: 'Roboto',
+                  fontWeight: 'bold',
+                  color: 'black'
+                }}
+              >
                 Resumen Proceso Pesaje
               </Text>
             </View>
             <View style={styles.flexentranceanimals}>
               <View style={styles.stateanimalsradius1}>
-                <Text style={{ fontFamily: 'Roboto', fontWeight: 'bold' }}>
+                <Text
+                  style={{
+                    fontFamily: 'Roboto',
+                    fontWeight: 'bold',
+                    color: 'white'
+                  }}
+                >
                   {props.url.dataCorrals.DatosCorrales.totalPesajesRealizados}
                 </Text>
               </View>
               <Text style={styles.widthtransport}>Total Pesajes Realizdos</Text>
               <View style={styles.background}>
-                <Text style={{ fontFamily: 'Roboto', fontWeight: 'bold' }}>
-                  {
-                    props.url.dataEntrance.datosGeneralesPorteria
-                      .tiempoDesembarque
-                  }{' '}
+                <Text
+                  style={{
+                    fontFamily: 'Roboto',
+                    fontWeight: 'bold',
+                    color: 'white'
+                  }}
+                >
+                  {props.url.dataEntrance.datosGeneralesPorteria
+                    .tiempoDesembarque > 60
+                    ? '1 Hora y' +
+                      props.url.dataEntrance.datosGeneralesPorteria
+                        .tiempoDesembarque -
+                      60 +
+                      'Min'
+                    : props.url.dataEntrance.datosGeneralesPorteria
+                        .tiempoDesembarque}{' '}
                   Min
                 </Text>
               </View>
@@ -8176,7 +8485,13 @@ aWYuY29toMOzWAAAAABJRU5ErkJggg=='
         </View>
         <View style={styles.detailweigth}>
           <View style={styles.backgroundresumetitle}>
-            <Text style={{ fontFamily: 'Roboto', fontWeight: 'bold' }}>
+            <Text
+              style={{
+                fontFamily: 'Roboto',
+                fontWeight: 'bold',
+                color: 'black'
+              }}
+            >
               Detalle Pesaje de Animales en Pie
             </Text>
           </View>
@@ -8185,7 +8500,13 @@ aWYuY29toMOzWAAAAABJRU5ErkJggg=='
               <View style={styles.tableRowplant}>
                 <View style={styles.tableCol1}>
                   <View style={styles.tableCellplant}>
-                    <Text style={{ fontFamily: 'Roboto', fontWeight: 'bold' }}>
+                    <Text
+                      style={{
+                        fontFamily: 'Roboto',
+                        fontWeight: 'bold',
+                        color: 'black'
+                      }}
+                    >
                       Primer Pesaje
                     </Text>
                   </View>
@@ -8193,20 +8514,22 @@ aWYuY29toMOzWAAAAABJRU5ErkJggg=='
                 <View style={styles.tableCol1}>
                   <View style={styles.tableCellplantRigth}>
                     <Text>
-                      {new Date(
-                        props.url.dataCorrals.DatosCorrales.primerPesaje
-                      )
-                        .toISOString()
-                        .substring(0, 19)
-                        .replace('T', ' ')
-                        .replace('-', '/')
-                        .replace('-', '/')}
+                      {moment(
+                        props.url.dataCorrals.DatosCorrales.primerPesaje,
+                        'YYYY-MM-DD hh:mm:ss'
+                      ).format('YYYY/MM/DD hh:mm:ss')}
                     </Text>
                   </View>
                 </View>
                 <View style={styles.tableCol1Margin}>
                   <View style={styles.tableCellplant}>
-                    <Text style={{ fontFamily: 'Roboto', fontWeight: 'bold' }}>
+                    <Text
+                      style={{
+                        fontFamily: 'Roboto',
+                        fontWeight: 'bold',
+                        color: 'black'
+                      }}
+                    >
                       Inicio Descargue
                     </Text>
                   </View>
@@ -8214,14 +8537,11 @@ aWYuY29toMOzWAAAAABJRU5ErkJggg=='
                 <View style={styles.tableCol1}>
                   <View style={styles.tableCellplantRigth}>
                     <Text>
-                      {new Date(
-                        props.url.dataEntrance.datosGeneralesPorteria.inicioDesembarque
-                      )
-                        .toISOString()
-                        .substring(0, 19)
-                        .replace('T', ' ')
-                        .replace('-', '/')
-                        .replace('-', '/')}
+                      {moment(
+                        props.url.dataEntrance.datosGeneralesPorteria
+                          .inicioDesembarque,
+                        'YYYY-MM-DD hh:mm:ss'
+                      ).format('YYYY/MM/DD hh:mm:ss')}
                     </Text>
                   </View>
                 </View>
@@ -8229,38 +8549,45 @@ aWYuY29toMOzWAAAAABJRU5ErkJggg=='
               <View style={styles.tableRowplant}>
                 <View style={styles.tableCol1}>
                   <View style={styles.tableCellplant}>
-                    <Text style={{ fontFamily: 'Roboto', fontWeight: 'bold' }}>
+                    <Text
+                      style={{
+                        fontFamily: 'Roboto',
+                        fontWeight: 'bold',
+                        color: 'black'
+                      }}
+                    >
                       Último Pesaje
                     </Text>
                   </View>
                 </View>
                 <View style={styles.tableCol1}>
                   <Text style={styles.tableCellplantRigth}>
-                    {new Date(props.url.dataCorrals.DatosCorrales.ultimoPesaje)
-                      .toISOString()
-                      .substring(0, 19)
-                      .replace('T', ' ')
-                      .replace('-', '/')
-                      .replace('-', '/')}
+                    {moment(
+                      props.url.dataCorrals.DatosCorrales.ultimoPesaje,
+                      'YYYY-MM-DD hh:mm:ss'
+                    ).format('YYYY/MM/DD hh:mm:ss')}
                   </Text>
                 </View>
                 <View style={styles.tableCol1Margin}>
                   <View style={styles.tableCellplant}>
-                    <Text style={{ fontFamily: 'Roboto', fontWeight: 'bold' }}>
+                    <Text
+                      style={{
+                        fontFamily: 'Roboto',
+                        fontWeight: 'bold',
+                        color: 'black'
+                      }}
+                    >
                       Final Descargue
                     </Text>
                   </View>
                 </View>
                 <View style={styles.tableCol1}>
                   <Text style={styles.tableCellplantRigth}>
-                    {new Date(
-                      props.url.dataEntrance.datosGeneralesPorteria.finDesembarque
-                    )
-                      .toISOString()
-                      .substring(0, 19)
-                      .replace('T', ' ')
-                      .replace('-', '/')
-                      .replace('-', '/')}
+                    {moment(
+                      props.url.dataEntrance.datosGeneralesPorteria
+                        .finDesembarque,
+                      'YYYY-MM-DD hh:mm:ss'
+                    ).format('YYYY/MM/DD hh:mm:ss')}
                   </Text>
                 </View>
               </View>
@@ -8269,49 +8596,91 @@ aWYuY29toMOzWAAAAABJRU5ErkJggg=='
               <View style={styles.tableRowplant}>
                 <View style={[styles.tableCol2, { width: '10%' }]}>
                   <View style={styles.tableCellplant}>
-                    <Text style={{ fontFamily: 'Roboto', fontWeight: 'bold' }}>
+                    <Text
+                      style={{
+                        fontFamily: 'Roboto',
+                        fontWeight: 'bold',
+                        color: 'black'
+                      }}
+                    >
                       Pesaje
                     </Text>
                   </View>
                 </View>
                 <View style={[styles.tableCol2, { width: '18%' }]}>
                   <View style={styles.tableCellplant}>
-                    <Text style={{ fontFamily: 'Roboto', fontWeight: 'bold' }}>
+                    <Text
+                      style={{
+                        fontFamily: 'Roboto',
+                        fontWeight: 'bold',
+                        color: 'black'
+                      }}
+                    >
                       Fecha
                     </Text>
                   </View>
                 </View>
                 <View style={styles.tableCol2}>
                   <View style={styles.tableCellplant}>
-                    <Text style={{ fontFamily: 'Roboto', fontWeight: 'bold' }}>
+                    <Text
+                      style={{
+                        fontFamily: 'Roboto',
+                        fontWeight: 'bold',
+                        color: 'black'
+                      }}
+                    >
                       Animales Pesados
                     </Text>
                   </View>
                 </View>
                 <View style={styles.tableCol2}>
                   <View style={styles.tableCellplant}>
-                    <Text style={{ fontFamily: 'Roboto', fontWeight: 'bold' }}>
+                    <Text
+                      style={{
+                        fontFamily: 'Roboto',
+                        fontWeight: 'bold',
+                        color: 'black'
+                      }}
+                    >
                       Sexo
                     </Text>
                   </View>
                 </View>
                 <View style={styles.tableCol2}>
                   <View style={styles.tableCellplant}>
-                    <Text style={{ fontFamily: 'Roboto', fontWeight: 'bold' }}>
+                    <Text
+                      style={{
+                        fontFamily: 'Roboto',
+                        fontWeight: 'bold',
+                        color: 'black'
+                      }}
+                    >
                       Inmunocastrado
                     </Text>
                   </View>
                 </View>
                 <View style={styles.tableCol2}>
                   <View style={styles.tableCellplant}>
-                    <Text style={{ fontFamily: 'Roboto', fontWeight: 'bold' }}>
+                    <Text
+                      style={{
+                        fontFamily: 'Roboto',
+                        fontWeight: 'bold',
+                        color: 'black'
+                      }}
+                    >
                       Peso Total(Kg)
                     </Text>
                   </View>
                 </View>
                 <View style={styles.tableCol2}>
                   <View style={styles.tableCellplant}>
-                    <Text style={{ fontFamily: 'Roboto', fontWeight: 'bold' }}>
+                    <Text
+                      style={{
+                        fontFamily: 'Roboto',
+                        fontWeight: 'bold',
+                        color: 'black'
+                      }}
+                    >
                       Peso Promedio(Kg)
                     </Text>
                   </View>
@@ -8334,12 +8703,9 @@ aWYuY29toMOzWAAAAABJRU5ErkJggg=='
                     </View>
                     <View style={[styles.tableCol2, { width: '18%' }]}>
                       <Text style={styles.tableCellplant}>
-                        {new Date(item.fechaPesaje)
-                          .toISOString()
-                          .substring(0, 19)
-                          .replace('T', ' ')
-                          .replace('-', '/')
-                          .replace('-', '/')}
+                        {moment(item.fechaPesaje, 'YYYY-MM-DD hh:mm:ss').format(
+                          'YYYY/MM/DD hh:mm:ss'
+                        )}
                       </Text>
                     </View>
                     <View style={styles.tableCol2}>
@@ -8377,7 +8743,13 @@ aWYuY29toMOzWAAAAABJRU5ErkJggg=='
           <View style={styles.backgroundguide}>
             <View style={styles.textconventions}>
               <View style={styles.gsmi}>
-                <Text style={{ fontFamily: 'Roboto', fontWeight: 'bold' }}>
+                <Text
+                  style={{
+                    fontFamily: 'Roboto',
+                    fontWeight: 'bold',
+                    color: 'black'
+                  }}
+                >
                   * CE
                 </Text>
               </View>
@@ -8387,7 +8759,13 @@ aWYuY29toMOzWAAAAABJRU5ErkJggg=='
             </View>
             <View style={styles.textconventions1}>
               <View style={styles.gsmi}>
-                <Text style={{ fontFamily: 'Roboto', fontWeight: 'bold' }}>
+                <Text
+                  style={{
+                    fontFamily: 'Roboto',
+                    fontWeight: 'bold',
+                    color: 'black'
+                  }}
+                >
                   * CD
                 </Text>
               </View>
@@ -8397,7 +8775,13 @@ aWYuY29toMOzWAAAAABJRU5ErkJggg=='
             </View>
             <View style={styles.textconventions2}>
               <View style={styles.gsmi}>
-                <Text style={{ fontFamily: 'Roboto', fontWeight: 'bold' }}>
+                <Text
+                  style={{
+                    fontFamily: 'Roboto',
+                    fontWeight: 'bold',
+                    color: 'black'
+                  }}
+                >
                   * C150
                 </Text>
               </View>
@@ -8407,7 +8791,13 @@ aWYuY29toMOzWAAAAABJRU5ErkJggg=='
             </View>
             <View style={styles.textconventions3}>
               <View style={styles.gsmi}>
-                <Text style={{ fontFamily: 'Roboto', fontWeight: 'bold' }}>
+                <Text
+                  style={{
+                    fontFamily: 'Roboto',
+                    fontWeight: 'bold',
+                    color: 'black'
+                  }}
+                >
                   * (H)
                 </Text>
               </View>
@@ -8417,7 +8807,13 @@ aWYuY29toMOzWAAAAABJRU5ErkJggg=='
             </View>
             <View style={styles.textconventions4}>
               <View style={styles.gsmi}>
-                <Text style={{ fontFamily: 'Roboto', fontWeight: 'bold' }}>
+                <Text
+                  style={{
+                    fontFamily: 'Roboto',
+                    fontWeight: 'bold',
+                    color: 'black'
+                  }}
+                >
                   * (M)
                 </Text>
               </View>
@@ -8427,7 +8823,13 @@ aWYuY29toMOzWAAAAABJRU5ErkJggg=='
             </View>
             <View style={styles.textconventions5}>
               <View style={styles.gsmi}>
-                <Text style={{ fontFamily: 'Roboto', fontWeight: 'bold' }}>
+                <Text
+                  style={{
+                    fontFamily: 'Roboto',
+                    fontWeight: 'bold',
+                    color: 'black'
+                  }}
+                >
                   * (A)
                 </Text>
               </View>
@@ -8437,7 +8839,13 @@ aWYuY29toMOzWAAAAABJRU5ErkJggg=='
             </View>
           </View>
           <View style={styles.border}>
-            <Text style={{ fontFamily: 'Roboto', fontWeight: 'bold' }}>
+            <Text
+              style={{
+                fontFamily: 'Roboto',
+                fontWeight: 'bold',
+                color: 'black'
+              }}
+            >
               Convenciones
             </Text>
           </View>
@@ -8455,7 +8863,9 @@ aWYuY29toMOzWAAAAABJRU5ErkJggg=='
             Teléfono (+574) 3228 603 | Correo
             :atencionalcliente@infoporcinos.com | Medellín Colombia
           </Text>
-          <Text style={{ fontFamily: 'Roboto', fontWeight: 'bold' }}>
+          <Text
+            style={{ fontFamily: 'Roboto', fontWeight: 'bold', color: 'black' }}
+          >
             www.infoporcinos.com
           </Text>
         </View>
@@ -15138,6 +15548,7 @@ aWYuY29toMOzWAAAAABJRU5ErkJggg=='
                       style={{
                         textAlign: 'center',
                         fontWeight: 'bold',
+                        color: 'black',
                         color: '#dd9835',
                         fontSize: '13px',
                         marginTop: '7px',
@@ -24062,6 +24473,7 @@ aWYuY29toMOzWAAAAABJRU5ErkJggg=='
                   display: 'flex',
                   alignItems: 'center',
                   fontWeight: 'bold',
+                  color: 'black',
                   justifyContent: 'center'
                 }}
               >
@@ -24242,6 +24654,7 @@ aWYuY29toMOzWAAAAABJRU5ErkJggg=='
                         alignItems: 'center',
                         color: 'white',
                         fontWeight: 'bold',
+                        color: 'black',
                         fontSize: '15px'
                       }}
                     >
@@ -24310,6 +24723,7 @@ aWYuY29toMOzWAAAAABJRU5ErkJggg=='
                         justifyContent: 'center',
                         alignItems: 'center',
                         fontWeight: 'bold',
+                        color: 'black',
                         color: 'white',
                         fontSize: '15px',
                         marginRight: '4%'
@@ -24325,6 +24739,7 @@ aWYuY29toMOzWAAAAABJRU5ErkJggg=='
                         backgroundColor: '#d57e58',
                         color: 'white',
                         fontWeight: 'bold',
+                        color: 'black',
                         width: '18%',
                         height: '26px',
                         fontSize: '12px',

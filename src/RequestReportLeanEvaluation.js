@@ -73,9 +73,8 @@ const RequestReportLeanEvaluation = () => {
               })
               .then((res) => {
                 console.log(res.data)
-                const dataSacrifice = JSON.parse(res.data.data)
-                console.log(dataSacrifice)
-                setDataSacrifice(dataSacrifice)
+                setDataSacrifice(JSON.parse(res.data.data))
+                console.log(JSON.parse(res.data.data))
                 axios
                   .post('https://localhost:44386/api/v1/getObjectMongo', {
                     idLoteIP: value,

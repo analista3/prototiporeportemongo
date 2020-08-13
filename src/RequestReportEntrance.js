@@ -11,6 +11,7 @@ const RequestReportLeanEvaluation = () => {
 
   const [dataEntrance, setDataEntrance] = useState({})
   const [dataCorrals, setDataCorrals] = useState({})
+  const [dataGeneral, setDataGeneral] = useState({})
 
   const [getidLotes, setGetidLotes] = useState([])
   const [load, setLoad] = useState(true)
@@ -35,9 +36,8 @@ const RequestReportLeanEvaluation = () => {
       })
       .then((res) => {
         console.log(res.data)
-        const dataEntrance = JSON.parse(res.data.data)
-        console.log(dataEntrance)
-        setDataEntrance(dataEntrance)
+        setDataEntrance(JSON.parse(res.data.data))
+        console.log(JSON.parse(res.data.data))
         axios
           .post('https://localhost:44386/api/v1/getObjectMongo', {
             idLoteIP: value,
@@ -47,9 +47,19 @@ const RequestReportLeanEvaluation = () => {
             console.log(res.data)
             setDataCorrals(JSON.parse(res.data.data))
             console.log(JSON.parse(res.data.data))
-            setLoad(false)
-            generateScreenshot()
-            setOpen(true)
+            axios
+              .post('https://localhost:44386/api/v1/getObjectMongo', {
+                idLoteIP: value,
+                seccion: 'datos generales'
+              })
+              .then((res) => {
+                setDataGeneral(JSON.parse(res.data.data))
+                console.log(JSON.parse(res.data.data))
+                setLoad(false)
+                generateScreenshot()
+                setOpen(true)
+              })
+              .catch((err) => console.error(err))
           })
           .catch((err) => console.error(err))
       })
@@ -130,20 +140,23 @@ const RequestReportLeanEvaluation = () => {
           <Modal.Header>Visor de pdf</Modal.Header>
           <Modal.Content>
             <Modal.Description>
-              {image && dataEntrance && dataCorrals && getidLotes && (
-                <PDFViewer style={{ width: '100%', height: '130vh' }}>
-                  <MyDoc
-                    url={{
-                      image,
-
-                      dataEntrance,
-                      dataCorrals,
-
-                      getidLotes
-                    }}
-                  />
-                </PDFViewer>
-              )}
+              {image &&
+                dataEntrance &&
+                dataCorrals &&
+                dataGeneral &&
+                getidLotes && (
+                  <PDFViewer style={{ width: '100%', height: '130vh' }}>
+                    <MyDoc
+                      url={{
+                        image,
+                        dataEntrance,
+                        dataCorrals,
+                        dataGeneral,
+                        getidLotes
+                      }}
+                    />
+                  </PDFViewer>
+                )}
             </Modal.Description>
           </Modal.Content>
           <Modal.Actions>

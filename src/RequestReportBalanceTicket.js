@@ -8,14 +8,12 @@ import html2canvas from 'html2canvas'
 
 const RequestReportLeanEvaluation = () => {
   const [image, setImage] = useState(null)
-
   const [dataEntrance, setDataEntrance] = useState({})
   const [dataCorrals, setDataCorrals] = useState({})
-  // const [dataSacrifice, setDataSacrifice] = useState({})
-  // const [dataGeneral, setDataGeneral] = useState({})
   const [getidLotes, setGetidLotes] = useState([])
   const [load, setLoad] = useState(true)
   const [open, setOpen] = useState(false)
+  const [getCodeLot, setGetCodeLot] = useState([])
 
   const generateScreenshot = () => {
     html2canvas(document.getElementById('screen'), {
@@ -28,7 +26,8 @@ const RequestReportLeanEvaluation = () => {
     })
   }
 
-  const openModal = (value) => {
+  const openModal = (value, value2) => {
+    setGetCodeLot(value2)
     axios
       .post('https://localhost:44386/api/v1/getObjectMongo', {
         idLoteIP: value,
@@ -36,9 +35,8 @@ const RequestReportLeanEvaluation = () => {
       })
       .then((res) => {
         console.log(res.data)
-        const dataEntrance = JSON.parse(res.data.data)
-        console.log(dataEntrance)
-        setDataEntrance(dataEntrance)
+        setDataEntrance(JSON.parse(res.data.data))
+        console.log(JSON.parse(res.data.data))
         axios
           .post('https://localhost:44386/api/v1/getObjectMongo', {
             idLoteIP: value,
@@ -51,28 +49,6 @@ const RequestReportLeanEvaluation = () => {
             setLoad(false)
             generateScreenshot()
             setOpen(true)
-            // axios
-            //   .post('https://localhost:44386/api/v1/getObjectMongo', {
-            //     idLoteIP: value,
-            //     seccion: 'sacrificio'
-            //   })
-            //   .then((res) => {
-            //     console.log(res.data)
-            //     const dataSacrifice = JSON.parse(res.data.data)
-            //     console.log(dataSacrifice)
-            //     setDataSacrifice(dataSacrifice)
-            //     axios
-            //       .post('https://localhost:44386/api/v1/getObjectMongo', {
-            //         idLoteIP: value,
-            //         seccion: 'datos generales'
-            //       })
-            //       .then((res) => {
-            //         setDataGeneral(JSON.parse(res.data.data))
-
-            //       })
-            //       .catch((err) => console.error(err))
-            //   })
-            //   .catch((err) => console.error(err))
           })
           .catch((err) => console.error(err))
       })
@@ -100,8 +76,6 @@ const RequestReportLeanEvaluation = () => {
             url={{
               dataEntrance,
               dataCorrals
-              // dataSacrifice,
-              // dataGeneral
             }}
           />
         )}
@@ -114,24 +88,20 @@ const RequestReportLeanEvaluation = () => {
               generateScreenshot()
             }}
           >
-            modal
+            Ver
           </Button>
         }
       >
         <Modal.Header>Visor de pdf</Modal.Header>
         <Modal.Content>
           <Modal.Description>
-            {image && dataEntrance && dataCorrals && (
-              // dataSacrifice &&
-              // dataGeneral &&
+            {image && dataEntrance && dataCorrals && getCodeLot && (
               <PDFViewer style={{ width: '100%', height: '130vh' }}>
                 <MyDoc
                   url={{
                     image,
                     dataEntrance,
                     dataCorrals
-                    // dataSacrifice,
-                    // dataGeneral
                   }}
                 />
               </PDFViewer>
@@ -152,18 +122,16 @@ const RequestReportLeanEvaluation = () => {
               {image &&
                 dataEntrance &&
                 dataCorrals &&
-                // dataSacrifice &&
-                // dataGeneral &&
-                getidLotes && (
+                getidLotes &&
+                getCodeLot && (
                   <PDFViewer style={{ width: '100%', height: '130vh' }}>
                     <MyDoc
                       url={{
                         image,
                         dataEntrance,
                         dataCorrals,
-                        // dataSacrifice,
-                        // dataGeneral,
-                        getidLotes
+                        getidLotes,
+                        getCodeLot
                       }}
                     />
                   </PDFViewer>
@@ -187,10 +155,10 @@ const RequestReportLeanEvaluation = () => {
                 <td>
                   <Button
                     onClick={() => {
-                      openModal(item.LoteID)
+                      openModal(item.LoteID, item.CodigoLote)
                     }}
                   >
-                    modal
+                    Ver
                   </Button>
                 </td>
               </tr>
