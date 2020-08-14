@@ -525,7 +525,7 @@ const styles = StyleSheet.create({
     textAlign: 'left',
     color: 'white'
   },
-  detailweigth: { marginTop: 20 },
+  detailweigth: { marginTop: 10 },
   backgroundresumetitle: {
     backgroundColor: '#ededed',
     height: 20,
@@ -9256,7 +9256,10 @@ aWYuY29toMOzWAAAAABJRU5ErkJggg=='
                 S.E.U.R.O.P.
               </Text>
             </View>
-            <View style={{ flexDirection: 'row', marginBottom: 10 }}>
+            <View
+              style={{ flexDirection: 'row', marginBottom: 10 }}
+              wrap={false}
+            >
               <View
                 style={{
                   width: '55%',
